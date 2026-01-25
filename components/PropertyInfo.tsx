@@ -1,15 +1,47 @@
 // PropertyInfo.tsx
-import React, { useState } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { PROPERTIES } from '../constants';
-import { Property } from '../types';
 
 const PropertyInfo: React.FC = () => {
   const { id } = useParams<{ id: string }>();
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [isAutoPlaying, setIsAutoPlaying] = useState(true);
   
   // Find the property by ID
   const property = PROPERTIES.find(p => p.id === id);
+  
+  // Auto slideshow timer
+  useEffect(() => {
+    if (!property || !isAutoPlaying) return;
+    
+    const interval = setInterval(() => {
+      setCurrentImageIndex((prev) => (prev + 1) % property.gallery.length);
+    }, 5000); // Change image every 5 seconds
+    
+    return () => clearInterval(interval);
+  }, [property, isAutoPlaying]);
+  
+  const nextImage = useCallback(() => {
+    if (!property) return;
+    setCurrentImageIndex((prev) => (prev + 1) % property.gallery.length);
+  }, [property]);
+  
+  const prevImage = useCallback(() => {
+    if (!property) return;
+    setCurrentImageIndex((prev) => (prev - 1 + property.gallery.length) % property.gallery.length);
+  }, [property]);
+  
+  const goToImage = useCallback((index: number) => {
+    setCurrentImageIndex(index);
+    // Reset autoplay timer when user manually selects an image
+    setIsAutoPlaying(false);
+    setTimeout(() => setIsAutoPlaying(true), 8000);
+  }, []);
+  
+  const toggleAutoPlay = () => {
+    setIsAutoPlaying(!isAutoPlaying);
+  };
   
   if (!property) {
     return (
@@ -24,18 +56,6 @@ const PropertyInfo: React.FC = () => {
     );
   }
   
-  const nextImage = () => {
-    setCurrentImageIndex((prev) => (prev + 1) % property.gallery.length);
-  };
-  
-  const prevImage = () => {
-    setCurrentImageIndex((prev) => (prev - 1 + property.gallery.length) % property.gallery.length);
-  };
-  
-  const goToImage = (index: number) => {
-    setCurrentImageIndex(index);
-  };
-
   return (
     <div className="min-h-screen bg-white dark:bg-[#0a0a0a] py-20">
       <div className="max-w-7xl mx-auto px-4">
@@ -80,52 +100,73 @@ const PropertyInfo: React.FC = () => {
 
         {/* Image Carousel */}
         <div className="mb-16">
-          <div className="relative rounded-2xl overflow-hidden custom-shadow">
-            <div className="relative h-[500px] md:h-[600px]">
-              <img
-                src={property.gallery[currentImageIndex]}
-                alt={`${property.title} - Image ${currentImageIndex + 1}`}
-                className="w-full h-full object-cover"
-              />
+          <div className="relative rounded-2xl overflow-hidden custom-shadow bg-gray-100 dark:bg-gray-900">
+            <div className="relative h-[400px] md:h-[450px] lg:h-[500px]">
+              {/* Main Image Container - Fixed aspect ratio */}
+              <div className="relative h-full flex items-center justify-center">
+                <img
+                  src={property.gallery[currentImageIndex]}
+                  alt={`${property.title} - Image ${currentImageIndex + 1}`}
+                  className="max-w-full max-h-full object-contain"
+                  style={{ width: 'auto', height: 'auto' }}
+                />
+              </div>
               
               {/* Navigation Buttons */}
               <button
                 onClick={prevImage}
-                className="absolute left-4 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-black/50 backdrop-blur-sm text-white flex items-center justify-center hover:bg-black/70 transition-all"
+                className="absolute left-4 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-black/70 backdrop-blur-sm text-white flex items-center justify-center hover:bg-black/90 transition-all z-10"
+                aria-label="Previous image"
               >
                 <span className="material-icons-outlined">chevron_left</span>
               </button>
               <button
                 onClick={nextImage}
-                className="absolute right-4 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-black/50 backdrop-blur-sm text-white flex items-center justify-center hover:bg-black/70 transition-all"
+                className="absolute right-4 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-black/70 backdrop-blur-sm text-white flex items-center justify-center hover:bg-black/90 transition-all z-10"
+                aria-label="Next image"
               >
                 <span className="material-icons-outlined">chevron_right</span>
               </button>
               
+              {/* Auto-play Toggle */}
+              <button
+                onClick={toggleAutoPlay}
+                className="absolute top-4 right-4 w-12 h-12 rounded-full bg-black/70 backdrop-blur-sm text-white flex items-center justify-center hover:bg-black/90 transition-all z-10"
+                aria-label={isAutoPlaying ? "Pause slideshow" : "Play slideshow"}
+              >
+                <span className="material-icons-outlined">
+                  {isAutoPlaying ? 'pause' : 'play_arrow'}
+                </span>
+              </button>
+              
               {/* Image Counter */}
-              <div className="absolute bottom-4 left-1/2 -translate-x-1/2 bg-black/50 backdrop-blur-sm text-white px-4 py-2 rounded-full text-sm font-medium">
+              <div className="absolute bottom-4 left-4 bg-black/70 backdrop-blur-sm text-white px-4 py-2 rounded-full text-sm font-medium z-10">
                 {currentImageIndex + 1} / {property.gallery.length}
               </div>
             </div>
             
             {/* Thumbnail Strip */}
-            <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/60 to-transparent">
-              <div className="flex gap-2 justify-center">
+            <div className="p-4 bg-gray-50 dark:bg-gray-800">
+              <div className="flex gap-2 justify-center overflow-x-auto py-2">
                 {property.gallery.map((image, index) => (
                   <button
                     key={index}
                     onClick={() => goToImage(index)}
-                    className={`w-16 h-16 md:w-20 md:h-20 rounded-lg overflow-hidden border-2 transition-all ${
+                    className={`flex-shrink-0 w-16 h-16 md:w-20 md:h-20 rounded-lg overflow-hidden border-2 transition-all ${
                       currentImageIndex === index 
-                        ? 'border-primary scale-105' 
-                        : 'border-transparent hover:border-white/50'
+                        ? 'border-primary scale-105 ring-2 ring-primary/30' 
+                        : 'border-transparent hover:border-gray-300 dark:hover:border-gray-600'
                     }`}
+                    aria-label={`View image ${index + 1}`}
                   >
                     <img
                       src={image}
                       alt={`Thumbnail ${index + 1}`}
                       className="w-full h-full object-cover"
                     />
+                    {currentImageIndex === index && (
+                      <div className="absolute inset-0 bg-primary/20" />
+                    )}
                   </button>
                 ))}
               </div>
@@ -220,9 +261,6 @@ const PropertyInfo: React.FC = () => {
               <div className="space-y-3">
                 <button className="w-full bg-primary text-white py-3 rounded-lg font-semibold hover:bg-primary/90 transition-colors">
                   Schedule a Viewing
-                </button>
-                <button className="w-full border-2 border-primary text-primary py-3 rounded-lg font-semibold hover:bg-primary/10 transition-colors">
-                  Download Brochure
                 </button>
               </div>
             </div>

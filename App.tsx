@@ -10,9 +10,9 @@ import Footer from './components/Footer';
 import FloatingActions from './components/FloatingActions';
 import PropertyInfo from './components/PropertyInfo';
 
-const HomePage: React.FC<{ isDarkMode: boolean }> = ({ isDarkMode }) => (
+const HomePage: React.FC<{ isDarkMode: boolean; onToggleDarkMode: () => void }> = ({ isDarkMode, onToggleDarkMode }) => (
   <>
-    <Navbar isDarkMode={isDarkMode} />
+    <Navbar isDarkMode={isDarkMode} onToggleDarkMode={onToggleDarkMode} />
     <main>
       <Hero />
       <AboutSection />
@@ -41,7 +41,7 @@ const App: React.FC = () => {
     <Router>
       <div className="min-h-screen">
         <Routes>
-          <Route path="/" element={<HomePage isDarkMode={isDarkMode} />} />
+          <Route path="/" element={<HomePage isDarkMode={isDarkMode} onToggleDarkMode={toggleDarkMode} />} />
           <Route path="/property/:id" element={<PropertyInfo />} />
         </Routes>
       </div>

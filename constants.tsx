@@ -4,21 +4,18 @@ export const PROPERTIES: Property[] = [
   {
     id: '1',
     title: 'Villa Colva',
-    location: 'Colva,Margao,Goa',
+    location: 'Colva (village), Margao (city), Goa (state)',
     price: '₹3 crore - ₹6 crore',
     type: 'Villa',
     image: './images/1 (1).png',
     // Additional details for PropertyInfo component
     description: 'Villa Colva offers luxury living in the peaceful coastal village of Colva, blending modern amenities with traditional Goan charm. The project features 9 plots with both 3BHK and 4BHK villas designed for contemporary living.',
     propertyType: '3BHK & 4BHK Villas (9 plots)',
-    projectStatus: 'Under Construction',
+    projectStatus: 'Under Construction (6th project in progress)',
     features: [
       'Private Garden',
       'Swimming Pool',
       'Car Parking',
-      '24/7 Security',
-      'Club House',
-      'Gymnasium'
     ],
     locationAdvantages: [
       'Nestled in Colva, a peaceful coastal village',
