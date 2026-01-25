@@ -1,12 +1,7 @@
 
 import React, { useState } from 'react';
 
-interface NavbarProps {
-  onToggleDarkMode: () => void;
-  isDarkMode: boolean;
-}
-
-const Navbar: React.FC<NavbarProps> = ({ onToggleDarkMode, isDarkMode }) => {
+const Navbar: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
@@ -48,16 +43,6 @@ const Navbar: React.FC<NavbarProps> = ({ onToggleDarkMode, isDarkMode }) => {
             >
               Services
             </a>
-            
-            <button 
-              onClick={onToggleDarkMode}
-              className="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
-              aria-label="Toggle Dark Mode"
-            >
-              <span className="material-icons-outlined text-gray-600 dark:text-gray-400">
-                {isDarkMode ? 'light_mode' : 'dark_mode'}
-              </span>
-            </button>
 
             <a className="bg-secondary dark:bg-primary text-white px-7 py-3 rounded-sm text-[10px] uppercase tracking-[0.2em] font-bold transition-all hover:opacity-90 dark:hover:bg-white dark:hover:text-black shadow-sm" href="#contact">
               Contact Us
@@ -65,14 +50,6 @@ const Navbar: React.FC<NavbarProps> = ({ onToggleDarkMode, isDarkMode }) => {
           </div>
 
           <div className="md:hidden flex items-center gap-4">
-            <button 
-              onClick={onToggleDarkMode}
-              className="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
-            >
-              <span className="material-icons-outlined text-gray-600 dark:text-gray-400">
-                {isDarkMode ? 'light_mode' : 'dark_mode'}
-              </span>
-            </button>
             <button 
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               className="text-gray-600 dark:text-gray-400"
