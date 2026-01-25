@@ -21,44 +21,6 @@ const Hero: React.FC = () => {
           Curating high-quality developments for the discerning lifestyle. Where architectural integrity meets refined elegance.
         </p>
 
-        {/* Search Bar Component */}
-        <div className="bg-white/95 dark:bg-gray-900/95 backdrop-blur-md p-2 rounded-xl shadow-2xl max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-2 items-center">
-          <div className="px-4 py-2 text-left border-r border-gray-100 dark:border-gray-800">
-            <label className="block text-[10px] font-bold uppercase tracking-[0.2em] text-gray-400 mb-1">Location</label>
-            <div className="flex items-center gap-2">
-              <span className="material-icons-outlined text-primary text-sm">location_on</span>
-              <input 
-                className="w-full p-0 bg-transparent border-none focus:ring-0 text-sm font-medium dark:text-white placeholder-gray-300" 
-                placeholder="Where to?" 
-                type="text"
-              />
-            </div>
-          </div>
-          
-          <div className="px-4 py-2 text-left border-r border-gray-100 dark:border-gray-800">
-            <label className="block text-[10px] font-bold uppercase tracking-[0.2em] text-gray-400 mb-1">Property Type</label>
-            <select className="w-full p-0 bg-transparent border-none focus:ring-0 text-sm font-medium dark:text-white cursor-pointer appearance-none">
-              <option>Apartment</option>
-              <option>Villa</option>
-              <option>Commercial</option>
-              <option>Penthouse</option>
-            </select>
-          </div>
-          
-          <div className="px-4 py-2 text-left md:border-r border-gray-100 dark:border-gray-800">
-            <label className="block text-[10px] font-bold uppercase tracking-[0.2em] text-gray-400 mb-1">Price Range</label>
-            <select className="w-full p-0 bg-transparent border-none focus:ring-0 text-sm font-medium dark:text-white cursor-pointer appearance-none">
-              <option>$100k - $500k</option>
-              <option>$500k - $1M</option>
-              <option>$1M - $5M</option>
-              <option>$5M+</option>
-            </select>
-          </div>
-          
-          <button className="bg-secondary dark:bg-primary hover:opacity-90 dark:hover:bg-white dark:hover:text-black text-white font-bold py-4 px-6 rounded-lg transition-all flex items-center justify-center gap-3 uppercase text-[10px] tracking-[0.2em]">
-            <span className="material-icons-outlined text-lg">search</span> Find Property
-          </button>
-        </div>
       </div>
       
       <style>{`

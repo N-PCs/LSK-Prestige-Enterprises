@@ -2,6 +2,7 @@
 import React from 'react';
 import { PROPERTIES } from '../constants';
 import { Property } from '../types';
+import { Link } from 'react-router-dom';
 
 const PropertyCard: React.FC<{ property: Property }> = ({ property }) => (
   <div className="bg-white dark:bg-gray-800 rounded-lg overflow-hidden custom-shadow group hover:shadow-2xl transition-all duration-500 border border-gray-100 dark:border-gray-700">
@@ -11,9 +12,6 @@ const PropertyCard: React.FC<{ property: Property }> = ({ property }) => (
         className="w-full h-80 object-cover group-hover:scale-105 transition-transform duration-1000" 
         src={property.image}
       />
-      <div className="absolute top-5 right-5 bg-white/90 dark:bg-black/80 backdrop-blur-sm p-2.5 rounded-full shadow-lg cursor-pointer hover:bg-secondary hover:text-white transition-all text-secondary">
-        <span className="material-icons-outlined text-lg">favorite_border</span>
-      </div>
       <div className="absolute top-5 left-5 bg-black/80 backdrop-blur-sm text-white text-[9px] font-bold px-4 py-1.5 rounded-sm uppercase tracking-[0.2em]">
         New Listing
       </div>
@@ -35,39 +33,20 @@ const PropertyCard: React.FC<{ property: Property }> = ({ property }) => (
         </div>
       </div>
       
-      <div className="flex justify-between items-center py-6 border-y border-gray-50 dark:border-gray-700/50">
-        <div className="flex flex-col items-center gap-1">
-          <span className="material-icons-outlined text-gray-300 text-xl">bed</span>
-          <span className="text-[10px] font-bold uppercase tracking-widest text-gray-500">{property.beds} Bed</span>
-        </div>
-        <div className="h-8 w-[1px] bg-gray-100 dark:bg-gray-700/50"></div>
-        <div className="flex flex-col items-center gap-1">
-          <span className="material-icons-outlined text-gray-300 text-xl">bathtub</span>
-          <span className="text-[10px] font-bold uppercase tracking-widest text-gray-500">{property.baths} Bath</span>
-        </div>
-        <div className="h-8 w-[1px] bg-gray-100 dark:bg-gray-700/50"></div>
-        <div className="flex flex-col items-center gap-1">
-          <span className="material-icons-outlined text-gray-300 text-xl">square_foot</span>
-          <span className="text-[10px] font-bold uppercase tracking-widest text-gray-500">{property.sqft} Sqft</span>
-        </div>
-      </div>
+     
       
       <div className="mt-8 flex items-center justify-between">
-        <div className="flex items-center gap-3">
-          <div className="w-11 h-11 rounded-full bg-gray-100 overflow-hidden border border-gray-200 dark:border-gray-700">
-            <img alt={property.agent.name} src={property.agent.avatar} className="object-cover w-full h-full" />
-          </div>
-          <div>
-            <span className="text-xs font-bold block text-black dark:text-white uppercase tracking-wider">{property.agent.name}</span>
-            <span className="text-[9px] text-gray-400 uppercase tracking-widest font-medium">Sr. Developer</span>
-          </div>
         </div>
         <button className="text-xs font-bold uppercase tracking-widest text-primary border-b border-primary hover:border-black dark:hover:border-white transition-all pb-0.5">
-          View Detail
+          <Link 
+  to={`/property/${property.id}`}
+  className="text-xs font-bold uppercase tracking-widest text-primary border-b border-primary hover:border-black dark:hover:border-white transition-all pb-0.5"
+>
+  View Detail
+</Link>
         </button>
       </div>
     </div>
-  </div>
 );
 
 const PropertiesSection: React.FC = () => {

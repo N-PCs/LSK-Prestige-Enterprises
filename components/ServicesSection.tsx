@@ -26,9 +26,6 @@ const ServicesSection: React.FC = () => {
               <p className="text-gray-500 dark:text-gray-400 mb-10 leading-relaxed text-sm tracking-wide">
                 {service.description}
               </p>
-              <button className="flex items-center gap-3 text-primary font-bold text-[10px] uppercase tracking-[0.3em] group-hover:gap-6 transition-all border-b border-transparent hover:border-primary pb-1">
-                Explore More <span className="material-icons-outlined text-sm">north_east</span>
-              </button>
             </div>
           ))}
         </div>

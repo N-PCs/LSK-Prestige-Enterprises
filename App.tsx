@@ -1,5 +1,6 @@
-
+// App.tsx
 import React, { useState, useEffect } from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import AboutSection from './components/AboutSection';
@@ -7,6 +8,21 @@ import PropertiesSection from './components/PropertiesSection';
 import ServicesSection from './components/ServicesSection';
 import Footer from './components/Footer';
 import FloatingActions from './components/FloatingActions';
+import PropertyInfo from './components/PropertyInfo';
+
+const HomePage: React.FC<{ isDarkMode: boolean }> = ({ isDarkMode }) => (
+  <>
+    <Navbar isDarkMode={isDarkMode} />
+    <main>
+      <Hero />
+      <AboutSection />
+      <PropertiesSection />
+      <ServicesSection />
+    </main>
+    <Footer />
+    <FloatingActions />
+  </>
+);
 
 const App: React.FC = () => {
   const [isDarkMode, setIsDarkMode] = useState(false);
@@ -22,17 +38,14 @@ const App: React.FC = () => {
   const toggleDarkMode = () => setIsDarkMode(!isDarkMode);
 
   return (
-    <div className="min-h-screen">
-      <Navbar onToggleDarkMode={toggleDarkMode} isDarkMode={isDarkMode} />
-      <main>
-        <Hero />
-        <AboutSection />
-        <PropertiesSection />
-        <ServicesSection />
-      </main>
-      <Footer />
-      <FloatingActions />
-    </div>
+    <Router>
+      <div className="min-h-screen">
+        <Routes>
+          <Route path="/" element={<HomePage isDarkMode={isDarkMode} />} />
+          <Route path="/property/:id" element={<PropertyInfo />} />
+        </Routes>
+      </div>
+    </Router>
   );
 };
 
