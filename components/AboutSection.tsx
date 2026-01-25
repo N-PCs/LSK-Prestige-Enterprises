@@ -55,7 +55,7 @@ const AboutSection: React.FC = () => {
           <div>
             <span className="text-primary font-bold tracking-[0.4em] text-[10px] uppercase mb-4 block">Legacy of Excellence</span>
             <h2 className="font-display text-4xl md:text-5xl mt-2 mb-6 text-black dark:text-white leading-[1.1] italic font-medium">
-              Luxury Homes & <br/> <span className="text-primary">Flat</span> around Goa
+              Luxury Homes & <br/> <span className="text-primary">Villas</span> around Goa
             </h2>
             <p className="text-gray-500 dark:text-gray-400 leading-relaxed mb-8 text-sm font-light italic">
               Born from a family's shared dream, LSK Prestige began shaping homes in 2018 and officially laid its cornerstones in 2022. With five villas completed and a sixth rising under the Goan sun, our story is one of craft, legacy, and belonging.
