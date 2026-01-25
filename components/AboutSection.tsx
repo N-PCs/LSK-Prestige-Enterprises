@@ -21,24 +21,24 @@ const AboutSection: React.FC = () => {
             <img
               alt="Luxury Skyscraper"
               className="rounded-sm shadow-xl aspect-[3/4] object-cover w-full hover:scale-[1.02] transition-transform duration-500"
-              src="https://lh3.googleusercontent.com/aida-public/AB6AXuCR4LDTFMeD5AkA-S74sD3NHtGF30172FLdZhk4-GfnfBiuCMTz2FHQiV-bjeczVHP9Cy7m2sZynkidVdIyCc8I7Xp9SaTza3njTh4TfBMyU8XNb6O1iih48XUf3K8h1BU64mQyhzBQ5htx5j14kNmTiuCk5CmjFIR086dLAQsFyDik08_NVocB3noo-wSOW8ADkj9fl_Aa-zrp6p_CuJR7DkEIu_U2gw5bPWoUNTL2C1q_tOorg30qVLmDY7xj8tXYAk0sVOkvPyCu"
+              src="/images/churchgoa.jpg"
             />
             <img
               alt="Real Estate Interior"
               className="rounded-sm shadow-xl aspect-square object-cover w-full hover:scale-[1.02] transition-transform duration-500"
-              src="https://lh3.googleusercontent.com/aida-public/AB6AXuBnC-KC0oyLE2hE8Vax82HO6FIyyPIKeR-NSscD0j7tkN1RaHrvEynpXFvXZ1YWQfGc-zPDyvsJqBSDSlIl7qgpKLwXwhbstajV6NGeMy1rBADenliokSQION8OonvWpmTjs5Eawd0kfbafRP0e-1gi48GzoZaDCI103nC-Ojbp60ooUuni4hHFAoTliNALM5_rXiGaB6Pih0bIpFQk1IiwZchEzvQMSE8fqbgy_Mg8SQvTLTmkOAZPV2fGUGetnKs3iN7muJIrGuT5"
+              src="/images/vasco.jpg"
             />
           </div>
           <div className="space-y-4 pt-12">
             <img
               alt="Modern House"
               className="rounded-sm shadow-xl aspect-square object-cover w-full hover:scale-[1.02] transition-transform duration-500"
-              src="https://lh3.googleusercontent.com/aida-public/AB6AXuBKaqB_hTOaC4Bm8IFFESQrvg3Lf7jmBUu7LL3vlLVZIKliv6zji8rPIvAp30iAQEdhMRvLBNChAVY8yMFrcR0Y_JUisl-VkuOlPCdDPqfXpfmI7TOOV4cDWHgL7WHFAQGku09PzwVQVfrwsUbrG0ro2MuOZswACH3QGhpONTdPqPdf33RFQsOF5XWfuhxDy-dlkMbg72IqlOneNhbsu5UGgCYd58CQr2Ah2sfWn3UwErNdRvxDXzihcSOufyw5RZSEZb-sRk_PKhLq"
+              src="/images/arambol.jpg"
             />
             <img
               alt="Residential Detail"
               className="rounded-sm shadow-xl aspect-[3/4] object-cover w-full hover:scale-[1.02] transition-transform duration-500"
-              src="https://lh3.googleusercontent.com/aida-public/AB6AXuD4nY3iSZsjeymKARfrW8KIBidK7Lbp1bBD0v3qu-FRjSP6lpgKLYDmDqd6krjk2aY9TM75I63XxWMa_3C72tZKjkuqZQ_tHWBue7jKJbpNP6qhtG3j2ht9EmjwxJysMtZxrxVmEDgB6SxVR5UjCkPRkbCyvXC02dqkYbLIdtRTuOt2_9Elpomn3o11kULkXMjRsZztaVwXxei8awyuF9Odh7Zf7NfGmb9kENQCTfC0QmtQNLjSM2QUghbMVUmZC4itPUa6jDOcW7u7"
+              src="/images/vagator.jpg"
             />
           </div>
         </motion.div>
@@ -55,7 +55,7 @@ const AboutSection: React.FC = () => {
           <div>
             <span className="text-primary font-bold tracking-[0.4em] text-[10px] uppercase mb-4 block">Legacy of Excellence</span>
             <h2 className="font-display text-4xl md:text-5xl mt-2 mb-6 text-black dark:text-white leading-[1.1] italic font-medium">
-              Luxury Homes & <br/> <span className="text-primary">Flat</span> around the world
+              Luxury Homes & <br/> <span className="text-primary">Flat</span> around Goa
             </h2>
             <p className="text-gray-500 dark:text-gray-400 leading-relaxed mb-8 text-sm font-light italic">
               Born from a family's shared dream, LSK Prestige began shaping homes in 2018 and officially laid its cornerstones in 2022. With five villas completed and a sixth rising under the Goan sun, our story is one of craft, legacy, and belonging.
