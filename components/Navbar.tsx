@@ -11,17 +11,17 @@ const Navbar: React.FC<NavbarProps> = ({ onToggleDarkMode, isDarkMode }) => {
 
   return (
     <nav className="sticky top-0 z-50 bg-white/80 dark:bg-black/80 sticky-header border-b border-gray-100 dark:border-gray-900">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-20">
-          <div className="flex items-center gap-3">
-            <div className="h-10 w-10 border border-primary rotate-45 flex items-center justify-center">
-              <span className="rotate-[-45deg] font-display font-bold text-sm text-black dark:text-white">LSK</span>
-            </div>
-            <div>
-              <span className="text-xl font-display font-bold tracking-tight block leading-none text-black dark:text-white">LSK PRESTIGE</span>
-              <span className="text-[9px] uppercase tracking-[0.3em] font-semibold text-gray-500">Real Estate Developers</span>
-            </div>
-          </div>
+  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="flex justify-between items-center h-20">
+      <div className="flex items-center justify-center h-full"> {/* Added h-full */}
+        <span className="font-display font-bold text-sm text-black dark:text-white">
+          <img 
+            className="h-12 w-auto" /* Changed to w-auto for proportional scaling */
+            src="/images/removebglogo1.png"
+            alt="Logo"
+          />
+        </span>
+      </div>
           
           <div className="hidden md:flex space-x-10 items-center">
             {['Home', 'About Us', 'Properties', 'Services'].map((item) => (
