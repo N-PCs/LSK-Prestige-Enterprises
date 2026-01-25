@@ -44,15 +44,6 @@ const FloatingActions: React.FC = () => {
           </div>
         )}
       </div>
-
-      {/* Left side language selector */}
-      <div className="fixed bottom-8 left-8 z-[100] hidden sm:block">
-        <div className="bg-white/80 dark:bg-black/80 backdrop-blur-md px-6 py-3 rounded-full border border-gray-200 dark:border-gray-800 flex items-center gap-3 cursor-pointer hover:bg-white hover:shadow-2xl transition-all shadow-xl group">
-          <span className="material-icons-outlined text-primary text-xl">language</span>
-          <span className="text-xs font-bold uppercase tracking-widest text-gray-700 dark:text-gray-300">Select Language</span>
-          <span className="material-icons-outlined text-sm text-gray-400 group-hover:rotate-180 transition-transform">unfold_more</span>
-        </div>
-      </div>
     </>
   );
 };

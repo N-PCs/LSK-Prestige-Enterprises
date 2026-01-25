@@ -24,15 +24,30 @@ const Navbar: React.FC<NavbarProps> = ({ onToggleDarkMode, isDarkMode }) => {
       </div>
           
           <div className="hidden md:flex space-x-10 items-center">
-            {['Home', 'About Us', 'Properties', 'Services'].map((item) => (
-              <a 
-                key={item}
-                className="text-xs font-bold uppercase tracking-widest hover:text-primary transition-all text-black/70 dark:text-white/70" 
-                href={`#${item.toLowerCase().replace(' ', '')}`}
-              >
-                {item}
-              </a>
-            ))}
+            <a 
+              className="text-xs font-bold uppercase tracking-widest hover:text-primary transition-all text-black/70 dark:text-white/70" 
+              href="#"
+            >
+              Home
+            </a>
+            <a 
+              className="text-xs font-bold uppercase tracking-widest hover:text-primary transition-all text-black/70 dark:text-white/70" 
+              href="#about"
+            >
+              About Us
+            </a>
+            <a 
+              className="text-xs font-bold uppercase tracking-widest hover:text-primary transition-all text-black/70 dark:text-white/70" 
+              href="#properties"
+            >
+              Properties
+            </a>
+            <a 
+              className="text-xs font-bold uppercase tracking-widest hover:text-primary transition-all text-black/70 dark:text-white/70" 
+              href="#services"
+            >
+              Services
+            </a>
             
             <button 
               onClick={onToggleDarkMode}

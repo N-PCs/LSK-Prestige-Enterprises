@@ -7,7 +7,7 @@ const ServicesSection: React.FC = () => {
     <section className="py-28 px-4 bg-gray-50 dark:bg-black" id="services">
       <div className="max-w-7xl mx-auto">
         <div className="mb-24 text-left max-w-2xl">
-          <span className="text-primary font-bold tracking-[0.4em] text-[10px] uppercase mb-4 block">Expertise</span>
+          <span className="text-primary font-bold tracking-[0.4em] text-[10px] uppercase mb-4 block">Services</span>
           <h2 className="font-display text-4xl md:text-5xl text-black dark:text-white leading-tight italic">Exemplary Services For <br/> Discerning Clients</h2>
           <p className="mt-6 text-gray-500 dark:text-gray-400 font-light leading-relaxed">We provide a holistic approach to real estate, ensuring every detail of your journey is handled with professional precision and care.</p>
         </div>
