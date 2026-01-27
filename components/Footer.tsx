@@ -6,26 +6,23 @@ const Footer: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-20 mb-28">
         <div className="col-span-1">
           <div className="flex items-center h-20">
-        <div className="flex items-center gap-3 h-full">
-
-          {/* Logo */}
-          <img 
-            className="h-full max-h-[56px] w-auto object-contain"
-            src="/images/new-logo-removebg.png"
-            alt="Logo"
-          />
-
-          {/* Text stack */}
-          <div className="flex flex-col justify-center leading-none">
-            <h1 className="m-0 text-lg font-bold">LSK</h1>
-            <h2 className="m-0 text-md font-semibold">PRESTIGE</h2>
-            <h3 className="m-0 text-sm font-medium tracking-wide">
-              REAL ESTATE DEVELOPERS
-            </h3>
+            <div className="flex items-center gap-3 h-full">
+              {/* Logo */}
+              <img
+                className="h-full max-h-[56px] w-auto object-contain"
+                src="/images/new-logo-removebg.png"
+                alt="Logo"
+              />
+              {/* Text stack */}
+              <div className="flex flex-col justify-center leading-none">
+                <h1 className="m-0 text-lg font-bold">LSK</h1>
+                <h2 className="m-0 text-md font-semibold">PRESTIGE</h2>
+                <h3 className="m-0 text-sm font-medium tracking-wide">
+                  REAL ESTATE DEVELOPERS
+                </h3>
+              </div>
+            </div>
           </div>
-
-        </div>
-      </div>
 
           <p className="text-gray-500 text-sm leading-relaxed mb-10 font-light">
             Architecting the future of luxury living through innovation,
@@ -98,13 +95,11 @@ const Footer: React.FC = () => {
       </div>
 
       <div className="max-w-7xl mx-auto px-4 pt-12 border-t border-gray-900/50 flex flex-col items-center gap-8">
-  <div className="text-[10px] text-gray-600 uppercase tracking-[0.3em] font-semibold text-center">
-    © 2024 LSK Prestige Real Estate. Crafted for Excellence.
-  </div>
-</div>
-
+        <div className="text-[10px] text-gray-600 uppercase tracking-[0.3em] font-semibold text-center">
+          © 2024 LSK Prestige Real Estate. Crafted for Excellence.
+        </div>
+      </div>
     </footer>
   );
 };
-
 export default Footer;

@@ -1,14 +1,14 @@
 // App.tsx
-import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Navbar from './components/Navbar';
-import Hero from './components/Hero';
-import AboutSection from './components/AboutSection';
-import PropertiesSection from './components/PropertiesSection';
-import ServicesSection from './components/ServicesSection';
-import Footer from './components/Footer';
-import FloatingActions from './components/FloatingActions';
-import PropertyInfo from './components/PropertyInfo';
+import React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Navbar from "./components/Navbar";
+import Hero from "./components/Hero";
+import AboutSection from "./components/AboutSection";
+import PropertiesSection from "./components/PropertiesSection";
+import ServicesSection from "./components/ServicesSection";
+import Footer from "./components/Footer";
+import FloatingActions from "./components/FloatingActions";
+import PropertyInfo from "./components/PropertyInfo";
 
 const HomePage: React.FC = () => (
   <>

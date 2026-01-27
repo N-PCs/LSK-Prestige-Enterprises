@@ -1,10 +1,9 @@
-
 export interface Property {
   id: string;
   title: string;
   location: string;
   price: string;
-  type: 'Apartment' | 'Villa' | 'Commercial' | 'House';
+  type: "Apartment" | "Villa" | "Commercial" | "House";
   beds: number;
   baths: number;
   sqft: number;
