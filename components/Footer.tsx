@@ -97,11 +97,12 @@ const Footer: React.FC = () => {
         </div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 pt-12 border-t border-gray-900/50 flex flex-col md:flex-row justify-between items-center gap-8">
-        <div className="text-[10px] text-gray-600 uppercase tracking-[0.3em] font-semibold">
-          © 2024 LSK Prestige Real Estate. Crafted for Excellence.
-        </div>
-      </div>
+      <div className="max-w-7xl mx-auto px-4 pt-12 border-t border-gray-900/50 flex flex-col items-center gap-8">
+  <div className="text-[10px] text-gray-600 uppercase tracking-[0.3em] font-semibold text-center">
+    © 2024 LSK Prestige Real Estate. Crafted for Excellence.
+  </div>
+</div>
+
     </footer>
   );
 };
