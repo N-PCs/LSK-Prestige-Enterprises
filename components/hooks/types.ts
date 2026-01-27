@@ -13,8 +13,6 @@ export interface Property {
   gallery: string[];
   floorPlans: Array<{
     name: string;
-    size: string;
-    rooms: string;
   }>;
 }
 

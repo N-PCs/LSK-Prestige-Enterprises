@@ -16,6 +16,10 @@
       "@/*": ["./*"]
     },
     "allowImportingTsExtensions": true,
-    "noEmit": true
-  }
+    "noEmit": true,
+    "forceConsistentCasingInFileNames": true,
+    "strict": true
+  },
+  "include": ["**/*.ts", "**/*.tsx", "styles.d.ts"],
+  "exclude": ["node_modules"]
 }

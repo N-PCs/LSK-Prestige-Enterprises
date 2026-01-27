@@ -6,7 +6,7 @@ const ServicesSection: React.FC = () => {
     <section className="py-28 px-4 bg-gray-50 dark:bg-black" id="services">
       <div className="max-w-7xl mx-auto">
         <div className="mb-24 text-left max-w-2xl">
-          <span className="text-primary font-bold tracking-[0.4em] text-[10px] uppercase mb-4 block">
+          <span className="text-primary font-bold tracking-[0.4em] text-[15px] uppercase mb-4 block">
             Services
           </span>
           <h2 className="font-display text-4xl md:text-5xl text-black dark:text-white leading-tight italic">

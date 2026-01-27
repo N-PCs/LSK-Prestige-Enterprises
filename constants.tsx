@@ -40,13 +40,9 @@ export const PROPERTIES: Property[] = [
     floorPlans: [
       {
         name: "3BHK Villa",
-        size: "1800 sqft",
-        rooms: "3 Bedrooms, 3 Bathrooms",
       },
       {
         name: "4BHK Villa",
-        size: "2500 sqft",
-        rooms: "4 Bedrooms, 4 Bathrooms",
       },
     ],
   },

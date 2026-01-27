@@ -56,7 +56,7 @@ const AboutSection: React.FC = () => {
         >
           {/* Legacy of Excellence Section */}
           <div>
-            <span className="text-primary font-bold tracking-[0.4em] text-[10px] uppercase mb-4 block">
+            <span className="text-primary font-bold tracking-[0.4em] text-[15px] uppercase mb-4 block">
               Legacy of Excellence
             </span>
             <h2 className="font-display text-4xl md:text-5xl mt-2 mb-6 text-black dark:text-white leading-[1.1] italic font-medium">
