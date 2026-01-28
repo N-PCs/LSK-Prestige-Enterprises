@@ -39,15 +39,14 @@ const PropertyCard: React.FC<{ property: Property }> = ({ property }) => (
         </div>
       </div>
 
-      <div className="mt-8 flex items-center justify-between"></div>
-      <button className="text-xs font-bold uppercase tracking-widest text-primary border-b border-primary hover:border-black dark:hover:border-white transition-all pb-0.5">
+      <div className="mt-8 pt-6 border-t border-gray-100 dark:border-gray-700">
         <Link
           to={`/property/${property.id}`}
-          className="text-xs font-bold uppercase tracking-widest text-primary border-b border-primary hover:border-black dark:hover:border-white transition-all pb-0.5"
+          className="inline-block px-6 py-3 bg-primary text-white font-bold uppercase tracking-widest text-xs hover:bg-primary/90 transition-colors"
         >
           View Detail
         </Link>
-      </button>
+      </div>
     </div>
   </div>
 );

@@ -12,6 +12,11 @@ const PropertyInfo: React.FC = () => {
   // Find the property by ID
   const property = PROPERTIES.find((p) => p.id === id);
 
+  // Scroll to top when component mounts or property changes
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [id]);
+
   // Auto slideshow timer
   useEffect(() => {
     if (!property || !isAutoPlaying) return;
