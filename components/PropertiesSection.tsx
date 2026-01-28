@@ -22,7 +22,7 @@ const PropertyCard: React.FC<{ property: Property }> = ({ property }) => (
           <h3 className="font-display text-2xl font-bold text-black dark:text-white group-hover:text-primary transition-colors leading-tight mb-2">
             {property.title}
           </h3>
-          <p className="text-gray-400 text-xs flex items-center gap-1.5 uppercase tracking-widest font-semibold">
+          <p className="text-gray-400 text-[10px] sm:text-xs flex items-center gap-1.5 uppercase tracking-widest font-semibold">
             <span className="material-icons-outlined text-sm text-primary">
               location_on
             </span>{" "}
@@ -42,7 +42,7 @@ const PropertyCard: React.FC<{ property: Property }> = ({ property }) => (
       <div className="mt-8 pt-6 border-t border-gray-100 dark:border-gray-700">
         <Link
           to={`/property/${property.id}`}
-          className="inline-block px-6 py-3 bg-primary text-white font-bold uppercase tracking-widest text-xs hover:bg-primary/90 transition-colors"
+          className="inline-block px-6 py-3 bg-primary text-white font-bold uppercase tracking-widest text-sm sm:text-xs hover:bg-primary/90 transition-colors"
         >
           View Detail
         </Link>

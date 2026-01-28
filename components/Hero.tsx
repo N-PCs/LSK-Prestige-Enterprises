@@ -5,12 +5,54 @@ const Hero: React.FC = () => {
   const imageRef = useRef<HTMLImageElement>(null);
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [isHovering, setIsHovering] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+
+  // Add breathing animation style
+  useEffect(() => {
+    const style = document.createElement("style");
+    style.textContent = `
+      @keyframes breathing {
+        0%, 100% {
+          transform: scale(1.05);
+        }
+        50% {
+          transform: scale(1.15);
+        }
+      }
+      
+      .breathing-effect {
+        animation: breathing 4s ease-in-out infinite;
+      }
+    `;
+    document.head.appendChild(style);
+    return () => document.head.removeChild(style);
+  }, []);
+
+  // Detect if device is mobile
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
 
   useEffect(() => {
     const container = containerRef.current;
     const image = imageRef.current;
     
     if (!container || !image) return;
+
+    // Apply breathing effect on mobile
+    if (isMobile) {
+      image.classList.add("breathing-effect");
+      return;
+    }
+
+    // Remove breathing effect and apply mouse effects for desktop
+    image.classList.remove("breathing-effect");
     
     const handleMouseMove = (e: MouseEvent) => {
       const { left, top, width, height } = container.getBoundingClientRect();
@@ -28,12 +70,12 @@ const Hero: React.FC = () => {
       container.removeEventListener("mouseenter", () => setIsHovering(true));
       container.removeEventListener("mouseleave", () => setIsHovering(false));
     };
-  }, []);
+  }, [isMobile]);
 
-  // Apply smooth transform animation
+  // Apply smooth transform animation (desktop only)
   useEffect(() => {
     const image = imageRef.current;
-    if (!image) return;
+    if (!image || isMobile) return;
     
     const { x, y } = mousePosition;
     
@@ -59,7 +101,7 @@ const Hero: React.FC = () => {
       image.style.transform = "scale(1.05)";
       image.style.transition = "transform 0.8s cubic-bezier(0.23, 1, 0.32, 1)";
     }
-  }, [mousePosition, isHovering]);
+  }, [mousePosition, isHovering, isMobile]);
 
   return (
     <header

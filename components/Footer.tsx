@@ -47,7 +47,7 @@ const Footer: React.FC = () => {
           <h4 className="font-display text-lg italic text-primary mb-10 tracking-widest">
             Navigation
           </h4>
-          <ul className="space-y-4 text-xs font-bold uppercase tracking-[0.2em] text-gray-500">
+          <ul className="space-y-4 text-sm sm:text-xs font-bold uppercase tracking-[0.2em] text-gray-500">
             {[{ label: "Home", id: "home" }, { label: "Properties", id: "properties" }, { label: "Services", id: "services" }].map((link) => (
               <li key={link.id}>
                 <a
