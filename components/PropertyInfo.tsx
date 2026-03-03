@@ -258,9 +258,6 @@ const PropertyInfo: React.FC = () => {
                 </h3>
                 <div className="space-y-4">
                   <div className="flex justify-between items-center py-3 border-b border-gray-200 dark:border-gray-700">
-                    <span className="text-gray-600 dark:text-gray-400">
-                      Property Type
-                    </span>
                     <span className="font-medium text-black dark:text-white">
                       {property.propertyType}
                     </span>
@@ -273,27 +270,6 @@ const PropertyInfo: React.FC = () => {
                       {property.projectStatus}
                     </span>
                   </div>
-                </div>
-              </div>
-
-              {/* Floor Plans */}
-              <div className="bg-gray-50 dark:bg-gray-800 rounded-2xl p-6 custom-shadow">
-                <h3 className="font-display text-xl text-black dark:text-white mb-4">
-                  Floor Plans
-                </h3>
-                <div className="space-y-4">
-                  {property.floorPlans.map((plan, index) => (
-                    <div
-                      key={index}
-                      className="p-4 bg-white dark:bg-gray-900 rounded-lg"
-                    >
-                      <div className="flex justify-between items-center mb-2">
-                        <h4 className="font-semibold text-black dark:text-white">
-                          {plan.name}
-                        </h4>
-                      </div>
-                    </div>
-                  ))}
                 </div>
               </div>
 

@@ -6,14 +6,11 @@ export interface Property {
   type: string;
   image: string;
   description: string;
-  propertyType: string;
   projectStatus: string;
   features: string[];
   locationAdvantages: string[];
   gallery: string[];
-  floorPlans: Array<{
-    name: string;
-  }>;
+
 }
 
 export interface Service {

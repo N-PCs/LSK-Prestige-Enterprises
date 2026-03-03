@@ -11,7 +11,6 @@ export const PROPERTIES: Property[] = [
     // Additional details for PropertyInfo component
     description:
       "Villa Colva offers luxury living in the peaceful coastal village of Colva, blending modern amenities with traditional Goan charm. The project features 9 plots with both 3BHK and 4BHK villas designed for contemporary living.",
-    propertyType: "3BHK & 4BHK Villas (9 plots)",
     projectStatus: "Under Construction (6th project in progress)",
     features: ["Private Garden", "Swimming Pool", "Car Parking"],
     locationAdvantages: [
@@ -26,7 +25,7 @@ export const PROPERTIES: Property[] = [
       "Life's essentials within 5–10 minutes",
     ],
     gallery: [
-      "/images/1 (1).png",
+      "/images/Villa 6.png",
       "/images/1 (3).png",
       "/images/1 (11).jpg.jpeg",
       "/images/1 (14).jpg.jpeg",
@@ -36,14 +35,6 @@ export const PROPERTIES: Property[] = [
       "/images/APX08201.jpg.jpeg",
       "/images/APX08270.jpg.jpeg",
       "/images/APX08260.jpg.jpeg",
-    ],
-    floorPlans: [
-      {
-        name: "3BHK Villa",
-      },
-      {
-        name: "4BHK Villa",
-      },
     ],
   },
 ];
