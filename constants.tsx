@@ -7,7 +7,7 @@ export const PROPERTIES: Property[] = [
     location: "Colva (village), Margao (city), Goa (state)",
     price: "₹3 crore - ₹6 crore",
     type: "Villa",
-    image: "./images/1 (1).png",
+    image: "./images/Villa 6.png",
     // Additional details for PropertyInfo component
     description:
       "Villa Colva offers luxury living in the peaceful coastal village of Colva, blending modern amenities with traditional Goan charm. The project features 9 plots with both 3BHK and 4BHK villas designed for contemporary living.",

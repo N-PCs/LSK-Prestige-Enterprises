@@ -258,11 +258,6 @@ const PropertyInfo: React.FC = () => {
                 </h3>
                 <div className="space-y-4">
                   <div className="flex justify-between items-center py-3 border-b border-gray-200 dark:border-gray-700">
-                    <span className="font-medium text-black dark:text-white">
-                      {property.propertyType}
-                    </span>
-                  </div>
-                  <div className="flex justify-between items-center py-3 border-b border-gray-200 dark:border-gray-700">
                     <span className="text-gray-600 dark:text-gray-400">
                       Project Status
                     </span>
