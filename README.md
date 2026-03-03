@@ -88,20 +88,3 @@ Build with `npm run build` and deploy the contents of `dist/` to any static host
 ## Contributing
 
 Feel free to open issues or pull requests. Keep changes focused, add component-level tests where appropriate, and run the dev server locally to verify UI changes.
-
-## License & Contact
-
-Add your preferred license file (e.g., `LICENSE`) and update contact details below.
-
-- Author: LSK Prestige Enterprises
-- Contact: (add contact email or page)
-
----
-
-If you'd like, I can:
-
-- add a short project logo or badges,
-- generate a `LICENSE` file, or
-- create a GitHub Actions workflow for deployments.
-
-Feel free to tell me which of these you'd like next.
