@@ -1,6 +1,6 @@
 import React from "react";
 import { PROPERTIES } from "../constants";
-import { Property } from "../types";
+import { Property } from "./hooks/types"; // use the shared property definition with badge support
 import { Link } from "react-router-dom";
 
 const PropertyCard: React.FC<{ property: Property }> = ({ property }) => (
@@ -12,7 +12,7 @@ const PropertyCard: React.FC<{ property: Property }> = ({ property }) => (
         src={property.image}
       />
       <div className="absolute top-5 left-5 bg-black/80 backdrop-blur-sm text-white text-[9px] font-bold px-4 py-1.5 rounded-sm uppercase tracking-[0.2em]">
-        New Listing
+        {property.badge || "New Listing"}
       </div>
     </div>
 

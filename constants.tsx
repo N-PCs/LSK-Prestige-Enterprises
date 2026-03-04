@@ -37,6 +37,25 @@ export const PROPERTIES: Property[] = [
       "/images/APX08260.jpg.jpeg",
     ],
   },
+    {
+    id: "2",
+    title: "Villa 5",
+    location: "",
+    price: "",
+    type: "Villa",
+    image: "./images/Villa 5.png",
+    badge: "Upcoming",
+    // Additional details for PropertyInfo component
+    description:"",
+    projectStatus: "Under Construction (6th project in progress)",
+    features: ["Private Garden", "Swimming Pool", "Car Parking"],
+    locationAdvantages: [
+      ""
+    ],
+    gallery: [
+      "/images/Villa 5.png",
+    ],
+  },
 ];
 
 export const SERVICES: Service[] = [
