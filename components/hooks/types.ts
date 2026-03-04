@@ -15,7 +15,6 @@ export interface Property {
    * Defaults to "New Listing" when not provided.
    */
   badge?: string;
-
 }
 
 export interface Service {

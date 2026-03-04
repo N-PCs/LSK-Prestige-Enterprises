@@ -1,8 +1,8 @@
 // PropertyInfo.tsx
-import React, { useState, useEffect, useCallback } from "react";
-import { useParams, Link } from "react-router-dom";
-import { PROPERTIES } from "../constants";
-import Footer from "./Footer";
+import React, { useState, useEffect, useCallback } from 'react';
+import { useParams, Link } from 'react-router-dom';
+import { PROPERTIES } from '../constants';
+import Footer from './Footer';
 
 const PropertyInfo: React.FC = () => {
   const { id } = useParams<{ id: string }>();
@@ -76,7 +76,9 @@ const PropertyInfo: React.FC = () => {
               to="/"
               className="inline-flex items-center gap-2 text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-primary dark:hover:text-primary transition-colors"
             >
-              <span className="material-icons-outlined text-sm">arrow_back</span>
+              <span className="material-icons-outlined text-sm">
+                arrow_back
+              </span>
               Back to Properties
             </Link>
           </div>
@@ -125,7 +127,7 @@ const PropertyInfo: React.FC = () => {
                     src={property.gallery[currentImageIndex]}
                     alt={`${property.title} - Image ${currentImageIndex + 1}`}
                     className="max-w-full max-h-full object-contain"
-                    style={{ width: "auto", height: "auto" }}
+                    style={{ width: 'auto', height: 'auto' }}
                   />
                 </div>
 
@@ -150,11 +152,11 @@ const PropertyInfo: React.FC = () => {
                   onClick={toggleAutoPlay}
                   className="absolute top-4 right-4 w-12 h-12 rounded-full bg-black/70 backdrop-blur-sm text-white flex items-center justify-center hover:bg-black/90 transition-all z-10"
                   aria-label={
-                    isAutoPlaying ? "Pause slideshow" : "Play slideshow"
+                    isAutoPlaying ? 'Pause slideshow' : 'Play slideshow'
                   }
                 >
                   <span className="material-icons-outlined">
-                    {isAutoPlaying ? "pause" : "play_arrow"}
+                    {isAutoPlaying ? 'pause' : 'play_arrow'}
                   </span>
                 </button>
 
@@ -173,8 +175,8 @@ const PropertyInfo: React.FC = () => {
                       onClick={() => goToImage(index)}
                       className={`flex-shrink-0 w-16 h-16 md:w-20 md:h-20 rounded-lg overflow-hidden border-2 transition-all ${
                         currentImageIndex === index
-                          ? "border-primary scale-105 ring-2 ring-primary/30"
-                          : "border-transparent hover:border-gray-300 dark:hover:border-gray-600"
+                          ? 'border-primary scale-105 ring-2 ring-primary/30'
+                          : 'border-transparent hover:border-gray-300 dark:hover:border-gray-600'
                       }`}
                       aria-label={`View image ${index + 1}`}
                     >

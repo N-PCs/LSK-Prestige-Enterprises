@@ -1,6 +1,6 @@
-import React from "react";
-import { motion } from "framer-motion";
-import { Building2, Home, Store, Heart, Target, Shield } from "lucide-react";
+import React from 'react';
+import { motion } from 'framer-motion';
+import { Building2, Home, Store, Heart, Target, Shield } from 'lucide-react';
 
 const AboutSection: React.FC = () => {
   return (
@@ -13,7 +13,7 @@ const AboutSection: React.FC = () => {
         <motion.div
           initial={{ opacity: 0, x: -50 }}
           whileInView={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
+          transition={{ duration: 0.8, ease: 'easeOut' }}
           viewport={{ once: true }}
           className="lg:w-1/2 grid grid-cols-2 gap-4 relative"
         >
@@ -50,7 +50,7 @@ const AboutSection: React.FC = () => {
         <motion.div
           initial={{ opacity: 0, x: 50 }}
           whileInView={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
+          transition={{ duration: 0.8, ease: 'easeOut' }}
           viewport={{ once: true }}
           className="lg:w-1/2"
         >
@@ -60,7 +60,7 @@ const AboutSection: React.FC = () => {
               Legacy of Excellence
             </span>
             <h2 className="font-display text-4xl md:text-5xl mt-2 mb-6 text-black dark:text-white leading-[1.1] italic font-medium">
-              Luxury Homes & <br /> <span className="text-primary">Villas</span>{" "}
+              Luxury Homes & <br /> <span className="text-primary">Villas</span>{' '}
               around Goa
             </h2>
             <p className="text-gray-500 dark:text-gray-400 leading-relaxed mb-8 text-sm font-light italic">
@@ -121,7 +121,7 @@ const AboutSection: React.FC = () => {
             {/* Values Icons Grid - Made more compact */}
             <div className="grid grid-cols-3 gap-4">
               <div className="text-center group">
-                <div className="w-10 h-10 bg-secondary/5 text-secondary rounded-full flex items-center justify-center mx-auto mb-2 group-hover:bg-secondary group-hover:text-white transition-all duration-300">
+                <div className="w-10 h-10 bg-black/5 text-black rounded-full flex items-center justify-center mx-auto mb-2 group-hover:bg-black group-hover:text-white transition-all duration-300">
                   <Heart className="w-4 h-4" />
                 </div>
                 <span className="text-[9px] font-bold uppercase tracking-[0.2em] text-gray-500 group-hover:text-black dark:group-hover:text-white transition-colors">
@@ -139,7 +139,7 @@ const AboutSection: React.FC = () => {
               </div>
 
               <div className="text-center group">
-                <div className="w-10 h-10 bg-secondary/5 text-secondary rounded-full flex items-center justify-center mx-auto mb-2 group-hover:bg-secondary group-hover:text-white transition-all duration-300">
+                <div className="w-10 h-10 bg-black/5 text-black rounded-full flex items-center justify-center mx-auto mb-2 group-hover:bg-black group-hover:text-white transition-all duration-300">
                   <Shield className="w-4 h-4" />
                 </div>
                 <span className="text-[9px] font-bold uppercase tracking-[0.2em] text-gray-500 group-hover:text-black dark:group-hover:text-white transition-colors">
