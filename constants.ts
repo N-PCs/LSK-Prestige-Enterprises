@@ -37,21 +37,37 @@ export const PROPERTIES: Property[] = [
       '/images/APX08260.jpg.jpeg',
     ],
   },
-  {
+ {
     id: '2',
-    title: 'Villa 5',
-    location: '',
+    title: 'Serenity Found',
+    location: 'Vanelim-Colva, Salcete, South Goa',
     price: '',
     type: 'Villa',
     image: './images/Villa 5.png',
     badge: 'Upcoming',
     // Additional details for PropertyInfo component
-    description: '',
+    description: 'A Masterpiece of Neoclassical Living. "Escape to paradise - where luxury meets tranquility." Featuring a private lawn, swimming pool, and deck areas with seamless indoor-outdoor flow.',
     projectStatus: 'Under Construction (6th project in progress)',
-    features: ['Private Garden', 'Swimming Pool', 'Car Parking'],
-    locationAdvantages: [''],
-    gallery: ['/images/Villa 5.png'],
-  },
+    features: [
+        'Private Garden',
+        'Swimming Pool (5.00m x 3.00m Infinity-inspired plunge pool)',
+        'Car Parking',
+        'Vitrified Flooring',
+        'Jaguar Bathroom Fixtures & Sanitaryware',
+        'Modular Kitchen with Faber Chimney & Hob',
+        'UPVC Windows',
+        '3 Phase Electricity Connection'
+    ],
+    locationAdvantages: [
+        'Colva Police Station - 1km',
+        'Colva Beach - 2km',
+        'Sernabatim Beach - 2km',
+        'KTC Bus Stand - 5km',
+        'Hospicio Hospital - 6km',
+        'Margao Market - 6km'
+    ],
+    gallery: ['/images/Villa 5.png']
+}
 ];
 
 export const SERVICES: Service[] = [
