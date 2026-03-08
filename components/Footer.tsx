@@ -25,23 +25,11 @@ const Footer: React.FC = () => {
             </div>
           </div>
 
-          <p className="text-gray-500 text-sm leading-relaxed mb-10 font-light">
+          <p className="text-gray-500 text-lg leading-relaxed mb-10 font-light">
             Architecting the future of luxury living through innovation,
             integrity, and timeless design. Your sanctuary, our legacy.
           </p>
-          <div className="flex gap-6">
-            {['facebook'].map((social) => (
-              <a
-                key={social}
-                href="#"
-                className="text-gray-600 hover:text-primary transition-all"
-              >
-                <span className="material-icons-outlined text-xl">public</span>
-              </a>
-            ))}
-          </div>
         </div>
-
         <div>
           <h4 className="font-display text-lg italic text-primary mb-10 tracking-widest">
             Navigation

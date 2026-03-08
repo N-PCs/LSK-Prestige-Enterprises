@@ -12,6 +12,7 @@ export default defineConfig(({ mode }) => {
       // you can also set CHOKIDAR_USEPOLLING=true in your env instead.
       watch: {
         usePolling: true,
+        interval:100,
       },
     },
     plugins: [react()],
