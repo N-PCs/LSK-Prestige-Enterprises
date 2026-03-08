@@ -8,11 +8,17 @@ export default defineConfig(({ mode }) => {
     server: {
       port: 3000,
       host: '0.0.0.0',
+      strictPort: false,
       // usePolling helps on Linux when inotify watcher limits are reached.
       // you can also set CHOKIDAR_USEPOLLING=true in your env instead.
       watch: {
         usePolling: true,
         interval: 100,
+      },
+      hmr: {
+        protocol: 'ws',
+        host: '127.0.0.1',
+        port: 3000,
       },
     },
     plugins: [react()],
