@@ -70,7 +70,7 @@ const Footer: React.FC = () => {
               <span className="material-icons-outlined text-primary text-xl">
                 mail
               </span>
-              <span className="hover:text-white transition-colors cursor-pointer">
+              <span className="hover:text-white transition-colors cursor-pointer text-lg">
                 lskrealestatedevelopers@gmail.com
               </span>
             </li>
