@@ -1,7 +1,7 @@
-import React from "react";
-import { PROPERTIES } from "../constants";
-import { Property } from "../types";
-import { Link } from "react-router-dom";
+import React from 'react';
+import { PROPERTIES } from '../constants';
+import { Property } from './hooks/types'; // use the shared property definition with badge support
+import { Link } from 'react-router-dom';
 
 const PropertyCard: React.FC<{ property: Property }> = ({ property }) => (
   <div className="bg-white dark:bg-gray-800 rounded-lg overflow-hidden custom-shadow group hover:shadow-2xl transition-all duration-500 border border-gray-100 dark:border-gray-700">
@@ -12,7 +12,7 @@ const PropertyCard: React.FC<{ property: Property }> = ({ property }) => (
         src={property.image}
       />
       <div className="absolute top-5 left-5 bg-black/80 backdrop-blur-sm text-white text-[9px] font-bold px-4 py-1.5 rounded-sm uppercase tracking-[0.2em]">
-        New Listing
+        {property.badge || 'New Listing'}
       </div>
     </div>
 
@@ -25,7 +25,7 @@ const PropertyCard: React.FC<{ property: Property }> = ({ property }) => (
           <p className="text-gray-400 text-[10px] sm:text-xs flex items-center gap-1.5 uppercase tracking-widest font-semibold">
             <span className="material-icons-outlined text-sm text-primary">
               location_on
-            </span>{" "}
+            </span>{' '}
             {property.location}
           </p>
         </div>

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
 
 const Navbar: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -69,7 +69,7 @@ const Navbar: React.FC = () => {
               className="text-gray-600 dark:text-gray-400 p-2"
             >
               <span className="material-icons-outlined text-2xl">
-                {isMenuOpen ? "close" : "menu"}
+                {isMenuOpen ? 'close' : 'menu'}
               </span>
             </button>
           </div>

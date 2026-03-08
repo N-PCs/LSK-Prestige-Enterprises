@@ -52,7 +52,7 @@ Top-level files:
 - `package.json` — Scripts and dependencies.
 - `global.css` — Global styles.
 - `metadata.json` — Site metadata.
-- `constants.tsx`, `types.ts` — shared types/constants.
+- `constants.ts` — shared data constants (earlier `constants.tsx`).
 
 Key folders:
 

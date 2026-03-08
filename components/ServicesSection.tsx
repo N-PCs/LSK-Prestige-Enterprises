@@ -1,5 +1,5 @@
-import React from "react";
-import { SERVICES } from "../constants";
+import React from 'react';
+import { SERVICES } from '../constants';
 
 const ServicesSection: React.FC = () => {
   return (

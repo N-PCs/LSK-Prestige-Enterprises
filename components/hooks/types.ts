@@ -10,7 +10,11 @@ export interface Property {
   features: string[];
   locationAdvantages: string[];
   gallery: string[];
-
+  /**
+   * Optional badge text shown on the card (e.g. "New Listing", "Upcoming").
+   * Defaults to "New Listing" when not provided.
+   */
+  badge?: string;
 }
 
 export interface Service {
