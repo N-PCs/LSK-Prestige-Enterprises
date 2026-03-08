@@ -51,6 +51,7 @@ export const PROPERTIES: Property[] = [
       '/images/APX08270.jpg.jpeg',
       '/images/APX08260.jpg.jpeg',
       '/images/Villa 5.png',
+      '/images/villa 4.png',
     ],
   },
 ];
