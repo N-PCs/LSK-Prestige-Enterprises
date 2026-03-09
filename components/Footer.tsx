@@ -90,7 +90,7 @@ const Footer: React.FC = () => {
 
       <div className="max-w-7xl mx-auto px-4 pt-12 border-t border-gray-900/50 flex flex-col items-center gap-8">
         <div className="text-[10px] text-gray-600 uppercase tracking-[0.3em] font-semibold text-center">
-          © 2024 LSK Prestige Real Estate. Crafted for Excellence.
+          © {new Date().getFullYear()} LSK Prestige Real Estate. Crafted for Excellence.
         </div>
       </div>
     </footer>
