@@ -7,7 +7,7 @@ export const PROPERTIES: Property[] = [
     location: 'Vanelim-Colva, Salcete, South Goa',
     price: '₹3 crore - ₹6 crore',
     type: 'Villa',
-    image: './images/Villa 6.png',
+    image: './images/villa 4.png',
     // Additional details for PropertyInfo component
     description:
       'Villa Colva offers luxury living in the peaceful coastal village of Colva, blending modern amenities with traditional Goan charm. The project features 4BHK villa designed for contemporary living.',
@@ -40,7 +40,7 @@ export const PROPERTIES: Property[] = [
       'Margao Market - 6km',
     ],
     gallery: [
-      '/images/Villa 6.png',
+      '/images/villa 4.png',
       '/images/1 (3).png',
       '/images/1 (11).jpg.jpeg',
       '/images/1 (14).jpg.jpeg',
@@ -51,7 +51,31 @@ export const PROPERTIES: Property[] = [
       '/images/APX08270.jpg.jpeg',
       '/images/APX08260.jpg.jpeg',
       '/images/Villa 5.png',
-      '/images/villa 4.png',
+
+    ],
+  },
+  {
+    id: '2',
+    title: 'Villa ',
+    location: '',
+    price: '',
+    type: 'Villa',
+    image: './images/Villa 6.png',
+    // Additional details for PropertyInfo component
+    description:
+      '',
+    projectStatus: 'Under Construction (6th project in progress)',
+    badge:'Under Construction',
+    features: [
+      '',
+    ],
+    locationAdvantages: [
+      '',
+    ],
+
+    gallery: [
+      '/images/Villa 6.png',
+
     ],
   },
 ];
