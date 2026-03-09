@@ -8,6 +8,11 @@ const PropertyInfo: React.FC = () => {
   const { id } = useParams<{ id: string }>();
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);
+  const [zoomLevel, setZoomLevel] = useState(1);
+  const [panX, setPanX] = useState(0);
+  const [panY, setPanY] = useState(0);
+  const [isDragging, setIsDragging] = useState(false);
+  const [dragStart, setDragStart] = useState({ x: 0, y: 0 });
 
   // Find the property by ID
   const property = PROPERTIES.find((p) => p.id === id);
@@ -31,6 +36,9 @@ const PropertyInfo: React.FC = () => {
   const nextImage = useCallback(() => {
     if (!property) return;
     setCurrentImageIndex((prev) => (prev + 1) % property.gallery.length);
+    setZoomLevel(1); // Reset zoom when changing images
+    setPanX(0);
+    setPanY(0);
   }, [property]);
 
   const prevImage = useCallback(() => {
@@ -38,14 +46,64 @@ const PropertyInfo: React.FC = () => {
     setCurrentImageIndex(
       (prev) => (prev - 1 + property.gallery.length) % property.gallery.length,
     );
+    setZoomLevel(1); // Reset zoom when changing images
+    setPanX(0);
+    setPanY(0);
   }, [property]);
 
   const goToImage = useCallback((index: number) => {
     setCurrentImageIndex(index);
+    setZoomLevel(1); // Reset zoom when changing images
+    setPanX(0);
+    setPanY(0);
     // Reset autoplay timer when user manually selects an image
     setIsAutoPlaying(false);
     setTimeout(() => setIsAutoPlaying(true), 8000);
   }, []);
+
+  const zoomIn = () => {
+    setZoomLevel((prev) => Math.min(prev + 0.25, 3));
+  };
+
+  const zoomOut = () => {
+    setZoomLevel((prev) => {
+      const newZoom = Math.max(prev - 0.25, 1);
+      if (newZoom === 1) {
+        setPanX(0);
+        setPanY(0);
+      }
+      return newZoom;
+    });
+  };
+
+  const resetZoom = () => {
+    setZoomLevel(1);
+    setPanX(0);
+    setPanY(0);
+  };
+
+  const handleMouseDown = (e: React.MouseEvent) => {
+    if (zoomLevel <= 1) return; // Only allow dragging when zoomed
+    setIsDragging(true);
+    setDragStart({ x: e.clientX, y: e.clientY });
+  };
+
+  const handleMouseMove = (e: React.MouseEvent) => {
+    if (!isDragging) return;
+
+    const deltaX = e.clientX - dragStart.x;
+    const deltaY = e.clientY - dragStart.y;
+
+    const maxPan = 100; // Max pan distance in pixels
+    setPanX((prev) => Math.max(-maxPan, Math.min(maxPan, prev + deltaX * 0.5)));
+    setPanY((prev) => Math.max(-maxPan, Math.min(maxPan, prev + deltaY * 0.5)));
+
+    setDragStart({ x: e.clientX, y: e.clientY });
+  };
+
+  const handleMouseUp = () => {
+    setIsDragging(false);
+  };
 
   const toggleAutoPlay = () => {
     setIsAutoPlaying(!isAutoPlaying);
@@ -122,35 +180,77 @@ const PropertyInfo: React.FC = () => {
             <div className="relative rounded-2xl overflow-hidden custom-shadow bg-gray-100 dark:bg-gray-900">
               <div className="relative h-[400px] md:h-[450px] lg:h-[500px]">
                 {/* Main Image Container - Fixed aspect ratio */}
-                <div className="relative h-full flex items-center justify-center">
+                <div
+                  className="relative h-full flex items-center justify-center overflow-hidden"
+                  onMouseDown={handleMouseDown}
+                  onMouseMove={handleMouseMove}
+                  onMouseUp={handleMouseUp}
+                  onMouseLeave={handleMouseUp}
+                  style={{ cursor: zoomLevel > 1 && isDragging ? 'grabbing' : (zoomLevel > 1 ? 'grab' : 'auto') }}
+                >
                   <img
                     src={property.gallery[currentImageIndex]}
                     alt={`${property.title} - Image ${currentImageIndex + 1}`}
-                    className="max-w-full max-h-full object-contain"
-                    style={{ width: 'auto', height: 'auto' }}
+                    className="max-w-full max-h-full object-contain transition-transform duration-200 select-none"
+                    style={{
+                      width: 'auto',
+                      height: 'auto',
+                      transform: `scale(${zoomLevel}) translate(${panX}px, ${panY}px)`,
+                      userSelect: 'none',
+                    }}
+                    draggable={false}
                   />
                 </div>
 
                 {/* Navigation Buttons */}
                 <button
                   onClick={prevImage}
-                  className="absolute left-4 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-black/70 backdrop-blur-sm text-white flex items-center justify-center hover:bg-black/90 transition-all z-10"
+                  className="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-black/70 backdrop-blur-sm text-white flex items-center justify-center hover:bg-black/90 transition-all z-10"
                   aria-label="Previous image"
                 >
                   <span className="material-icons-outlined">chevron_left</span>
                 </button>
                 <button
                   onClick={nextImage}
-                  className="absolute right-4 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-black/70 backdrop-blur-sm text-white flex items-center justify-center hover:bg-black/90 transition-all z-10"
+                  className="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-black/70 backdrop-blur-sm text-white flex items-center justify-center hover:bg-black/90 transition-all z-10"
                   aria-label="Next image"
                 >
                   <span className="material-icons-outlined">chevron_right</span>
                 </button>
 
+                {/* Zoom Controls */}
+                <div className="absolute right-4 bottom-4 flex flex-row gap-2 z-10">
+                  <button
+                    onClick={zoomIn}
+                    disabled={zoomLevel >= 3}
+                    className="w-10 h-10 rounded-full bg-black/70 backdrop-blur-sm text-white flex items-center justify-center hover:bg-black/90 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+                    aria-label="Zoom in"
+                    title="Zoom in"
+                  >
+                    <span className="material-icons-outlined">add</span>
+                  </button>
+                  <button
+                    onClick={zoomOut}
+                    disabled={zoomLevel <= 1}
+                    className="w-10 h-10 rounded-full bg-black/70 backdrop-blur-sm text-white flex items-center justify-center hover:bg-black/90 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+                    aria-label="Zoom out"
+                    title="Zoom out"
+                  >
+                    <span className="material-icons-outlined">remove</span>
+                  </button>
+                </div>
+
+                {/* Zoom Percentage Display */}
+                {zoomLevel > 1 && (
+                  <div className="absolute top-4 left-4 bg-black/70 backdrop-blur-sm text-white px-4 py-2 rounded-full text-sm font-medium z-10">
+                    Zoom: {Math.round(zoomLevel * 100)}%
+                  </div>
+                )}
+
                 {/* Auto-play Toggle */}
                 <button
                   onClick={toggleAutoPlay}
-                  className="absolute top-4 right-4 w-12 h-12 rounded-full bg-black/70 backdrop-blur-sm text-white flex items-center justify-center hover:bg-black/90 transition-all z-10"
+                  className="absolute top-4 right-4 w-10 h-10 rounded-full bg-black/70 backdrop-blur-sm text-white flex items-center justify-center hover:bg-black/90 transition-all z-10"
                   aria-label={
                     isAutoPlaying ? 'Pause slideshow' : 'Play slideshow'
                   }
