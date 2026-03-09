@@ -18,18 +18,18 @@ const ServicesSection: React.FC = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-16">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 sm:gap-12 md:gap-16">
           {SERVICES.map((service) => (
             <div key={service.id} className="group cursor-default relative">
-              <div className="mb-10 w-20 h-20 bg-white dark:bg-gray-900 rounded-sm flex items-center justify-center border border-gray-100 dark:border-gray-800 transition-all duration-500 group-hover:border-primary group-hover:-translate-y-2 shadow-sm group-hover:shadow-xl">
-                <span className="material-icons-outlined text-4xl text-primary">
+              <div className="mb-6 sm:mb-8 md:mb-10 w-16 h-16 sm:w-20 sm:h-20 bg-white dark:bg-gray-900 rounded-sm flex items-center justify-center border border-gray-100 dark:border-gray-800 transition-all duration-500 group-hover:border-primary group-hover:-translate-y-2 shadow-sm group-hover:shadow-xl">
+                <span className="material-icons-outlined text-2xl sm:text-3xl md:text-4xl text-primary">
                   {service.icon}
                 </span>
               </div>
-              <h3 className="font-display text-3xl font-medium mb-6 text-black dark:text-white transition-colors">
+              <h3 className="font-display text-xl sm:text-2xl md:text-3xl font-medium mb-4 sm:mb-6 text-black dark:text-white transition-colors">
                 {service.title}
               </h3>
-              <p className="text-gray-500 dark:text-gray-400 mb-10 leading-relaxed text-sm tracking-wide">
+              <p className="text-gray-500 dark:text-gray-400 mb-6 sm:mb-8 md:mb-10 leading-relaxed text-sm tracking-wide">
                 {service.description}
               </p>
             </div>

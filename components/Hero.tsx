@@ -118,12 +118,12 @@ const Hero: React.FC = () => {
       <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/70"></div>
 
       <div className="relative z-10 text-center px-4 max-w-5xl">
-        <h1 className="font-display text-5xl md:text-7xl lg:text-8xl text-white mb-8 leading-[1.1] tracking-tight">
+        <h1 className="font-display text-4xl sm:text-5xl md:text-7xl lg:text-8xl text-white mb-6 sm:mb-8 leading-[1.1] tracking-tight">
           Discover Modern And <br />
           <span className="text-primary italic">Exquisite</span> Living
         </h1>
-        <div className="w-20 h-[2px] bg-primary mx-auto mb-10"></div>
-        <p className="text-white/80 text-lg md:text-xl mb-16 max-w-2xl mx-auto font-light leading-relaxed tracking-wide">
+        <div className="w-16 sm:w-20 h-[2px] bg-primary mx-auto mb-8 sm:mb-10"></div>
+        <p className="text-white/80 text-base sm:text-lg md:text-xl mb-12 sm:mb-16 max-w-2xl mx-auto font-light leading-relaxed tracking-wide">
           Curating high-quality developments for the discerning lifestyle. Where
           architectural integrity meets refined elegance.
         </p>

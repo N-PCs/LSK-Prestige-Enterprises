@@ -142,46 +142,46 @@ const PropertyInfo: React.FC = () => {
           </div>
 
           {/* Property Header */}
-          <div className="mb-12">
-            <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-6 mb-6">
+          <div className="mb-8 sm:mb-10 md:mb-12">
+            <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-4 sm:gap-6 mb-4 sm:mb-6">
               <div>
-                <h1 className="font-display text-4xl md:text-5xl lg:text-6xl text-black dark:text-white font-medium italic mb-4">
+                <h1 className="font-display text-2xl sm:text-3xl md:text-5xl lg:text-6xl text-black dark:text-white font-medium italic mb-2 sm:mb-4">
                   {property.title}
                 </h1>
                 <div className="flex items-center gap-2 text-gray-400">
                   <span className="material-icons-outlined text-primary text-sm">
                     location_on
                   </span>
-                  <p className="text-lg">{property.location}</p>
+                  <p className="text-sm sm:text-base md:text-lg">{property.location}</p>
                 </div>
               </div>
-              <div className="bg-primary/10 dark:bg-primary/20 px-6 py-4 rounded-lg">
-                <div className="text-sm font-bold text-gray-400 uppercase tracking-widest mb-1">
+              <div className="bg-primary/10 dark:bg-primary/20 px-4 sm:px-6 py-3 sm:py-4 rounded-lg">
+                <div className="text-xs sm:text-sm font-bold text-gray-400 uppercase tracking-widest mb-1">
                   Starting At
                 </div>
-                <div className="text-primary font-display font-bold text-3xl">
+                <div className="text-primary font-display font-bold text-2xl sm:text-3xl">
                   {property.price}
                 </div>
               </div>
             </div>
 
-            <div className="flex flex-wrap gap-4">
-              <span className="px-4 py-2 bg-gray-100 dark:bg-gray-800 rounded-full text-sm font-medium">
+            <div className="flex flex-wrap gap-2 sm:gap-4">
+              <span className="px-3 sm:px-4 py-1.5 sm:py-2 bg-gray-100 dark:bg-gray-800 rounded-full text-xs sm:text-sm font-medium">
                 {property.type}
               </span>
-              <span className="px-4 py-2 bg-secondary/10 text-secondary dark:bg-primary/20 dark:text-primary rounded-full text-sm font-medium">
+              <span className="px-3 sm:px-4 py-1.5 sm:py-2 bg-secondary/10 text-secondary dark:bg-primary/20 dark:text-primary rounded-full text-xs sm:text-sm font-medium">
                 {property.projectStatus}
               </span>
             </div>
           </div>
 
           {/* Image Carousel */}
-          <div className="mb-16">
+          <div className="mb-12 sm:mb-14 md:mb-16">
             <div className="relative rounded-2xl overflow-hidden custom-shadow bg-gray-100 dark:bg-gray-900">
-              <div className="relative h-[400px] md:h-[450px] lg:h-[500px]">
+              <div className="relative h-64 sm:h-80 md:h-[400px] lg:h-[500px]">
                 {/* Main Image Container - Fixed aspect ratio */}
                 <div
-                  className="relative h-full flex items-center justify-center overflow-hidden"
+                  className="relative h-full flex items-center justify-center overflow-hidden flex-col"
                   onMouseDown={handleMouseDown}
                   onMouseMove={handleMouseMove}
                   onMouseUp={handleMouseUp}
@@ -219,30 +219,30 @@ const PropertyInfo: React.FC = () => {
                 </button>
 
                 {/* Zoom Controls */}
-                <div className="absolute right-4 bottom-4 flex flex-row gap-2 z-10">
+                <div className="absolute right-2 sm:right-4 bottom-2 sm:bottom-4 flex flex-row gap-1.5 sm:gap-2 z-10">
                   <button
                     onClick={zoomIn}
                     disabled={zoomLevel >= 3}
-                    className="w-10 h-10 rounded-full bg-black/70 backdrop-blur-sm text-white flex items-center justify-center hover:bg-black/90 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+                    className="w-8 sm:w-10 h-8 sm:h-10 rounded-full bg-black/70 backdrop-blur-sm text-white flex items-center justify-center hover:bg-black/90 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
                     aria-label="Zoom in"
                     title="Zoom in"
                   >
-                    <span className="material-icons-outlined">add</span>
+                    <span className="material-icons-outlined text-sm sm:text-base">add</span>
                   </button>
                   <button
                     onClick={zoomOut}
                     disabled={zoomLevel <= 1}
-                    className="w-10 h-10 rounded-full bg-black/70 backdrop-blur-sm text-white flex items-center justify-center hover:bg-black/90 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+                    className="w-8 sm:w-10 h-8 sm:h-10 rounded-full bg-black/70 backdrop-blur-sm text-white flex items-center justify-center hover:bg-black/90 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
                     aria-label="Zoom out"
                     title="Zoom out"
                   >
-                    <span className="material-icons-outlined">remove</span>
+                    <span className="material-icons-outlined text-sm sm:text-base">remove</span>
                   </button>
                 </div>
 
                 {/* Zoom Percentage Display */}
                 {zoomLevel > 1 && (
-                  <div className="absolute top-4 left-4 bg-black/70 backdrop-blur-sm text-white px-4 py-2 rounded-full text-sm font-medium z-10">
+                  <div className="absolute top-2 sm:top-4 left-2 sm:left-4 bg-black/70 backdrop-blur-sm text-white px-3 sm:px-4 py-1.5 sm:py-2 rounded-full text-xs sm:text-sm font-medium z-10">
                     Zoom: {Math.round(zoomLevel * 100)}%
                   </div>
                 )}
@@ -250,30 +250,30 @@ const PropertyInfo: React.FC = () => {
                 {/* Auto-play Toggle */}
                 <button
                   onClick={toggleAutoPlay}
-                  className="absolute top-4 right-4 w-10 h-10 rounded-full bg-black/70 backdrop-blur-sm text-white flex items-center justify-center hover:bg-black/90 transition-all z-10"
+                  className="absolute top-2 sm:top-4 right-2 sm:right-4 w-8 sm:w-10 h-8 sm:h-10 rounded-full bg-black/70 backdrop-blur-sm text-white flex items-center justify-center hover:bg-black/90 transition-all z-10"
                   aria-label={
                     isAutoPlaying ? 'Pause slideshow' : 'Play slideshow'
                   }
                 >
-                  <span className="material-icons-outlined">
+                  <span className="material-icons-outlined text-sm sm:text-base">
                     {isAutoPlaying ? 'pause' : 'play_arrow'}
                   </span>
                 </button>
 
                 {/* Image Counter */}
-                <div className="absolute bottom-4 left-4 bg-black/70 backdrop-blur-sm text-white px-4 py-2 rounded-full text-sm font-medium z-10">
+                <div className="absolute bottom-2 sm:bottom-4 left-2 sm:left-4 bg-black/70 backdrop-blur-sm text-white px-3 sm:px-4 py-1.5 sm:py-2 rounded-full text-xs sm:text-sm font-medium z-10">
                   {currentImageIndex + 1} / {property.gallery.length}
                 </div>
               </div>
 
               {/* Thumbnail Strip */}
-              <div className="p-4 bg-gray-50 dark:bg-gray-800">
-                <div className="flex gap-2 justify-center overflow-x-auto py-2">
+              <div className="p-2 sm:p-4 bg-gray-50 dark:bg-gray-800">
+                <div className="flex gap-1.5 sm:gap-2 justify-center overflow-x-auto py-1.5 sm:py-2">
                   {property.gallery.map((image, index) => (
                     <button
                       key={index}
                       onClick={() => goToImage(index)}
-                      className={`flex-shrink-0 w-16 h-16 md:w-20 md:h-20 rounded-lg overflow-hidden border-2 transition-all ${
+                      className={`flex-shrink-0 w-12 h-12 sm:w-16 sm:h-16 md:w-20 md:h-20 rounded-lg overflow-hidden border-2 transition-all ${
                         currentImageIndex === index
                           ? 'border-primary scale-105 ring-2 ring-primary/30'
                           : 'border-transparent hover:border-gray-300 dark:hover:border-gray-600'

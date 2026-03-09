@@ -66,9 +66,9 @@ const Navbar: React.FC = () => {
           <div className="md:hidden flex items-center">
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="text-gray-600 dark:text-gray-400 p-2"
+              className="text-gray-600 dark:text-gray-400 p-1.5 sm:p-2"
             >
-              <span className="material-icons-outlined text-2xl">
+              <span className="material-icons-outlined text-xl sm:text-2xl">
                 {isMenuOpen ? 'close' : 'menu'}
               </span>
             </button>
