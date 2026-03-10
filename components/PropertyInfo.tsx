@@ -157,7 +157,8 @@ const PropertyInfo: React.FC = () => {
               </div>
               <div>
                 {property.badge === "Completed" ? (
-                  <div className="bg-red-500 text-white font-display font-bold text-lg sm:text-xl px-4 py-2.5 rounded whitespace-nowrap">
+                  /* Badge hidden on mobile (hidden), visible on tablets/desktops (md:block) */
+                  <div className="hidden md:block bg-red-500 text-white font-display font-bold text-lg sm:text-xl px-4 py-2.5 rounded whitespace-nowrap">
                     Sold Out
                   </div>
                 ) : (
@@ -187,7 +188,7 @@ const PropertyInfo: React.FC = () => {
           <div className="mb-12 sm:mb-14 md:mb-16">
             <div className="relative rounded-2xl overflow-hidden custom-shadow bg-gray-100 dark:bg-gray-900">
               <div className="relative h-64 sm:h-80 md:h-[400px] lg:h-[500px]">
-                {/* Main Image Container - Fixed aspect ratio */}
+                {/* Main Image Container */}
                 <div
                   className="relative h-full flex items-center justify-center overflow-hidden flex-col"
                   onMouseDown={handleMouseDown}
@@ -214,14 +215,12 @@ const PropertyInfo: React.FC = () => {
                 <button
                   onClick={prevImage}
                   className="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-black/70 backdrop-blur-sm text-white flex items-center justify-center hover:bg-black/90 transition-all z-10"
-                  aria-label="Previous image"
                 >
                   <span className="material-icons-outlined">chevron_left</span>
                 </button>
                 <button
                   onClick={nextImage}
                   className="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-black/70 backdrop-blur-sm text-white flex items-center justify-center hover:bg-black/90 transition-all z-10"
-                  aria-label="Next image"
                 >
                   <span className="material-icons-outlined">chevron_right</span>
                 </button>
@@ -231,18 +230,14 @@ const PropertyInfo: React.FC = () => {
                   <button
                     onClick={zoomIn}
                     disabled={zoomLevel >= 3}
-                    className="w-8 sm:w-10 h-8 sm:h-10 rounded-full bg-black/70 backdrop-blur-sm text-white flex items-center justify-center hover:bg-black/90 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
-                    aria-label="Zoom in"
-                    title="Zoom in"
+                    className="w-8 sm:w-10 h-8 sm:h-10 rounded-full bg-black/70 backdrop-blur-sm text-white flex items-center justify-center hover:bg-black/90 disabled:opacity-50"
                   >
                     <span className="material-icons-outlined text-sm sm:text-base">add</span>
                   </button>
                   <button
                     onClick={zoomOut}
                     disabled={zoomLevel <= 1}
-                    className="w-8 sm:w-10 h-8 sm:h-10 rounded-full bg-black/70 backdrop-blur-sm text-white flex items-center justify-center hover:bg-black/90 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
-                    aria-label="Zoom out"
-                    title="Zoom out"
+                    className="w-8 sm:w-10 h-8 sm:h-10 rounded-full bg-black/70 backdrop-blur-sm text-white flex items-center justify-center hover:bg-black/90 disabled:opacity-50"
                   >
                     <span className="material-icons-outlined text-sm sm:text-base">remove</span>
                   </button>
@@ -250,7 +245,7 @@ const PropertyInfo: React.FC = () => {
 
                 {/* Zoom Percentage Display */}
                 {zoomLevel > 1 && (
-                  <div className="absolute top-2 sm:top-4 left-2 sm:left-4 bg-black/70 backdrop-blur-sm text-white px-3 sm:px-4 py-1.5 sm:py-2 rounded-full text-xs sm:text-sm font-medium z-10">
+                  <div className="absolute top-2 sm:top-4 left-2 sm:left-4 bg-black/70 backdrop-blur-sm text-white px-3 py-1.5 rounded-full text-xs font-medium z-10">
                     Zoom: {Math.round(zoomLevel * 100)}%
                   </div>
                 )}
@@ -258,10 +253,7 @@ const PropertyInfo: React.FC = () => {
                 {/* Auto-play Toggle */}
                 <button
                   onClick={toggleAutoPlay}
-                  className="absolute top-2 sm:top-4 right-2 sm:right-4 w-8 sm:w-10 h-8 sm:h-10 rounded-full bg-black/70 backdrop-blur-sm text-white flex items-center justify-center hover:bg-black/90 transition-all z-10"
-                  aria-label={
-                    isAutoPlaying ? 'Pause slideshow' : 'Play slideshow'
-                  }
+                  className="absolute top-2 sm:top-4 right-2 sm:right-4 w-8 sm:w-10 h-8 sm:h-10 rounded-full bg-black/70 backdrop-blur-sm text-white flex items-center justify-center hover:bg-black/90 z-10"
                 >
                   <span className="material-icons-outlined text-sm sm:text-base">
                     {isAutoPlaying ? 'pause' : 'play_arrow'}
@@ -269,14 +261,14 @@ const PropertyInfo: React.FC = () => {
                 </button>
 
                 {/* Image Counter */}
-                <div className="absolute bottom-2 sm:bottom-4 left-2 sm:left-4 bg-black/70 backdrop-blur-sm text-white px-3 sm:px-4 py-1.5 sm:py-2 rounded-full text-xs sm:text-sm font-medium z-10">
+                <div className="absolute bottom-2 sm:bottom-4 left-2 sm:left-4 bg-black/70 backdrop-blur-sm text-white px-3 py-1.5 rounded-full text-xs font-medium z-10">
                   {currentImageIndex + 1} / {property.gallery.length}
                 </div>
               </div>
 
               {/* Thumbnail Strip */}
               <div className="p-2 sm:p-4 bg-gray-50 dark:bg-gray-800">
-                <div className="flex gap-1.5 sm:gap-2 justify-center overflow-x-auto py-1.5 sm:py-2">
+                <div className="flex gap-2 justify-center overflow-x-auto py-2">
                   {property.gallery.map((image, index) => (
                     <button
                       key={index}
@@ -284,18 +276,14 @@ const PropertyInfo: React.FC = () => {
                       className={`flex-shrink-0 w-12 h-12 sm:w-16 sm:h-16 md:w-20 md:h-20 rounded-lg overflow-hidden border-2 transition-all ${
                         currentImageIndex === index
                           ? 'border-primary scale-105 ring-2 ring-primary/30'
-                          : 'border-transparent hover:border-gray-300 dark:hover:border-gray-600'
+                          : 'border-transparent hover:border-gray-300'
                       }`}
-                      aria-label={`View image ${index + 1}`}
                     >
                       <img
                         src={image}
                         alt={`Thumbnail ${index + 1}`}
                         className="w-full h-full object-cover"
                       />
-                      {currentImageIndex === index && (
-                        <div className="absolute inset-0 bg-primary/20" />
-                      )}
                     </button>
                   ))}
                 </div>
@@ -305,7 +293,6 @@ const PropertyInfo: React.FC = () => {
 
           {/* Property Details Grid */}
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
-            {/* Left Column - Description & Features */}
             <div className="lg:col-span-2 space-y-12">
               {/* Description */}
               <div>
@@ -328,12 +315,8 @@ const PropertyInfo: React.FC = () => {
                       key={index}
                       className="flex items-center gap-3 p-4 bg-gray-50 dark:bg-gray-800 rounded-lg"
                     >
-                      <span className="material-icons-outlined text-primary">
-                        check_circle
-                      </span>
-                      <span className="text-gray-700 dark:text-gray-300">
-                        {feature}
-                      </span>
+                      <span className="material-icons-outlined text-primary">check_circle</span>
+                      <span className="text-gray-700 dark:text-gray-300">{feature}</span>
                     </div>
                   ))}
                 </div>
@@ -347,54 +330,35 @@ const PropertyInfo: React.FC = () => {
                 <ul className="space-y-3">
                   {property.locationAdvantages.map((advantage, index) => (
                     <li key={index} className="flex items-start gap-3">
-                      <span className="material-icons-outlined text-primary text-sm mt-1">
-                        place
-                      </span>
-                      <span className="text-gray-600 dark:text-gray-400">
-                        {advantage}
-                      </span>
+                      <span className="material-icons-outlined text-primary text-sm mt-1">place</span>
+                      <span className="text-gray-600 dark:text-gray-400">{advantage}</span>
                     </li>
                   ))}
                 </ul>
               </div>
             </div>
 
-            {/* Right Column - Info Cards */}
+            {/* Right Column */}
             <div className="space-y-8">
-              {/* Property Type Card */}
               <div className="bg-gray-50 dark:bg-gray-800 rounded-2xl p-6 custom-shadow">
-                <h3 className="font-display text-xl text-black dark:text-white mb-4">
-                  Property Details
-                </h3>
+                <h3 className="font-display text-xl text-black dark:text-white mb-4">Property Details</h3>
                 <div className="space-y-4">
                   <div className="flex justify-between items-center py-3 border-b border-gray-200 dark:border-gray-700">
-                    <span className="text-gray-600 dark:text-gray-400">
-                      Project Status
-                    </span>
-                    <span className="font-medium text-secondary dark:text-primary">
-                      {property.projectStatus}
-                    </span>
+                    <span className="text-gray-600 dark:text-gray-400">Project Status</span>
+                    <span className="font-medium text-secondary dark:text-primary">{property.projectStatus}</span>
                   </div>
                 </div>
               </div>
 
-              {/* Contact CTA */}
               <div className="bg-primary/10 dark:bg-primary/20 rounded-2xl p-6">
-                <h3 className="font-display text-xl text-black dark:text-white mb-4">
-                  Interested in this property?
-                </h3>
-                <p className="text-gray-600 dark:text-gray-400 mb-6">
-                  Contact us for a private viewing or more information about
-                  this exclusive property.
-                </p>
-                <div className="space-y-3">
-                  <a
-                    href="#contact"
-                    className="block w-full bg-primary text-white py-3 rounded-lg font-semibold hover:bg-primary/90 transition-colors text-center"
-                  >
-                    Schedule a Viewing
-                  </a>
-                </div>
+                <h3 className="font-display text-xl text-black dark:text-white mb-4">Interested?</h3>
+                <p className="text-gray-600 dark:text-gray-400 mb-6">Contact us for a private viewing or more information.</p>
+                <a
+                  href="#contact"
+                  className="block w-full bg-primary text-white py-3 rounded-lg font-semibold hover:bg-primary/90 transition-colors text-center"
+                >
+                  Schedule a Viewing
+                </a>
               </div>
             </div>
           </div>

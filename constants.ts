@@ -49,7 +49,7 @@ export const PROPERTIES: Property[] = [
     image: './images/Villa 6.png',
     // Additional details for PropertyInfo component
     description:
-      '',
+      'A masterpiece of neoclassical living in heart of village Vanelim-Colva-Salcete-South Goa.',
     projectStatus: 'Under Construction',
     badge: 'Under Construction',
     features: [
