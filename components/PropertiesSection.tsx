@@ -17,29 +17,39 @@ const PropertyCard: React.FC<{ property: Property }> = ({ property }) => (
     </div>
 
     <div className="p-4 sm:p-6 md:p-8">
-      <div className="flex justify-between items-start mb-6">
-        <div className="flex-1">
-          <h3 className="font-display text-2xl font-bold text-black dark:text-white group-hover:text-primary transition-colors leading-tight mb-2">
-            {property.title}
-          </h3>
-          <p className="text-gray-400 text-[10px] sm:text-xs flex items-center gap-1.5 uppercase tracking-widest font-semibold">
-            <span className="material-icons-outlined text-sm text-primary">
-              location_on
-            </span>{' '}
-            {property.location}
-          </p>
-        </div>
-        <div className="text-right">
-          <div className="text-primary font-display font-bold text-2xl leading-none mb-1">
-            {property.price}
+      <div className="flex flex-col">
+        <div className="flex justify-between items-start gap-4 mb-6">
+          <div className="flex-1">
+            <h3 className="font-display text-2xl font-bold text-black dark:text-white group-hover:text-primary transition-colors leading-tight mb-2">
+              {property.title}
+            </h3>
+            <p className="text-gray-400 text-[10px] sm:text-xs flex items-center gap-1.5 uppercase tracking-widest font-semibold">
+              <span className="material-icons-outlined text-sm text-primary">
+                location_on
+              </span>{' '}
+              {property.location}
+            </p>
           </div>
-          <span className="text-[10px] font-bold text-gray-400 uppercase tracking-widest">
-            Starting At
-          </span>
+          <div>
+            {property.badge === "Completed" ? (
+              <div className="bg-red-500 text-white font-display font-bold text-lg sm:text-xl leading-none px-4 py-2.5 rounded whitespace-nowrap">
+                Sold Out
+              </div>
+            ) : property.price ? (
+              <div className="text-right">
+                <div className="bg-primary text-white font-display font-bold text-lg sm:text-xl leading-none mb-1 px-4 py-2.5 rounded inline-block whitespace-nowrap">
+                  {property.price}
+                </div>
+                <span className="text-[10px] font-bold text-gray-400 uppercase tracking-widest block mt-2">
+                  Starting At
+                </span>
+              </div>
+            ) : null}
+          </div>
         </div>
       </div>
 
-      <div className="mt-8 pt-6 border-t border-gray-100 dark:border-gray-700">
+      <div className="mt-4 pt-3 border-t border-gray-100 dark:border-gray-700">
         <Link
           to={`/property/${property.id}`}
           className="inline-block px-6 py-3 bg-primary text-white font-bold uppercase tracking-widest text-sm sm:text-xs hover:bg-primary/90 transition-colors"

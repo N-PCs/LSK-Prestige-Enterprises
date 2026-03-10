@@ -155,13 +155,21 @@ const PropertyInfo: React.FC = () => {
                   <p className="text-sm sm:text-base md:text-lg">{property.location}</p>
                 </div>
               </div>
-              <div className="bg-primary/10 dark:bg-primary/20 px-4 sm:px-6 py-3 sm:py-4 rounded-lg">
-                <div className="text-xs sm:text-sm font-bold text-gray-400 uppercase tracking-widest mb-1">
-                  Starting At
-                </div>
-                <div className="text-primary font-display font-bold text-2xl sm:text-3xl">
-                  {property.price}
-                </div>
+              <div>
+                {property.badge === "Completed" ? (
+                  <div className="bg-red-500 text-white font-display font-bold text-lg sm:text-xl px-4 py-2.5 rounded whitespace-nowrap">
+                    Sold Out
+                  </div>
+                ) : (
+                  <>
+                    <div className="text-xs sm:text-sm font-bold text-gray-400 uppercase tracking-widest mb-2">
+                      Starting At
+                    </div>
+                    <div className="bg-primary text-white font-display font-bold text-lg sm:text-xl px-4 py-2.5 rounded inline-block whitespace-nowrap">
+                      {property.price}
+                    </div>
+                  </>
+                )}
               </div>
             </div>
 
