@@ -78,37 +78,37 @@ const Navbar: React.FC = () => {
 
       {/* Mobile Menu */}
       {isMenuOpen && (
-        <div className="md:hidden bg-white dark:bg-black border-b border-gray-100 dark:border-gray-900 px-6 py-8 space-y-6 animate-in fade-in slide-in-from-top-4 duration-300">
+        <div className="md:hidden bg-white dark:bg-black border-b border-gray-100 dark:border-gray-900 px-6 py-6 space-y-4 animate-in fade-in slide-in-from-top-4 duration-300">
           <a
-            className="block text-sm font-bold uppercase tracking-widest py-2 hover:text-primary transition-colors"
+            className="block text-xs font-bold uppercase tracking-widest py-2 hover:text-primary transition-colors"
             href="#"
             onClick={() => setIsMenuOpen(false)}
           >
             Home
           </a>
           <a
-            className="block text-sm font-bold uppercase tracking-widest py-2 hover:text-primary transition-colors"
+            className="block text-xs font-bold uppercase tracking-widest py-2 hover:text-primary transition-colors"
             href="#about"
             onClick={() => setIsMenuOpen(false)}
           >
             About Us
           </a>
           <a
-            className="block text-sm font-bold uppercase tracking-widest py-2 hover:text-primary transition-colors"
+            className="block text-xs font-bold uppercase tracking-widest py-2 hover:text-primary transition-colors"
             href="#properties"
             onClick={() => setIsMenuOpen(false)}
           >
             Properties
           </a>
           <a
-            className="block text-sm font-bold uppercase tracking-widest py-2 hover:text-primary transition-colors"
+            className="block text-xs font-bold uppercase tracking-widest py-2 hover:text-primary transition-colors"
             href="#services"
             onClick={() => setIsMenuOpen(false)}
           >
             Services
           </a>
           <a
-            className="block bg-secondary text-white px-6 py-4 rounded text-sm uppercase tracking-widest font-bold text-center hover:opacity-90 transition-opacity mt-4"
+            className="block bg-secondary text-white px-4 py-3 rounded text-xs uppercase tracking-widest font-bold text-center hover:opacity-90 transition-opacity mt-4"
             href="#contact"
             onClick={() => setIsMenuOpen(false)}
           >
