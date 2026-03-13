@@ -1,8 +1,49 @@
 import { Property, Service } from '@/components/hooks/types';
 
 export const PROPERTIES: Property[] = [
-  {
+    {
     id: '1',
+    title: 'Villa ',
+    location: 'Vanelim-Colva, Salcete, South Goa',
+    price: '',
+    type: 'Villa',
+    image: './images/Villa 5.png',
+    // Additional details for PropertyInfo component
+    description:
+      'A masterpiece of neoclassical living in heart of village Vanelim-Colva-Salcete-South Goa.',
+    projectStatus: 'Under Construction',
+    badge: 'Under Construction',
+    features: [
+      'Private Garden',
+      'Swimming Pool (5.00m x 3.00m Infinity-inspired plunge pool)',
+      'Car Parking',
+      'Vitrified Flooring',
+      'Jaguar Bathroom Fixtures & Sanitaryware',
+      'Modular Kitchen with Faber Chimney & Hob',
+      'UPVC Windows',
+      '3 Phase Electricity Connection',
+    ],
+    locationAdvantages: [
+      'Colva Police Station - 1km',
+      'Colva Beach - 2km',
+      'Sernabatim Beach - 2km',
+      'KTC Bus Stand - 5km',
+      'Hospicio Hospital - 6km',
+      'Margao Market - 6km',
+    ],
+
+    gallery: [
+      '/images/Villa 5.png',
+      '/images/Villa 6(1).png',
+      '/images/Villa 6(2).png',
+      '/images/Villa 6(3).png',
+      '/images/Villa 6(4).png',
+      '/images/Villa 6(5).png',
+
+    ],
+  },
+  {
+    id: '2',
     title: 'Villa Colva',
     location: 'Colva, Margao, Goa',
     price: 'Sold Out',
@@ -36,51 +77,10 @@ export const PROPERTIES: Property[] = [
       '/images/APX08201.jpg.jpeg',
       '/images/APX08270.jpg.jpeg',
       '/images/APX08260.jpg.jpeg',
-      '/images/Villa 5.png',
 
     ],
   },
-  {
-    id: '2',
-    title: 'Villa ',
-    location: 'Vanelim-Colva, Salcete, South Goa',
-    price: '',
-    type: 'Villa',
-    image: './images/Villa 6.png',
-    // Additional details for PropertyInfo component
-    description:
-      'A masterpiece of neoclassical living in heart of village Vanelim-Colva-Salcete-South Goa.',
-    projectStatus: 'Under Construction',
-    badge: 'Under Construction',
-    features: [
-      'Private Garden',
-      'Swimming Pool (5.00m x 3.00m Infinity-inspired plunge pool)',
-      'Car Parking',
-      'Vitrified Flooring',
-      'Jaguar Bathroom Fixtures & Sanitaryware',
-      'Modular Kitchen with Faber Chimney & Hob',
-      'UPVC Windows',
-      '3 Phase Electricity Connection',
-    ],
-    locationAdvantages: [
-      'Colva Police Station - 1km',
-      'Colva Beach - 2km',
-      'Sernabatim Beach - 2km',
-      'KTC Bus Stand - 5km',
-      'Hospicio Hospital - 6km',
-      'Margao Market - 6km',
-    ],
 
-    gallery: [
-      '/images/Villa 6.png',
-      '/images/Villa 6(1).png',
-      '/images/Villa 6(2).png',
-      '/images/Villa 6(3).png',
-      '/images/Villa 6(4).png',
-      '/images/Villa 6(5).png',
-
-    ],
-  },
 ];
 
 export const SERVICES: Service[] = [
