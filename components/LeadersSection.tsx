@@ -87,6 +87,7 @@ const LeadersSection: React.FC = () => {
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: -20 }}
               transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+              style={{ willChange: 'transform, opacity' }}
               className={`flex flex-col-reverse lg:items-center ${
                 LEADERS[activeTab].imagePosition === 'right' ? 'lg:flex-row' : 'lg:flex-row-reverse'
               } gap-6 lg:gap-12`}
@@ -140,6 +141,7 @@ const LeadersSection: React.FC = () => {
                 initial={{ opacity: 0, scale: 0.95 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.8, ease: "easeOut" }}
+                style={{ willChange: 'transform, opacity' }}
                 className="lg:w-1/2 w-full px-4 lg:px-0"
               >
                 <div className="relative aspect-[4/5] w-full max-w-[320px] lg:max-w-[450px] mx-auto group">

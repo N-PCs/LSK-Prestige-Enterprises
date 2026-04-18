@@ -53,55 +53,57 @@ const Hero: React.FC = () => {
 
     // Remove breathing effect and apply mouse effects for desktop
     image.classList.remove('breathing-effect');
+    image.style.willChange = 'transform';
 
     const handleMouseMove = (e: MouseEvent) => {
-      const { left, top, width, height } = container.getBoundingClientRect();
-      const x = (e.clientX - left) / width;
-      const y = (e.clientY - top) / height;
-      setMousePosition({ x, y });
+      window.requestAnimationFrame(() => {
+        if (!isHovering) return;
+        
+        const { left, top, width, height } = container.getBoundingClientRect();
+        const x = (e.clientX - left) / width;
+        const y = (e.clientY - top) / height;
+
+        // Parallax effect with rotation (gyroscopic tilt)
+        const moveX = (x - 0.5) * 30; // ±15px movement
+        const moveY = (y - 0.5) * 30; // ±15px movement
+
+        // Subtle rotation for 3D effect
+        const rotateY = (x - 0.5) * 5; // ±2.5 degrees
+        const rotateX = (0.5 - y) * 5; // ±2.5 degrees
+
+        // Apply all transforms directly to DOM
+        image.style.transform = `
+          scale(1.1)
+          translate(${moveX}px, ${moveY}px)
+          rotateX(${rotateX}deg)
+          rotateY(${rotateY}deg)
+        `;
+        image.style.transition = 'transform 0.1s cubic-bezier(0.23, 1, 0.32, 1)';
+      });
     };
 
-    container.addEventListener('mousemove', handleMouseMove);
-    container.addEventListener('mouseenter', () => setIsHovering(true));
-    container.addEventListener('mouseleave', () => setIsHovering(false));
-
-    return () => {
-      container.removeEventListener('mousemove', handleMouseMove);
-      container.removeEventListener('mouseenter', () => setIsHovering(true));
-      container.removeEventListener('mouseleave', () => setIsHovering(false));
+    const handleMouseEnter = () => {
+      setIsHovering(true);
+      image.style.scale = '1.1';
     };
-  }, [isMobile]);
 
-  // Apply smooth transform animation (desktop only)
-  useEffect(() => {
-    const image = imageRef.current;
-    if (!image || isMobile) return;
-
-    const { x, y } = mousePosition;
-
-    if (isHovering) {
-      // Parallax effect with rotation (gyroscopic tilt)
-      const moveX = (x - 0.5) * 30; // ±15px movement
-      const moveY = (y - 0.5) * 30; // ±15px movement
-
-      // Subtle rotation for 3D effect
-      const rotateY = (x - 0.5) * 5; // ±2.5 degrees
-      const rotateX = (0.5 - y) * 5; // ±2.5 degrees
-
-      // Apply all transforms
-      image.style.transform = `
-        scale(1.1)
-        translate(${moveX}px, ${moveY}px)
-        rotateX(${rotateX}deg)
-        rotateY(${rotateY}deg)
-      `;
-      image.style.transition = 'transform 0.3s cubic-bezier(0.23, 1, 0.32, 1)';
-    } else {
+    const handleMouseLeave = () => {
+      setIsHovering(false);
       // Reset to original state
       image.style.transform = 'scale(1.05)';
       image.style.transition = 'transform 0.8s cubic-bezier(0.23, 1, 0.32, 1)';
-    }
-  }, [mousePosition, isHovering, isMobile]);
+    };
+
+    container.addEventListener('mousemove', handleMouseMove);
+    container.addEventListener('mouseenter', handleMouseEnter);
+    container.addEventListener('mouseleave', handleMouseLeave);
+
+    return () => {
+      container.removeEventListener('mousemove', handleMouseMove);
+      container.removeEventListener('mouseenter', handleMouseEnter);
+      container.removeEventListener('mouseleave', handleMouseLeave);
+    };
+  }, [isMobile, isHovering]);
 
   return (
     <header

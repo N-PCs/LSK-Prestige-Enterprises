@@ -8,52 +8,57 @@ const Navbar: React.FC = () => {
 
   const controlNavbar = useCallback(() => {
     const currentScrollY = window.scrollY;
-
+    
+    // Always show at the top
     if (currentScrollY < 80) {
-      // Always show at the top of the page
       setIsVisible(true);
-    } else {
-      // If scrolled down, hide by default (unless mouse is at top - handled by mouse move)
-      // Only set to false if the menu isn't open
-      if (!isMenuOpen) {
-        // We don't want to force hide here if the mouse is currently at the top,
-        // but since mousemove handles that, we can just ensure it doesn't 
-        // automatically show on scroll up.
-        setIsVisible(false);
-      }
+    } 
+    // Otherwise only update if visibility needs to change
+    else if (!isMenuOpen) {
+      setIsVisible(false);
     }
+    
     setLastScrollY(currentScrollY);
   }, [isMenuOpen]);
 
-  const handleMouseMove = useCallback((e: MouseEvent) => {
-    const currentScrollY = window.scrollY;
-    
-    // If at the top of the page, it's always visible
-    if (currentScrollY < 80) {
-      setIsVisible(true);
-      return;
-    }
-
-    // If scrolled down:
-    if (e.clientY < 100) {
-      // Show if mouse is in the upper area (top 100px)
-      setIsVisible(true);
-    } else {
-      // Hide as soon as cursor leaves the area (if menu isn't open)
-      if (!isMenuOpen) {
-        setIsVisible(false);
-      }
-    }
-  }, [isMenuOpen]);
-
   useEffect(() => {
-    window.addEventListener('scroll', controlNavbar);
-    window.addEventListener('mousemove', handleMouseMove);
-    return () => {
-      window.removeEventListener('scroll', controlNavbar);
-      window.removeEventListener('mousemove', handleMouseMove);
+    let ticking = false;
+
+    const onScroll = () => {
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          controlNavbar();
+          ticking = false;
+        });
+        ticking = true;
+      }
     };
-  }, [controlNavbar, handleMouseMove]);
+
+    const onMouseMove = (e: MouseEvent) => {
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          const currentScrollY = window.scrollY;
+          
+          if (currentScrollY < 80) {
+            setIsVisible(true);
+          } else if (e.clientY < 100) {
+            setIsVisible(true);
+          } else if (!isMenuOpen) {
+            setIsVisible(false);
+          }
+          ticking = false;
+        });
+        ticking = true;
+      }
+    };
+
+    window.addEventListener('scroll', onScroll);
+    window.addEventListener('mousemove', onMouseMove);
+    return () => {
+      window.removeEventListener('scroll', onScroll);
+      window.removeEventListener('mousemove', onMouseMove);
+    };
+  }, [controlNavbar, isMenuOpen]);
 
   return (
     <motion.nav
