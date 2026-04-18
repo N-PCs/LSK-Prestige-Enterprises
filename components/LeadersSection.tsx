@@ -24,9 +24,9 @@ const LeadersSection: React.FC = () => {
 
 
   return (
-    <section className="py-24 px-4 bg-white dark:bg-[#0a0a0a] overflow-hidden" id="leadership">
+    <section className="py-12 md:py-20 px-4 bg-white dark:bg-[#0a0a0a] overflow-hidden" id="leadership">
       <div className="max-w-7xl mx-auto">
-        <div className="mb-16 flex flex-col md:flex-row md:items-end justify-between gap-8">
+        <div className="mb-10 md:mb-12 flex flex-col md:flex-row md:items-end justify-between gap-8">
           <div className="text-left">
             <motion.span 
               initial={{ opacity: 0, y: 10 }}
@@ -79,7 +79,7 @@ const LeadersSection: React.FC = () => {
         </div>
 
         {/* Content Area with Animation */}
-        <div className="relative min-h-[400px] lg:min-h-[500px]">
+        <div className="relative min-h-[380px] lg:min-h-[450px]">
           <AnimatePresence mode="wait">
             <motion.div
               key={activeTab}
@@ -89,7 +89,7 @@ const LeadersSection: React.FC = () => {
               transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
               className={`flex flex-col-reverse lg:items-center ${
                 LEADERS[activeTab].imagePosition === 'right' ? 'lg:flex-row' : 'lg:flex-row-reverse'
-              } gap-10 lg:gap-16`}
+              } gap-6 lg:gap-12`}
             >
               {/* Leader Content */}
               <div className="lg:w-1/2 space-y-6 lg:space-y-8">

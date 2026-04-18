@@ -5,7 +5,7 @@ import { Building2, Home, Store, Heart, Target, Shield } from 'lucide-react';
 const AboutSection: React.FC = () => {
   return (
     <section
-      className="py-20 px-4 bg-white dark:bg-[#0a0a0a] overflow-hidden"
+      className="py-12 md:py-20 px-4 bg-white dark:bg-[#0a0a0a] overflow-hidden"
       id="about"
     >
       <div className="max-w-7xl mx-auto flex flex-col lg:flex-row gap-16 items-center">
@@ -63,7 +63,7 @@ const AboutSection: React.FC = () => {
               Luxury Homes & <br /> <span className="text-primary">Villas</span>{' '}
               around Goa
             </h2>
-            <p className="text-gray-500 dark:text-gray-400 leading-relaxed mb-8 text-sm font-light italic">
+            <p className="text-gray-500 dark:text-gray-400 leading-relaxed mb-6 text-sm font-light italic">
               Born from a family's shared dream, LSK Prestige began shaping
               homes in 2018 and officially laid its cornerstones in 2022. With
               five villas completed and a sixth rising under the Goan sun, our

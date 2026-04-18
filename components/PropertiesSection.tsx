@@ -68,9 +68,9 @@ const PropertiesSection: React.FC = () => {
   };
 
   return (
-    <section className="py-20 md:py-28 bg-white dark:bg-[#0a0a0a]" id="properties">
+    <section className="py-12 md:py-20 bg-white dark:bg-[#0a0a0a]" id="properties">
       <div className="max-w-7xl mx-auto px-4">
-        <div className="text-center mb-12 md:mb-20">
+        <div className="text-center mb-8 md:mb-12">
           <span className="text-primary font-bold tracking-[0.4em] text-[15px] uppercase mb-4 block">
             Properties
           </span>
@@ -97,7 +97,7 @@ const PropertiesSection: React.FC = () => {
         </div>
 
         {/* Arrows are now functional via the scroll function */}
-        <div className="flex justify-center mt-8 md:mt-20 gap-4 sm:gap-8">
+        <div className="flex justify-center mt-6 md:mt-10 gap-4 sm:gap-8">
           <button 
             onClick={() => scroll('left')}
             className="w-10 h-10 sm:w-12 sm:h-12 rounded-full border border-gray-200 dark:border-gray-800 flex items-center justify-center hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black transition-all"

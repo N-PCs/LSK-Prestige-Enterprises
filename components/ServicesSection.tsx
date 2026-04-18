@@ -3,9 +3,9 @@ import { SERVICES } from '../constants';
 
 const ServicesSection: React.FC = () => {
   return (
-    <section className="py-28 px-4 bg-gray-50 dark:bg-black" id="services">
+    <section className="py-12 md:py-20 px-4 bg-gray-50 dark:bg-black" id="services">
       <div className="max-w-7xl mx-auto">
-        <div className="mb-24 text-left max-w-2xl">
+        <div className="mb-12 md:mb-16 text-left max-w-2xl">
           <span className="text-primary font-bold tracking-[0.4em] text-[15px] uppercase mb-4 block">
             Services
           </span>
