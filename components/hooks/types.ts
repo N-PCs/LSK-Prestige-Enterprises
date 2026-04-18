@@ -23,3 +23,13 @@ export interface Service {
   description: string;
   icon: string;
 }
+
+export interface Leader {
+  id: string;
+  name: string;
+  role: string;
+  description: string;
+  image: string;
+  imagePosition: 'left' | 'right';
+}
+

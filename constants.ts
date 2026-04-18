@@ -1,4 +1,35 @@
-import { Property, Service } from '@/components/hooks/types';
+import { Property, Service, Leader } from '@/components/hooks/types';
+
+export const LEADERS: Leader[] = [
+  {
+    id: '1',
+    name: 'Mr. Lee Carvalho',
+    role: 'Founder & Managing Director',
+    description:
+      'With over two decades of experience in the real estate industry, Mr. Lee Carvalho has been the visionary force behind LSK Prestige Enterprises. His commitment to honest design and enduring quality has shaped the legacy of the company since its inception.',
+    image: '/images/leader_placeholder.png',
+    imagePosition: 'right',
+  },
+  {
+    id: '2',
+    name: 'Sebastian Carvalho',
+    role: 'Co-Founder & Lead Architect',
+    description:
+      'Sebastian brings a unique blend of traditional Goan aesthetics and modern architectural principles to every project. His focus is on creating homes that are not just structures, but soulful environments that celebrate life and heritage.',
+    image: '/images/leader_placeholder.png',
+    imagePosition: 'left',
+  },
+  {
+    id: '3',
+    name: 'Keine Carvalho',
+    role: 'Operations & Strategy',
+    description:
+      'Keine oversees the strategic growth and operational excellence of LSK Prestige. Her dedication to transparency and craftsmanship ensures that every client journey is seamless, from the first consultation to the final handover.',
+    image: '/images/leader_placeholder.png',
+    imagePosition: 'right',
+  },
+];
+
 
 export const PROPERTIES: Property[] = [
   {
@@ -75,21 +106,22 @@ export const SERVICES: Service[] = [
     id: '1',
     title: 'Real Estate Services',
     description:
-      'Comprehensive property management and advisory services to help you make the best investment decisions.',
+      'Expert guidance for buying, selling, and investment advisory. We provide deep market insights and end-to-end support to ensure you get maximum value with complete transparency.',
     icon: 'domain',
   },
   {
     id: '2',
-    title: 'Sell Your Home',
+    title: 'Build Your Home',
     description:
-      'Market-leading valuation and listing services to ensure you get the maximum value for your property.',
+      'Turnkey home construction and management from design to final handover. Our team ensures quality execution, on-time delivery, and professional inspections to guarantee your home excellence.',
     icon: 'sell',
   },
   {
     id: '3',
-    title: 'Home Inspection',
+    title: 'Home Care & Maintenance',
     description:
-      'Detailed structural and technical inspections by certified professionals for your peace of mind.',
+      'Ongoing professional maintenance and repair services to keep your property in top condition. We handle everything from electrical and plumbing to routine upkeep and deep cleaning.',
     icon: 'engineering',
   },
 ];
+

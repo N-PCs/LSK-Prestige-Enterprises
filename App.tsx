@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import AboutSection from './components/AboutSection';
+import LeadersSection from './components/LeadersSection';
 import PropertiesSection from './components/PropertiesSection';
 import ServicesSection from './components/ServicesSection';
 import Footer from './components/Footer';
@@ -16,6 +17,7 @@ const HomePage: React.FC = () => (
     <main>
       <Hero />
       <AboutSection />
+      <LeadersSection />
       <PropertiesSection />
       <ServicesSection />
     </main>
@@ -23,6 +25,7 @@ const HomePage: React.FC = () => (
     <FloatingActions />
   </>
 );
+
 
 const App: React.FC = () => {
   return (
