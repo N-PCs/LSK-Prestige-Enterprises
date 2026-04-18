@@ -119,22 +119,44 @@ export const SERVICES: Service[] = [
     id: '1',
     title: 'Real Estate Services',
     description:
-      'Expert guidance for buying, selling, and investment advisory. We provide deep market insights and end-to-end support to ensure you get maximum value with complete transparency.',
-    icon: 'domain',
+      'Expert guidance for buying, selling, and investment advisory. We provide deep market insights and end-to-end support.',
+    icon: 'Building2',
   },
   {
     id: '2',
     title: 'Build Your Home',
     description:
-      'Turnkey home construction and management from design to final handover. Our team ensures quality execution, on-time delivery, and professional inspections to guarantee your home excellence.',
-    icon: 'sell',
+      'Turnkey home construction and management from design to final handover. Our team ensures quality execution and on-time delivery.',
+    icon: 'Home',
   },
   {
     id: '3',
-    title: 'Home Care & Maintenance',
+    title: 'Plumbing & Electrical Work',
     description:
-      'Ongoing professional maintenance and repair services to keep your property in top condition. We handle everything from electrical and plumbing to routine upkeep and deep cleaning.',
-    icon: 'engineering',
+      'Professional electrical and plumbing services ensuring your home systems are safe, efficient, and fully functional.',
+    icon: 'Wrench',
+  },
+  {
+    id: '4',
+    title: 'Routine Maintenance',
+    description:
+      'Scheduled inspections and preventive care to maintain your property value and ensure peace of mind.',
+    icon: 'CalendarCheck',
+  },
+  {
+    id: '5',
+    title: 'Minor Repairs',
+    description:
+      'Swift and reliable solutions for all minor home repairs, from fixture replacements to structural touch-ups.',
+    icon: 'Hammer',
+  },
+  {
+    id: '6',
+    title: 'Deep Cleaning & Upkeep',
+    description:
+      'Comprehensive cleaning services that leave your home immaculate, combined with regular upkeep.',
+    icon: 'Sparkles',
   },
 ];
+
 

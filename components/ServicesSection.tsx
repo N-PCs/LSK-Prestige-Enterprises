@@ -1,5 +1,15 @@
 import React from 'react';
 import { SERVICES } from '../constants';
+import { Building2, Home, Wrench, CalendarCheck, Hammer, Sparkles, LucideIcon } from 'lucide-react';
+
+const iconMap: Record<string, LucideIcon> = {
+  Building2,
+  Home,
+  Wrench,
+  CalendarCheck,
+  Hammer,
+  Sparkles,
+};
 
 const ServicesSection: React.FC = () => {
   return (
@@ -18,26 +28,38 @@ const ServicesSection: React.FC = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 sm:gap-12 md:gap-16">
-          {SERVICES.map((service) => (
-            <div key={service.id} className="group cursor-default relative">
-              <div className="mb-6 sm:mb-8 md:mb-10 w-16 h-16 sm:w-20 sm:h-20 bg-white dark:bg-gray-900 rounded-sm flex items-center justify-center border border-gray-100 dark:border-gray-800 transition-all duration-500 group-hover:border-primary group-hover:-translate-y-2 shadow-sm group-hover:shadow-xl">
-                <span className="material-icons-outlined text-2xl sm:text-3xl md:text-4xl text-primary">
-                  {service.icon}
-                </span>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-10 sm:gap-x-12 lg:gap-x-16">
+          {SERVICES.map((service, index) => {
+            const IconComponent = iconMap[service.icon];
+            const isEven = index % 2 === 0;
+
+            return (
+              <div key={service.id} className="group cursor-default relative">
+                <div
+                  className={`mb-5 w-10 h-10 sm:w-12 sm:h-12 rounded-full flex items-center justify-center transition-all duration-500 group-hover:scale-110 shadow-sm border ${
+                    isEven
+                      ? 'bg-black/5 dark:bg-white/10 text-black dark:text-white group-hover:bg-black dark:group-hover:bg-white group-hover:text-white dark:group-hover:text-black border-black/5 dark:border-white/10'
+                      : 'bg-primary/5 dark:bg-primary/10 text-primary group-hover:bg-primary group-hover:text-white border-primary/10'
+                  }`}
+                >
+                  {IconComponent && <IconComponent className="w-4 h-4 sm:w-5 sm:h-5" />}
+                </div>
+                <h3 className="font-display text-lg sm:text-xl font-medium mb-2 text-black dark:text-white transition-colors">
+                  {service.title}
+                </h3>
+                <p className="text-gray-500 dark:text-gray-400 mb-4 leading-relaxed text-sm tracking-wide">
+                  {service.description}
+                </p>
               </div>
-              <h3 className="font-display text-xl sm:text-2xl md:text-3xl font-medium mb-4 sm:mb-6 text-black dark:text-white transition-colors">
-                {service.title}
-              </h3>
-              <p className="text-gray-500 dark:text-gray-400 mb-6 sm:mb-8 md:mb-10 leading-relaxed text-sm tracking-wide">
-                {service.description}
-              </p>
-            </div>
-          ))}
+            );
+          })}
         </div>
+
+
       </div>
     </section>
   );
 };
 
 export default ServicesSection;
+
