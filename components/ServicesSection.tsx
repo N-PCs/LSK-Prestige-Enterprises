@@ -13,13 +13,13 @@ const iconMap: Record<string, LucideIcon> = {
 
 const ServicesSection: React.FC = () => {
   return (
-    <section className="py-12 md:py-20 px-4 bg-gray-50 dark:bg-black" id="services">
+    <section className="py-12 md:py-16 px-4 bg-gray-50 dark:bg-black" id="services">
       <div className="max-w-7xl mx-auto">
         <div className="mb-12 md:mb-16 text-left max-w-2xl">
           <span className="text-primary font-bold tracking-[0.4em] text-[15px] uppercase mb-4 block">
             Services
           </span>
-          <h2 className="font-display text-4xl md:text-5xl text-black dark:text-white leading-tight italic">
+          <h2 className="font-display text-3xl md:text-4xl lg:text-5xl text-black dark:text-white leading-tight italic">
             Exemplary Services For <br /> Discerning Clients
           </h2>
           <p className="mt-6 text-gray-500 dark:text-gray-400 font-light leading-relaxed">

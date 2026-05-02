@@ -68,13 +68,13 @@ const PropertiesSection: React.FC = () => {
   };
 
   return (
-    <section className="py-12 md:py-20 bg-white dark:bg-[#0a0a0a]" id="properties">
+    <section className="py-12 md:py-16 bg-white dark:bg-[#0a0a0a]" id="properties">
       <div className="max-w-7xl mx-auto px-4">
         <div className="text-center mb-8 md:mb-12">
           <span className="text-primary font-bold tracking-[0.4em] text-[15px] uppercase mb-4 block">
             Properties
           </span>
-          <h2 className="font-display text-4xl md:text-6xl text-black dark:text-white font-medium italic">
+          <h2 className="font-display text-3xl md:text-4xl lg:text-5xl text-black dark:text-white font-medium italic">
             Exclusive Properties
           </h2>
           <div className="w-16 h-[1px] bg-primary mx-auto mt-6"></div>

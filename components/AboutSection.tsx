@@ -5,7 +5,7 @@ import { Building2, Home, Store, Heart, Target, Shield } from 'lucide-react';
 const AboutSection: React.FC = () => {
   return (
     <section
-      className="py-12 md:py-20 px-4 bg-white dark:bg-[#0a0a0a] overflow-hidden"
+      className="py-12 md:py-16 px-4 bg-white dark:bg-[#0a0a0a] overflow-hidden"
       id="about"
     >
       <div className="max-w-7xl mx-auto flex flex-col lg:flex-row gap-16 items-center">
@@ -59,7 +59,7 @@ const AboutSection: React.FC = () => {
             <span className="text-primary font-bold tracking-[0.4em] text-[15px] uppercase mb-4 block">
               Legacy of Excellence
             </span>
-            <h2 className="font-display text-2xl sm:text-3xl md:text-4xl lg:text-5xl mt-2 mb-4 sm:mb-6 text-black dark:text-white leading-[1.1] italic font-medium">
+            <h2 className="font-display text-2xl sm:text-3xl md:text-4xl lg:text-4xl mt-2 mb-4 sm:mb-6 text-black dark:text-white leading-[1.1] italic font-medium">
               Luxury Homes & <br /> <span className="text-primary">Villas</span>{' '}
               around Goa
             </h2>
@@ -92,7 +92,7 @@ const AboutSection: React.FC = () => {
                 <Home className="w-3 sm:w-4 md:w-5 h-3 sm:h-4 md:h-5" />
               </div>
               <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-gray-500 group-hover:text-black dark:group-hover:text-white transition-colors">
-                House
+                Villa
               </span>
             </div>
 

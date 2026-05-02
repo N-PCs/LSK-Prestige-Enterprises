@@ -120,7 +120,7 @@ const Hero: React.FC = () => {
       <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/70"></div>
 
       <div className="relative z-10 text-center px-4 max-w-5xl">
-        <h1 className="font-display text-3xl sm:text-5xl md:text-7xl lg:text-8xl text-white mb-6 sm:mb-8 leading-[1.1] tracking-tight">
+        <h1 className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-white mb-6 sm:mb-8 leading-[1.1] tracking-tight">
           Discover Modern And <br />
           <span className="text-primary italic">Exquisite</span> Living
         </h1>

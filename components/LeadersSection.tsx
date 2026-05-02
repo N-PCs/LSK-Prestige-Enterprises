@@ -4,7 +4,7 @@ import { LEADERS } from '../constants';
 
 const LeadersSection: React.FC = () => {
   return (
-    <section className="py-12 md:py-20 px-4 bg-white dark:bg-[#0a0a0a] overflow-hidden" id="leadership">
+    <section className="py-12 md:py-16 px-4 bg-white dark:bg-[#0a0a0a] overflow-hidden" id="leadership">
       <div className="max-w-7xl mx-auto">
         <div className="mb-10 md:mb-12 flex flex-col md:flex-row md:items-end justify-between gap-8">
           <div className="text-left">
@@ -21,7 +21,7 @@ const LeadersSection: React.FC = () => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.1 }}
               viewport={{ once: true }}
-              className="font-display text-4xl md:text-5xl text-black dark:text-white leading-tight italic font-medium"
+              className="font-display text-3xl md:text-4xl lg:text-4xl text-black dark:text-white leading-tight italic font-medium"
             >
               Visionaries Behind the <br className="hidden md:block" /> LSK Prestige Legacy
             </motion.h2>
@@ -42,7 +42,7 @@ const LeadersSection: React.FC = () => {
               {/* Leader Content - ABOVE IMAGE */}
               <div className="px-4 lg:px-0">
                 <div>
-                  <h3 className="font-display text-3xl md:text-4xl text-black dark:text-white mb-2 leading-tight">
+                  <h3 className="font-display text-2xl md:text-3xl lg:text-3xl text-black dark:text-white mb-2 leading-tight">
                     {leader.name}
                   </h3>
                   <div className="flex items-center gap-4">
