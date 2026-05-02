@@ -98,32 +98,38 @@ const Navbar: React.FC = () => {
             <div className="hidden md:flex space-x-10 items-center">
               <a
                 className="text-xs font-bold uppercase tracking-widest hover:text-primary transition-all text-black/70 dark:text-white/70"
-                href="#"
+                href="/"
               >
                 Home
               </a>
               <a
                 className="text-xs font-bold uppercase tracking-widest hover:text-primary transition-all text-black/70 dark:text-white/70"
-                href="#about"
+                href="/#about"
               >
                 About Us
               </a>
               <a
                 className="text-xs font-bold uppercase tracking-widest hover:text-primary transition-all text-black/70 dark:text-white/70"
-                href="#properties"
+                href="/#properties"
               >
                 Properties
               </a>
               <a
                 className="text-xs font-bold uppercase tracking-widest hover:text-primary transition-all text-black/70 dark:text-white/70"
-                href="#services"
+                href="/#projects-gallery"
+              >
+                Projects Gallery
+              </a>
+              <a
+                className="text-xs font-bold uppercase tracking-widest hover:text-primary transition-all text-black/70 dark:text-white/70"
+                href="/#services"
               >
                 Services
               </a>
 
               <a
                 className="bg-secondary dark:bg-primary text-white px-7 py-3 rounded-sm text-[10px] uppercase tracking-[0.2em] font-bold transition-all hover:opacity-90 dark:hover:bg-white dark:hover:text-black shadow-sm"
-                href="#contact"
+                href="/#contact"
               >
                 Contact Us
               </a>
@@ -154,35 +160,42 @@ const Navbar: React.FC = () => {
             >
               <a
                 className="block text-xs font-bold uppercase tracking-widest py-2 hover:text-primary transition-colors text-black dark:text-white"
-                href="#"
+                href="/"
                 onClick={() => setIsMenuOpen(false)}
               >
                 Home
               </a>
               <a
                 className="block text-xs font-bold uppercase tracking-widest py-2 hover:text-primary transition-colors text-black dark:text-white"
-                href="#about"
+                href="/#about"
                 onClick={() => setIsMenuOpen(false)}
               >
                 About Us
               </a>
               <a
                 className="block text-xs font-bold uppercase tracking-widest py-2 hover:text-primary transition-colors text-black dark:text-white"
-                href="#properties"
+                href="/#properties"
                 onClick={() => setIsMenuOpen(false)}
               >
                 Properties
               </a>
               <a
                 className="block text-xs font-bold uppercase tracking-widest py-2 hover:text-primary transition-colors text-black dark:text-white"
-                href="#services"
+                href="/#projects-gallery"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                Projects Gallery
+              </a>
+              <a
+                className="block text-xs font-bold uppercase tracking-widest py-2 hover:text-primary transition-colors text-black dark:text-white"
+                href="/#services"
                 onClick={() => setIsMenuOpen(false)}
               >
                 Services
               </a>
               <a
                 className="block bg-secondary text-white px-4 py-3 rounded-sm text-xs uppercase tracking-widest font-bold text-center hover:opacity-90 transition-opacity mt-4"
-                href="#contact"
+                href="/#contact"
                 onClick={() => setIsMenuOpen(false)}
               >
                 Contact Us

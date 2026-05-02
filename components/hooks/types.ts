@@ -28,7 +28,7 @@ export interface Leader {
   id: string;
   name: string;
   role: string;
-  description: string;
+  description?: string;
   image: string;
   imagePosition: 'left' | 'right';
 }

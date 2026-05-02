@@ -25,7 +25,9 @@ const Hero: React.FC = () => {
       }
     `;
     document.head.appendChild(style);
-    return () => document.head.removeChild(style);
+    return () => {
+      document.head.removeChild(style);
+    };
   }, []);
 
   // Detect if device is mobile

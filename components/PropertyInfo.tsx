@@ -350,16 +350,18 @@ const PropertyInfo: React.FC = () => {
                 </div>
               </div>
 
-              <div className="bg-primary/10 dark:bg-primary/20 rounded-2xl p-6">
-                <h3 className="font-display text-xl text-black dark:text-white mb-4">Interested?</h3>
-                <p className="text-gray-600 dark:text-gray-400 mb-6">Contact us for a private viewing or more information.</p>
-                <a
-                  href="#contact"
-                  className="block w-full bg-primary text-white py-3 rounded-lg font-semibold hover:bg-primary/90 transition-colors text-center"
-                >
-                  Schedule a Viewing
-                </a>
-              </div>
+              {property.badge !== "Completed" && (
+                <div className="bg-primary/10 dark:bg-primary/20 rounded-2xl p-6">
+                  <h3 className="font-display text-xl text-black dark:text-white mb-4">Interested?</h3>
+                  <p className="text-gray-600 dark:text-gray-400 mb-6">Contact us for a private viewing or more information.</p>
+                  <a
+                    href="/#contact"
+                    className="block w-full bg-primary text-white py-3 rounded-lg font-semibold hover:bg-primary/90 transition-colors text-center"
+                  >
+                    Schedule a Viewing
+                  </a>
+                </div>
+              )}
             </div>
           </div>
         </div>

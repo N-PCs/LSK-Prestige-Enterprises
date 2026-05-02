@@ -10,6 +10,7 @@ import ServicesSection from './components/ServicesSection';
 import Footer from './components/Footer';
 import FloatingActions from './components/FloatingActions';
 import PropertyInfo from './components/PropertyInfo';
+import { ProjectsGallerySection } from './components/ProjectsGallery';
 
 const HomePage: React.FC = () => (
   <>
@@ -19,13 +20,13 @@ const HomePage: React.FC = () => (
       <AboutSection />
       <LeadersSection />
       <PropertiesSection />
+      <ProjectsGallerySection />
       <ServicesSection />
     </main>
     <Footer />
     <FloatingActions />
   </>
 );
-
 
 const App: React.FC = () => {
   return (
