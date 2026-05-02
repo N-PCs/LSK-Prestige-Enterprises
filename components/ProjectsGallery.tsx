@@ -40,25 +40,24 @@ export const ProjectsGallerySection: React.FC = () => {
             Projects Gallery
           </h2>
           <div className="w-16 h-[1px] bg-primary mx-auto mt-6"></div>
-          <p className="text-gray-500 dark:text-gray-400 max-w-2xl mx-auto mt-6 text-sm uppercase tracking-widest font-semibold">
-            Explore our portfolio of premium properties and exclusive developments.
-          </p>
         </div>
 
         <div 
           id="gallery-slider"
-          className="flex overflow-x-auto gap-6 snap-x snap-mandatory scroll-smooth pb-8 no-scrollbar"
+          className="flex overflow-x-auto gap-4 sm:gap-6 lg:gap-8 snap-x snap-mandatory scroll-smooth pb-10 no-scrollbar"
           style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }} 
         >
           {projectsImages.map((src, index) => (
-            <div key={index} className="min-w-[85%] sm:min-w-[400px] md:min-w-[450px] snap-center overflow-hidden rounded-sm group relative shadow-md">
-              <img
-                src={src}
-                alt={`Project image ${index + 1}`}
-                className="w-full h-64 sm:h-80 md:h-96 object-cover transform transition-transform duration-700 group-hover:scale-110"
-                loading="lazy"
-              />
-              <div className="absolute inset-0 bg-black/20 group-hover:bg-black/0 transition-colors duration-500 pointer-events-none"></div>
+            <div key={index} className="flex-none w-[85%] sm:w-[70%] lg:w-[60%] snap-center overflow-hidden rounded-2xl group relative shadow-2xl bg-gray-100 dark:bg-gray-800 border border-gray-200 dark:border-gray-800">
+              <div className="relative w-full aspect-[4/3] md:aspect-[3/2] lg:aspect-[16/10]">
+                <img
+                  src={src}
+                  alt={`Gallery image ${index + 1}`}
+                  className="w-full h-full object-cover transform transition-transform duration-1000 group-hover:scale-105"
+                  loading="lazy"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-60 group-hover:opacity-20 transition-opacity duration-500 pointer-events-none"></div>
+              </div>
             </div>
           ))}
         </div>
