@@ -97,17 +97,11 @@
       }
       /* Custom Scrollbar */
       ::-webkit-scrollbar {
-        width: 6px;
+        display: none;
       }
-      ::-webkit-scrollbar-track {
-        background: #f8f8f8;
-      }
-      ::-webkit-scrollbar-thumb {
-        background: #d4af37;
-        border-radius: 10px;
-      }
-      ::-webkit-scrollbar-thumb:hover {
-        background: #b6952e;
+      body, html {
+        -ms-overflow-style: none; /* IE and Edge */
+        scrollbar-width: none; /* Firefox */
       }
       .luxury-text-gradient {
         background: linear-gradient(to right, #d4af37, #f5e050, #d4af37);

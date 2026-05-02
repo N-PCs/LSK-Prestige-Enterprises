@@ -4,18 +4,14 @@ export const LEADERS: Leader[] = [
   {
     id: '1',
     name: 'Mr. Lee Carvalho',
-    role: 'Founder & Managing Director',
-    description:
-      'With over two decades of experience in the real estate industry, Mr. Lee Carvalho has been the visionary force behind LSK Prestige Enterprises. His commitment to honest design and enduring quality has shaped the legacy of the company since its inception.',
+    role: 'CEO & Creative Head',
     image: '/images/leader_placeholder.png',
     imagePosition: 'right',
   },
   {
     id: '2',
-    name: 'Sebastian Carvalho',
-    role: 'Co-Founder & Lead Architect',
-    description:
-      'Sebastian brings a unique blend of traditional Goan aesthetics and modern architectural principles to every project. His focus is on creating homes that are not just structures, but soulful environments that celebrate life and heritage.',
+    name: 'Sebastiao Carvalho',
+    role: 'Founder & Lead Architect',
     image: '/images/leader_placeholder.png',
     imagePosition: 'left',
   },
@@ -23,8 +19,6 @@ export const LEADERS: Leader[] = [
     id: '3',
     name: 'Keine Carvalho',
     role: 'Operations & Strategy',
-    description:
-      'Keine oversees the strategic growth and operational excellence of LSK Prestige. Her dedication to transparency and craftsmanship ensures that every client journey is seamless, from the first consultation to the final handover.',
     image: '/images/leader_placeholder.png',
     imagePosition: 'right',
   },
