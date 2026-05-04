@@ -21,13 +21,7 @@ const projectsImages = [
 ];
 
 export const ProjectsGallerySection: React.FC = () => {
-  const scroll = (direction: 'left' | 'right') => {
-    const container = document.getElementById('gallery-slider');
-    if (container) {
-      const scrollAmount = direction === 'left' ? -350 : 350;
-      container.scrollBy({ left: scrollAmount, behavior: 'smooth' });
-    }
-  };
+
 
   return (
     <section id="projects-gallery" className="py-12 md:py-16 bg-white dark:bg-[#0a0a0a]">
@@ -42,13 +36,9 @@ export const ProjectsGallerySection: React.FC = () => {
           <div className="w-16 h-[1px] bg-primary mx-auto mt-6"></div>
         </div>
 
-        <div 
-          id="gallery-slider"
-          className="flex overflow-x-auto gap-4 sm:gap-6 lg:gap-8 snap-x snap-mandatory scroll-smooth pb-10 no-scrollbar"
-          style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }} 
-        >
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 justify-center">
           {projectsImages.map((src, index) => (
-            <div key={index} className="flex-none w-[85%] sm:w-[70%] lg:w-[60%] snap-center overflow-hidden rounded-2xl group relative shadow-2xl bg-gray-100 dark:bg-gray-800 border border-gray-200 dark:border-gray-800">
+            <div key={index} className="overflow-hidden rounded-2xl group relative shadow-2xl bg-gray-100 dark:bg-gray-800 border border-gray-200 dark:border-gray-800 max-w-xs mx-auto w-full">
               <div className="relative w-full aspect-[4/3] md:aspect-[3/2] lg:aspect-[16/10]">
                 <img
                   src={src}
@@ -62,20 +52,7 @@ export const ProjectsGallerySection: React.FC = () => {
           ))}
         </div>
 
-        <div className="flex justify-center mt-6 md:mt-10 gap-4 sm:gap-8">
-          <button 
-            onClick={() => scroll('left')}
-            className="w-10 h-10 sm:w-12 sm:h-12 rounded-full border border-gray-200 dark:border-gray-800 flex items-center justify-center hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black transition-all"
-          >
-            <span className="material-icons-outlined text-xs sm:text-sm">arrow_back</span>
-          </button>
-          <button 
-            onClick={() => scroll('right')}
-            className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-secondary dark:bg-primary text-white flex items-center justify-center hover:opacity-90 transition-all shadow-xl shadow-secondary/20 dark:shadow-primary/20"
-          >
-            <span className="material-icons-outlined text-xs sm:text-sm">arrow_forward</span>
-          </button>
-        </div>
+
       </div>
     </section>
   );
