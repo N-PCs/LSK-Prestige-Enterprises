@@ -22,10 +22,6 @@ const ServicesSection: React.FC = () => {
           <h2 className="font-display text-3xl md:text-4xl lg:text-5xl text-black dark:text-white leading-tight italic">
             Exemplary Services For <br /> Discerning Clients
           </h2>
-          <p className="mt-6 text-gray-500 dark:text-gray-400 font-light leading-relaxed">
-            We provide a holistic approach to real estate, ensuring every detail
-            of your journey is handled with professional precision and care.
-          </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-10 sm:gap-x-12 lg:gap-x-16">
