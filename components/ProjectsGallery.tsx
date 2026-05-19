@@ -3,7 +3,6 @@ import Navbar from './Navbar';
 import Footer from './Footer';
 
 const projectsImages = [
-  '/images/1 (1).png',
   '/images/1 (3).png',
   '/images/1 (11).jpg.jpeg',
   '/images/1 (14).jpg.jpeg',

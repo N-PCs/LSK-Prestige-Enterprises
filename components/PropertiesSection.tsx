@@ -12,8 +12,8 @@ const PropertyCard: React.FC<{ property: Property }> = ({ property }) => (
         className="w-full h-48 sm:h-64 md:h-80 object-cover group-hover:scale-105 transition-transform duration-1000"
         src={property.image}
       />
-      <div className="absolute top-5 left-5 bg-black/80 backdrop-blur-sm text-white text-[9px] font-bold px-4 py-1.5 rounded-sm uppercase tracking-[0.2em]">
-        {property.badge || 'New Listing'}
+      <div className="absolute top-5 left-5 backdrop-blur-sm text-white text-[9px] font-bold px-4 py-1.5 rounded-sm uppercase tracking-[0.2em]">
+        {property.badge}
       </div>
     </div>
 

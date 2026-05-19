@@ -79,7 +79,6 @@ export const PROPERTIES: Property[] = [
       'Villa Colva offers luxury living in the peaceful coastal village of Colva, blending modern amenities with traditional Goan charm. The project features 9 plots with both 3BHK and 4BHK villas designed for contemporary living.',
     projectStatus: 'Completed (sold out)',
     features: ['Private Garden', 'Swimming Pool', 'Car Parking'],
-    badge: "Completed",
     locationAdvantages: [
       'Nestled in Colva, a peaceful coastal village',
       'Close to vibrant tourist life yet maintains calm of true Goan living',
