@@ -4,26 +4,26 @@ import { LEADERS } from '../constants';
 
 const LeadersSection: React.FC = () => {
   return (
-    <section className="py-12 md:py-16 px-4 bg-white dark:bg-[#0a0a0a] overflow-hidden" id="leadership">
+    <section className="py-20 md:py-28 px-6 lg:px-8 bg-white dark:bg-[#0a0a0a] overflow-hidden" id="leadership">
       <div className="max-w-7xl mx-auto">
-        <div className="mb-10 md:mb-12 flex flex-col md:flex-row md:items-end justify-between gap-8">
+        <div className="mb-10 md:mb-12 flex flex-col md:flex-row md:items-end justify-between gap-8 border-b border-gray-100 dark:border-gray-900 pb-6">
           <div className="text-left">
             <motion.span 
               initial={{ opacity: 0, y: 10 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="text-primary font-bold tracking-[0.4em] text-[15px] uppercase mb-4 block"
+              className="text-[10px] sm:text-xs font-bold uppercase tracking-[0.3em] text-[#E06A55] block mb-2"
             >
-              Our Leadership
+              OUR LEADERSHIP
             </motion.span>
             <motion.h2 
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.1 }}
               viewport={{ once: true }}
-              className="font-display text-3xl md:text-4xl lg:text-4xl text-black dark:text-white leading-tight italic font-medium"
+              className="font-display text-3xl md:text-4xl text-black dark:text-white font-medium leading-tight"
             >
-              Visionaries Behind the <br className="hidden md:block" /> LSK Prestige Legacy
+              Visionaries Behind the LSK Prestige Legacy
             </motion.h2>
           </div>
         </div>

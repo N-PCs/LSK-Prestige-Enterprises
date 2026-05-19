@@ -11,6 +11,7 @@ import Footer from './components/Footer';
 import FloatingActions from './components/FloatingActions';
 import PropertyInfo from './components/PropertyInfo';
 import { ProjectsGallerySection } from './components/ProjectsGallery';
+import CtaSection from './components/CtaSection';
 
 const HomePage: React.FC = () => (
   <>
@@ -22,6 +23,7 @@ const HomePage: React.FC = () => (
       <PropertiesSection />
       <ProjectsGallerySection />
       <ServicesSection />
+      <CtaSection />
     </main>
     <Footer />
     <FloatingActions />

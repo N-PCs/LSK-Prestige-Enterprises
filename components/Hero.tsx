@@ -1,3 +1,4 @@
+import { header } from 'framer-motion/client';
 import React, { useRef, useEffect, useState } from 'react';
 
 const Hero: React.FC = () => {
@@ -60,7 +61,7 @@ const Hero: React.FC = () => {
     const handleMouseMove = (e: MouseEvent) => {
       window.requestAnimationFrame(() => {
         if (!isHovering) return;
-        
+
         const { left, top, width, height } = container.getBoundingClientRect();
         const x = (e.clientX - left) / width;
         const y = (e.clientY - top) / height;
@@ -110,27 +111,28 @@ const Hero: React.FC = () => {
   return (
     <header
       ref={containerRef}
-      className="relative min-h-screen pt-20 flex items-center justify-center overflow-hidden cursor-default group"
+      className="relative min-h-screen pt-20 flex items-center overflow-hidden cursor-default"
       id="home"
     >
       <img
         ref={imageRef}
-        alt="Aerial View Of Beach"
+        alt="Luxury Penthouse Overlooking Ocean"
         className="absolute inset-0 w-full h-full object-cover scale-105"
-        src="/images/aerial-view-beachhouse.jpg"
+        src="/images/luxury_penthouse_hero.png"
       />
-      <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/70"></div>
+      {/* Subtle overlay to enhance text readability while maintaining bright, premium view */}
+      <div className="absolute inset-0 bg-black/35 dark:bg-black/60"></div>
 
-      <div className="relative z-10 text-center px-4 max-w-5xl">
-        <h1 className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-white mb-6 sm:mb-8 leading-[1.1] tracking-tight">
-          Discover Modern And <br />
-          <span className="text-primary italic">Exquisite</span> Living
-        </h1>
-        <div className="w-16 sm:w-20 h-[2px] bg-primary mx-auto mb-8 sm:mb-10"></div>
-        <p className="text-white/80 text-base sm:text-lg md:text-xl mb-12 sm:mb-16 max-w-2xl mx-auto font-light leading-relaxed tracking-wide">
-          Curating high-quality developments for the discerning lifestyle. Where
-          architectural integrity meets refined elegance.
-        </p>
+      <div className="relative z-10 w-full max-w-7xl mx-auto px-6 lg:px-8 grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12 items-center text-white mt-12 md:mt-20">
+        {/* Left Side: Editorial Serif Heading */}
+        <div className="col-span-1 md:col-span-7">
+          <h1 className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-[1.08] tracking-tight font-medium">
+            Defining the <br />
+            <span className="text-[#E06A58] italic font-normal">Legacy</span> of <br />
+            Living.
+          </h1>
+        </div>
+
       </div>
     </header>
   );
