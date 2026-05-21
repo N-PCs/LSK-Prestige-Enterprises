@@ -3,13 +3,13 @@ import React from 'react';
 const Hero: React.FC = () => {
   return (
     <header
-      className="relative w-full min-h-[80vh] md:min-h-[85vh] lg:min-h-[90vh] flex items-center overflow-hidden cursor-default pt-20"
+      className="relative w-full mt-20 min-h-[80vh] md:min-h-[85vh] lg:min-h-[90vh] flex items-center overflow-hidden cursor-default pt-20"
       id="home"
     >
       <img
         alt="Luxury Penthouse Overlooking Ocean"
         className="absolute inset-0 w-full h-full object-cover"
-        src="/images/arambol.jpg"
+        src="/images/arambol.png"
       />
       {/* Subtle overlay to enhance text readability while maintaining bright, premium view */}
       <div className="absolute inset-0 bg-black/35 dark:bg-black/60"></div>

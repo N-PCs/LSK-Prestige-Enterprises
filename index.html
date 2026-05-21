@@ -1,117 +1,100 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title>LSK Prestige | Real Estate Developers</title>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!-- ================= FAVICON ================= -->
-    <link
-      rel="apple-touch-icon"
-      sizes="180x180"
-      href="/images/favicon/apple-touch-icon.png"
-    />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="32x32"
-      href="/images/favicon/favicon-32x32.png"
-    />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="16x16"
-      href="/images/favicon/favicon-16x16.png"
-    />
-    <link rel="manifest" href="/images/favicon/site.webmanifest" />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="192x192"
-      href="/images/favicon/android-chrome-192x192.png"
-    />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="512x512"
-      href="/images/favicon/android-chrome-512x512.png"
-    />
-    <meta name="theme-color" content="#121212" />
-    <!-- =========================================== -->
+  <title>LSK Prestige | Real Estate Developers</title>
 
-    <!-- Google Fonts -->
-    <link
-      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,700&family=Inter:wght@300;400;500;600;700&display=swap"
-      rel="stylesheet"
-    />
+  <!-- ================= FAVICON ================= -->
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon/favicon-16x16.png" />
+  <link rel="emanifest" href="/images/favicon/site.webmanifest" />
+  <link rel="icon" type="image/png" sizes="192x192" href="/images/favicon/android-chrome-192x192.png" />
+  <link rel="icon" type="image/png" sizes="512x512" href="/images/favicon/android-chrome-512x512.png" />
+  <meta name="theme-color" content="#121212" />
+  <!-- =========================================== -->
 
-    <!-- Material Icons -->
-    <link
-      href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined"
-      rel="stylesheet"
-    />
+  <!-- Google Fonts -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,700&family=Inter:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet" />
 
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+  <!-- Material Icons -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet" />
 
-    <script>
-      tailwind.config = {
-        darkMode: 'class',
-        theme: {
-          extend: {
-            colors: {
-              primary: '#D25442', // Premium Coral Red
-              secondary: '#1A1110', // Dark Charcoal
-              'background-light': '#FFFFFF',
-              'background-dark': '#0a0a0a',
-            },
-            fontFamily: {
-              display: ['Playfair Display', 'serif'],
-              body: ['Inter', 'sans-serif'],
-            },
-            borderRadius: {
-              DEFAULT: '0px', // Minimalist square corners
-            },
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            primary: '#D25442', // Premium Coral Red
+            secondary: '#1A1110', // Dark Charcoal
+            'background-light': '#FFFFFF',
+            'background-dark': '#0a0a0a',
+          },
+          fontFamily: {
+            display: ['Playfair Display', 'serif'],
+            body: ['Inter', 'sans-serif'],
+          },
+          borderRadius: {
+            DEFAULT: '0px', // Minimalist square corners
           },
         },
-      };
-    </script>
+      },
+    };
+  </script>
 
-    <style>
-      body {
-        font-family: 'Inter', sans-serif;
-      }
-      .font-display {
-        font-family: 'Playfair Display', serif;
-      }
-      .sticky-header {
-        backdrop-filter: blur(12px);
-        -webkit-backdrop-filter: blur(12px);
-      }
-      .custom-shadow {
-        box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.08);
-      }
-      html {
-        scroll-behavior: smooth;
-      }
-      /* Custom Scrollbar */
-      ::-webkit-scrollbar {
-        display: none;
-      }
-      body, html {
-        -ms-overflow-style: none; /* IE and Edge */
-        scrollbar-width: none; /* Firefox */
-      }
-      .luxury-text-gradient {
-        background: linear-gradient(to right, #d4af37, #f5e050, #d4af37);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-      }
-    </style>
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+    }
 
-    <!-- React Import Map -->
-    <script type="importmap">
+    .font-display {
+      font-family: 'Playfair Display', serif;
+    }
+
+    .sticky-header {
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+    }
+
+    .custom-shadow {
+      box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.08);
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar {
+      display: none;
+    }
+
+    body,
+    html {
+      -ms-overflow-style: none;
+      /* IE and Edge */
+      scrollbar-width: none;
+      /* Firefox */
+    }
+
+    .luxury-text-gradient {
+      background: linear-gradient(to right, #d4af37, #f5e050, #d4af37);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+  </style>
+
+  <!-- React Import Map -->
+  <script type="importmap">
       {
         "imports": {
           "react": "https://esm.sh/react@19.0.0",
@@ -124,16 +107,16 @@
       }
     </script>
 
-    <!-- App CSS -->
-    <link rel="stylesheet" href="/index.css" />
-  </head>
+  <!-- App CSS -->
+  <link rel="stylesheet" href="/index.css" />
+</head>
 
-  <body
-    class="bg-background-light dark:bg-background-dark text-slate-800 dark:text-slate-200 transition-colors duration-300"
-  >
-    <div id="root"></div>
+<body
+  class="bg-background-light dark:bg-background-dark text-slate-800 dark:text-slate-200 transition-colors duration-300">
+  <div id="root"></div>
 
-    <!-- App Entry -->
-    <script type="module" src="/index.tsx"></script>
-  </body>
+  <!-- App Entry -->
+  <script type="module" src="/index.tsx"></script>
+</body>
+
 </html>
