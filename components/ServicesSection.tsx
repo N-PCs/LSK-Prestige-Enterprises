@@ -32,11 +32,10 @@ const ServicesSection: React.FC = () => {
             return (
               <div key={service.id} className="group cursor-default relative">
                 <div
-                  className={`mb-5 w-10 h-10 sm:w-12 sm:h-12 rounded-full flex items-center justify-center transition-all duration-500 group-hover:scale-110 shadow-sm border ${
-                    isEven
+                  className={`mb-5 w-10 h-10 sm:w-12 sm:h-12 rounded-full flex items-center justify-center transition-all duration-500 group-hover:scale-110 shadow-sm border ${isEven
                       ? 'bg-black/5 dark:bg-white/10 text-black dark:text-white group-hover:bg-black dark:group-hover:bg-white group-hover:text-white dark:group-hover:text-black border-black/5 dark:border-white/10'
                       : 'bg-primary/5 dark:bg-primary/10 text-primary group-hover:bg-primary group-hover:text-white border-primary/10'
-                  }`}
+                    }`}
                 >
                   {IconComponent && <IconComponent className="w-4 h-4 sm:w-5 sm:h-5" />}
                 </div>

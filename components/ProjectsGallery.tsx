@@ -26,7 +26,7 @@ export const ProjectsGallerySection: React.FC = () => {
     <section id="projects-gallery" className="py-20 md:py-28 bg-white dark:bg-[#0a0a0a]">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="text-left mb-12 border-b border-gray-100 dark:border-gray-900 pb-6">
-          <span className="text-[10px] sm:text-xs font-bold uppercase tracking-[0.3em] text-gray-400 dark:text-gray-500 block mb-2">
+          <span className="text-[10px] sm:text-xs font-bold uppercase tracking-[0.3em] text-[#E06A55] dark:text-gray-500 block mb-2">
             THE ARCHIVE
           </span>
           <h2 className="font-display text-3xl md:text-4xl text-black dark:text-white font-medium">

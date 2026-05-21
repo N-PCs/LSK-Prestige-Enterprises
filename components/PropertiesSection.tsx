@@ -61,8 +61,8 @@ const PropertiesSection: React.FC = () => {
         {/* Section Header with Left-Aligned Title and Right-Aligned Buttons */}
         <div className="flex flex-row justify-between items-end mb-12 border-b border-gray-100 dark:border-gray-900 pb-6">
           <div className="text-left">
-            <span className="text-[10px] sm:text-xs font-bold uppercase tracking-[0.3em] text-gray-400 dark:text-gray-500 block mb-2">
-              THE GALLERY
+            <span className="text-[10px] sm:text-xs font-bold uppercase tracking-[0.3em] text-[#E06A55] dark:text-gray-500 block mb-2">
+              THE PROPERTIES
             </span>
             <h2 className="font-display text-3xl md:text-4xl text-black dark:text-white font-medium">
               Private Collections
