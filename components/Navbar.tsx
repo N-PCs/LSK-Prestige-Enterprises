@@ -86,19 +86,25 @@ const Navbar: React.FC = () => {
           {/* Desktop Navigation */}
           <div className="hidden md:flex space-x-8 lg:space-x-12 items-center">
             <a
-              className="text-[11px] font-medium uppercase tracking-[0.2em] text-gray-500 hover:text-black dark:text-gray-400 dark:hover:text-white transition-colors"
+              className="text-[12px] font-medium uppercase tracking-[0.2em] text-gray-500 hover:text-black dark:text-gray-400 dark:hover:text-white transition-colors"
               href="/#about"
             >
               Architectural Vision
             </a>
             <a
-              className="text-[11px] font-medium uppercase tracking-[0.2em] text-gray-500 hover:text-black dark:text-gray-400 dark:hover:text-white transition-colors"
+              className="text-[12px] font-medium uppercase tracking-[0.2em] text-gray-500 hover:text-black dark:text-gray-400 dark:hover:text-white transition-colors"
+              href="/#leadership"
+            >
+              Leadership
+            </a>
+            <a
+              className="text-[12px] font-medium uppercase tracking-[0.2em] text-gray-500 hover:text-black dark:text-gray-400 dark:hover:text-white transition-colors"
               href="/#properties"
             >
               Private Collections
             </a>
             <a
-              className="text-[11px] font-medium uppercase tracking-[0.2em] text-gray-500 hover:text-black dark:text-gray-400 dark:hover:text-white transition-colors"
+              className="text-[12px] font-medium uppercase tracking-[0.2em] text-gray-500 hover:text-black dark:text-gray-400 dark:hover:text-white transition-colors"
               href="/#projects-gallery"
             >
               Gallery

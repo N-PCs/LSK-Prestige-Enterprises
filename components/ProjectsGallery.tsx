@@ -36,7 +36,7 @@ export const ProjectsGallerySection: React.FC = () => {
 
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 justify-center">
           {projectsImages.map((src, index) => (
-            <div key={index} className="overflow-hidden rounded-2xl group relative shadow-2xl bg-gray-100 dark:bg-gray-800 border border-gray-200 dark:border-gray-800 max-w-xs mx-auto w-full">
+            <div key={index} className="overflow-hidden group relative shadow-2xl bg-gray-100 dark:bg-gray-800 border border-gray-200 dark:border-gray-800 max-w-xs mx-auto w-full">
               <div className="relative w-full aspect-[4/3] md:aspect-[3/2] lg:aspect-[16/10]">
                 <img
                   src={src}
