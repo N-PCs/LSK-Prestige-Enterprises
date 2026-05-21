@@ -273,11 +273,10 @@ const PropertyInfo: React.FC = () => {
                     <button
                       key={index}
                       onClick={() => goToImage(index)}
-                      className={`flex-shrink-0 w-12 h-12 sm:w-16 sm:h-16 md:w-20 md:h-20 rounded-lg overflow-hidden border-2 transition-all ${
-                        currentImageIndex === index
+                      className={`flex-shrink-0 w-12 h-12 sm:w-16 sm:h-16 md:w-20 md:h-20 rounded-lg overflow-hidden border-2 transition-all ${currentImageIndex === index
                           ? 'border-primary scale-105 ring-2 ring-primary/30'
                           : 'border-transparent hover:border-gray-300'
-                      }`}
+                        }`}
                     >
                       <img
                         src={image}
