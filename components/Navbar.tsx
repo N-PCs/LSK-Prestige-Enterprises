@@ -1,40 +1,55 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 
 const Navbar: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isVisible, setIsVisible] = useState(true);
-  const [lastScrollY, setLastScrollY] = useState(0);
-  const [isMobile, setIsMobile] = useState(false);
+
+  const lastScrollYRef = useRef(0);
+  const isMenuOpenRef = useRef(isMenuOpen);
+  const isMobileRef = useRef(false);
+
+  // Keep ref in sync with state
+  useEffect(() => {
+    isMenuOpenRef.current = isMenuOpen;
+  }, [isMenuOpen]);
 
   useEffect(() => {
     const mq = window.matchMedia('(max-width: 767px)');
-    const handler = (e: MediaQueryListEvent | MediaQueryList) => setIsMobile(e.matches);
+    const handler = (e: MediaQueryListEvent | MediaQueryList) => {
+      isMobileRef.current = e.matches;
+    };
     handler(mq);
     mq.addEventListener('change', handler);
     return () => mq.removeEventListener('change', handler);
   }, []);
 
-  const controlNavbar = useCallback(() => {
-    // On mobile, navbar stays visible — no mouse to bring it back
-    if (isMobile) {
-      setIsVisible(true);
-      return;
-    }
-
-    const currentScrollY = window.scrollY;
-
-    if (currentScrollY < 80) {
-      setIsVisible(true);
-    } else if (!isMenuOpen) {
-      setIsVisible(false);
-    }
-
-    setLastScrollY(currentScrollY);
-  }, [isMenuOpen, isMobile]);
-
   useEffect(() => {
     let ticking = false;
+
+    const controlNavbar = () => {
+      const currentScrollY = window.scrollY;
+      const lastScrollY = lastScrollYRef.current;
+      const isMenuOpen = isMenuOpenRef.current;
+
+      if (isMenuOpen) {
+        setIsVisible(true);
+        lastScrollYRef.current = currentScrollY;
+        return;
+      }
+
+      if (currentScrollY < 80) {
+        setIsVisible(true);
+      } else if (currentScrollY > lastScrollY) {
+        // Scrolling down -> hide navbar
+        setIsVisible(false);
+      } else {
+        // Scrolling up -> show navbar
+        setIsVisible(true);
+      }
+
+      lastScrollYRef.current = currentScrollY;
+    };
 
     const onScroll = () => {
       if (!ticking) {
@@ -47,17 +62,12 @@ const Navbar: React.FC = () => {
     };
 
     const onMouseMove = (e: MouseEvent) => {
+      if (isMobileRef.current) return; // Disable touch-emulated hover trigger on mobile
       if (ticking) return;
       ticking = true;
       window.requestAnimationFrame(() => {
-        const currentScrollY = window.scrollY;
-
-        if (currentScrollY < 80) {
+        if (e.clientY < 80) {
           setIsVisible(true);
-        } else if (e.clientY < 100) {
-          setIsVisible(true);
-        } else if (!isMenuOpen) {
-          setIsVisible(false);
         }
         ticking = false;
       });
@@ -69,7 +79,7 @@ const Navbar: React.FC = () => {
       window.removeEventListener('scroll', onScroll);
       window.removeEventListener('mousemove', onMouseMove);
     };
-  }, [controlNavbar, isMenuOpen]);
+  }, []);
 
   return (
     <motion.nav
