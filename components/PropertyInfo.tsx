@@ -16,6 +16,7 @@ const PropertyInfo: React.FC = () => {
 
   // Find the property by ID
   const property = PROPERTIES.find((p) => p.id === id);
+  const isSoldOut = property?.badge === 'Completed (sold out)' || property?.price === 'Sold Out' || property?.projectStatus === 'Completed (sold out)';
 
   // Scroll to top when component mounts or property changes
   useEffect(() => {
@@ -156,8 +157,7 @@ const PropertyInfo: React.FC = () => {
                 </div>
               </div>
               <div>
-                {property.badge === "Completed" ? (
-                  /* Badge hidden on mobile (hidden), visible on tablets/desktops (md:block) */
+                {isSoldOut ? (
                   <div className="hidden md:block bg-red-500 text-white font-display font-bold text-lg sm:text-xl px-4 py-2.5 rounded whitespace-nowrap">
                     Sold Out
                   </div>
@@ -349,12 +349,12 @@ const PropertyInfo: React.FC = () => {
                 </div>
               </div>
 
-              {property.badge !== "Completed" && (
+              {!isSoldOut && (
                 <div className="bg-primary/10 dark:bg-primary/20 rounded-2xl p-6">
                   <h3 className="font-display text-xl text-black dark:text-white mb-4">Interested?</h3>
                   <p className="text-gray-600 dark:text-gray-400 mb-6">Contact us for a private viewing or more information.</p>
                   <a
-                    href="/#contact"
+                    href="#contact"
                     className="block w-full bg-primary text-white py-3 rounded-lg font-semibold hover:bg-primary/90 transition-colors text-center"
                   >
                     Schedule a Viewing

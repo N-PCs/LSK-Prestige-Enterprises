@@ -53,26 +53,6 @@ const Footer: React.FC = () => {
 
         {/* Column 3: Journal & Socials */}
         <div className="text-left">
-          <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-gray-400 dark:text-gray-500 block mb-6">
-            JOURNAL
-          </span>
-          <ul className="space-y-3 text-xs font-medium uppercase tracking-[0.15em] text-gray-500 dark:text-gray-400">
-            <li>
-              <a href="/#contact" className="hover:text-black dark:hover:text-white transition-colors">
-                Newsletter
-              </a>
-            </li>
-            <li>
-              <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="hover:text-black dark:hover:text-white transition-colors">
-                Instagram
-              </a>
-            </li>
-            <li>
-              <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="hover:text-black dark:hover:text-white transition-colors">
-                LinkedIn
-              </a>
-            </li>
-          </ul>
         </div>
 
         {/* Column 4: Contact Information (Keeps all original data intact) */}
@@ -106,7 +86,7 @@ const Footer: React.FC = () => {
 
       {/* Copyright Footer Bar */}
       <div className="max-w-7xl mx-auto px-6 lg:px-8 pt-8 mt-8 border-t border-gray-200/50 dark:border-gray-900/50 flex flex-col sm:flex-row justify-between items-center gap-4 text-gray-400 dark:text-gray-500 text-[10px] font-medium uppercase tracking-[0.2em]">
-        <span>© {new Date().getFullYear()} LSK PRESTIGE. ARCHITECTURAL CURATORS.</span>
+        <span>© {new Date().getFullYear()} LSK PRESTIGE ENTERPRISES. ALL RIGHTS RESERVED.</span>
         <span>Crafted for Excellence.</span>
       </div>
     </footer>

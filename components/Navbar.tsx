@@ -117,8 +117,15 @@ const Navbar: React.FC = () => {
             </a>
           </div>
 
-          {/* Mobile Menu Button */}
-          <div className="md:hidden flex items-center">
+          {/* Mobile Phone + Menu */}
+          <div className="md:hidden flex items-center gap-1">
+            <a
+              href="tel:+919503411509"
+              className="text-gray-600 dark:text-gray-400 p-2 hover:text-black dark:hover:text-white transition-colors"
+              aria-label="Call LSK Prestige"
+            >
+              <span className="material-icons-outlined text-2xl">phone</span>
+            </a>
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               className="text-gray-600 dark:text-gray-400 p-2 focus:outline-none"
@@ -147,6 +154,13 @@ const Navbar: React.FC = () => {
             >
               Architectural Vision
             </a>
+                        <a
+              className="block text-xs font-medium uppercase tracking-[0.2em] py-2 text-gray-600 dark:text-gray-400 hover:text-black dark:hover:text-white transition-colors"
+              href="/#leadership"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              Leadership
+            </a>
             <a
               className="block text-xs font-medium uppercase tracking-[0.2em] py-2 text-gray-600 dark:text-gray-400 hover:text-black dark:hover:text-white transition-colors"
               href="/#properties"
@@ -160,20 +174,6 @@ const Navbar: React.FC = () => {
               onClick={() => setIsMenuOpen(false)}
             >
               Portfolio
-            </a>
-            <a
-              className="block text-xs font-medium uppercase tracking-[0.2em] py-2 text-gray-600 dark:text-gray-400 hover:text-black dark:hover:text-white transition-colors"
-              href="/#contact"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              Inquire
-            </a>
-            <a
-              className="block bg-[#D25442] text-white px-4 py-3 rounded-none text-xs uppercase tracking-[0.2em] font-semibold text-center hover:bg-[#b84433] transition-colors mt-4"
-              href="/#contact"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              GET A QUOTE
             </a>
           </motion.div>
         )}
