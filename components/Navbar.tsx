@@ -1,25 +1,37 @@
 import React, { useState, useEffect, useCallback } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 
 const Navbar: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isVisible, setIsVisible] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const mq = window.matchMedia('(max-width: 767px)');
+    const handler = (e: MediaQueryListEvent | MediaQueryList) => setIsMobile(e.matches);
+    handler(mq);
+    mq.addEventListener('change', handler);
+    return () => mq.removeEventListener('change', handler);
+  }, []);
 
   const controlNavbar = useCallback(() => {
+    // On mobile, navbar stays visible — no mouse to bring it back
+    if (isMobile) {
+      setIsVisible(true);
+      return;
+    }
+
     const currentScrollY = window.scrollY;
 
-    // Always show at the top
     if (currentScrollY < 80) {
       setIsVisible(true);
-    }
-    // Otherwise only update if visibility needs to change
-    else if (!isMenuOpen) {
+    } else if (!isMenuOpen) {
       setIsVisible(false);
     }
 
     setLastScrollY(currentScrollY);
-  }, [isMenuOpen]);
+  }, [isMenuOpen, isMobile]);
 
   useEffect(() => {
     let ticking = false;
@@ -35,25 +47,24 @@ const Navbar: React.FC = () => {
     };
 
     const onMouseMove = (e: MouseEvent) => {
-      if (!ticking) {
-        window.requestAnimationFrame(() => {
-          const currentScrollY = window.scrollY;
+      if (ticking) return;
+      ticking = true;
+      window.requestAnimationFrame(() => {
+        const currentScrollY = window.scrollY;
 
-          if (currentScrollY < 80) {
-            setIsVisible(true);
-          } else if (e.clientY < 100) {
-            setIsVisible(true);
-          } else if (!isMenuOpen) {
-            setIsVisible(false);
-          }
-          ticking = false;
-        });
-        ticking = true;
-      }
+        if (currentScrollY < 80) {
+          setIsVisible(true);
+        } else if (e.clientY < 100) {
+          setIsVisible(true);
+        } else if (!isMenuOpen) {
+          setIsVisible(false);
+        }
+        ticking = false;
+      });
     };
 
-    window.addEventListener('scroll', onScroll);
-    window.addEventListener('mousemove', onMouseMove);
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('mousemove', onMouseMove, { passive: true });
     return () => {
       window.removeEventListener('scroll', onScroll);
       window.removeEventListener('mousemove', onMouseMove);
@@ -139,45 +150,42 @@ const Navbar: React.FC = () => {
       </div>
 
       {/* Mobile Menu */}
-      <AnimatePresence>
-        {isMenuOpen && (
-          <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: 'auto' }}
-            exit={{ opacity: 0, height: 0 }}
-            className="md:hidden bg-white dark:bg-[#0a0a0a] px-6 pb-6 space-y-4 overflow-hidden border-t border-gray-100 dark:border-gray-900"
+      <div
+        className={`md:hidden overflow-hidden transition-all duration-300 ease-out ${
+          isMenuOpen ? 'max-h-80 opacity-100' : 'max-h-0 opacity-0'
+        }`}
+      >
+        <div className="bg-white dark:bg-[#0a0a0a] px-6 pb-6 space-y-4 border-t border-gray-100 dark:border-gray-900">
+          <a
+            className="block text-xs font-medium uppercase tracking-[0.2em] py-2 px-3 -mx-3 rounded text-gray-600 dark:text-gray-400 hover:text-black dark:hover:text-white active:bg-gray-100 dark:active:bg-gray-800 active:scale-[0.97] transition-all duration-150"
+            href="/#about"
+            onClick={() => setIsMenuOpen(false)}
           >
-            <a
-              className="block text-xs font-medium uppercase tracking-[0.2em] py-2 text-gray-600 dark:text-gray-400 hover:text-black dark:hover:text-white transition-colors"
-              href="/#about"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              Architectural Vision
-            </a>
-                        <a
-              className="block text-xs font-medium uppercase tracking-[0.2em] py-2 text-gray-600 dark:text-gray-400 hover:text-black dark:hover:text-white transition-colors"
-              href="/#leadership"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              Leadership
-            </a>
-            <a
-              className="block text-xs font-medium uppercase tracking-[0.2em] py-2 text-gray-600 dark:text-gray-400 hover:text-black dark:hover:text-white transition-colors"
-              href="/#properties"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              Private Collection
-            </a>
-            <a
-              className="block text-xs font-medium uppercase tracking-[0.2em] py-2 text-gray-600 dark:text-gray-400 hover:text-black dark:hover:text-white transition-colors"
-              href="/#projects-gallery"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              Gallery
-            </a>
-          </motion.div>
-        )}
-      </AnimatePresence>
+            Architectural Vision
+          </a>
+          <a
+            className="block text-xs font-medium uppercase tracking-[0.2em] py-2 px-3 -mx-3 rounded text-gray-600 dark:text-gray-400 hover:text-black dark:hover:text-white active:bg-gray-100 dark:active:bg-gray-800 active:scale-[0.97] transition-all duration-150"
+            href="/#leadership"
+            onClick={() => setIsMenuOpen(false)}
+          >
+            Leadership
+          </a>
+          <a
+            className="block text-xs font-medium uppercase tracking-[0.2em] py-2 px-3 -mx-3 rounded text-gray-600 dark:text-gray-400 hover:text-black dark:hover:text-white active:bg-gray-100 dark:active:bg-gray-800 active:scale-[0.97] transition-all duration-150"
+            href="/#properties"
+            onClick={() => setIsMenuOpen(false)}
+          >
+            Private Collection
+          </a>
+          <a
+            className="block text-xs font-medium uppercase tracking-[0.2em] py-2 px-3 -mx-3 rounded text-gray-600 dark:text-gray-400 hover:text-black dark:hover:text-white active:bg-gray-100 dark:active:bg-gray-800 active:scale-[0.97] transition-all duration-150"
+            href="/#projects-gallery"
+            onClick={() => setIsMenuOpen(false)}
+          >
+            Gallery
+          </a>
+        </div>
+      </div>
     </motion.nav>
   );
 };
