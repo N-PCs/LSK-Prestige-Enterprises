@@ -7,19 +7,25 @@ const Navbar: React.FC = () => {
   const [lastScrollY, setLastScrollY] = useState(0);
 
   const controlNavbar = useCallback(() => {
+    const isDesktop = window.innerWidth >= 768;
+    if (!isDesktop) {
+      setIsVisible(true);
+      return;
+    }
+
     const currentScrollY = window.scrollY;
-    
-    // Always show at the top
+    // Show navbar when scrolling up or at top, hide when scrolling down (if menu not open)
     if (currentScrollY < 80) {
       setIsVisible(true);
-    } 
-    // Otherwise only update if visibility needs to change
-    else if (!isMenuOpen) {
-      setIsVisible(false);
+    } else if (!isMenuOpen) {
+      if (currentScrollY > lastScrollY) {
+        setIsVisible(false);
+      } else {
+        setIsVisible(true);
+      }
     }
-    
     setLastScrollY(currentScrollY);
-  }, [isMenuOpen]);
+  }, [isMenuOpen, lastScrollY]);
 
   useEffect(() => {
     let ticking = false;
@@ -35,6 +41,8 @@ const Navbar: React.FC = () => {
     };
 
     const onMouseMove = (e: MouseEvent) => {
+      if (window.innerWidth < 768) return;
+
       if (!ticking) {
         window.requestAnimationFrame(() => {
           const currentScrollY = window.scrollY;
@@ -138,7 +146,7 @@ const Navbar: React.FC = () => {
             {/* Mobile Menu Button */}
             <div className="md:hidden flex items-center">
               <button
-                onClick={() => setIsMenuOpen(!isMenuOpen)}
+                onClick={() => setIsMenuOpen(prev => !prev)}
                 className="text-gray-600 dark:text-gray-400 p-1.5 sm:p-2"
               >
                 <span className="material-icons-outlined text-xl sm:text-2xl">
