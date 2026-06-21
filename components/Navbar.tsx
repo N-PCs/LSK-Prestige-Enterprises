@@ -101,7 +101,7 @@ const Navbar: React.FC = () => {
               className="text-[12px] font-medium uppercase tracking-[0.2em] text-gray-500 hover:text-black dark:text-gray-400 dark:hover:text-white transition-colors"
               href="/#properties"
             >
-              Private Collections
+              Private Collection
             </a>
             <a
               className="text-[12px] font-medium uppercase tracking-[0.2em] text-gray-500 hover:text-black dark:text-gray-400 dark:hover:text-white transition-colors"
@@ -166,14 +166,14 @@ const Navbar: React.FC = () => {
               href="/#properties"
               onClick={() => setIsMenuOpen(false)}
             >
-              Private Collections
+              Private Collection
             </a>
             <a
               className="block text-xs font-medium uppercase tracking-[0.2em] py-2 text-gray-600 dark:text-gray-400 hover:text-black dark:hover:text-white transition-colors"
               href="/#projects-gallery"
               onClick={() => setIsMenuOpen(false)}
             >
-              Portfolio
+              Gallery
             </a>
           </motion.div>
         )}

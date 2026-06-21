@@ -24,7 +24,7 @@ const Footer: React.FC = () => {
 
         {/* Column 2: Sitemap */}
         <div className="text-left mt-3">
-          <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-red-400 dark:text-red-500 block mb-6">
+          <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-red-400 dark:text-red-500 block mb-6">
             SITEMAP
           </span>
           <ul className="space-y-3 text-xs font-medium uppercase tracking-[0.15em] text-gray-500 dark:text-gray-400">
@@ -61,7 +61,7 @@ const Footer: React.FC = () => {
 
         {/* Column 4: Contact Information (Keeps all original data intact) */}
         <div className="text-left flex flex-col gap-4 w-[275px]">
-          <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-red-400 dark:text-red-500 block mb-2 mt-3">
+          <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-red-400 dark:text-red-500 block mb-2 mt-3">
             CONTACT
           </span>
           <ul className="space-y-4 text-sm sm:text-sm text-gray-500 dark:text-gray-400 font-light">
@@ -89,7 +89,7 @@ const Footer: React.FC = () => {
       </div>
 
       {/* Copyright Footer Bar */}
-      <div className="max-w-7xl mx-auto px-6 lg:px-8 pt-8 mt-8 border-t border-gray-200/50 dark:border-gray-900/50 flex flex-col sm:flex-row justify-between items-center gap-4 text-gray-400 dark:text-gray-500 text-[10px] font-medium uppercase tracking-[0.2em]">
+      <div className="max-w-7xl mx-auto px-6 lg:px-8 pt-8 mt-8 border-t border-gray-200/50 dark:border-red-900/50 flex flex-col sm:flex-row justify-between items-center gap-4 text-red-400 dark:text-red-500 text-[10px] font-medium uppercase tracking-[0.2em]">
         <span>© {new Date().getFullYear()} LSK PRESTIGE. ALL RIGHTS RESERVED.</span>
         <span>Crafted for Excellence.</span>
       </div>
