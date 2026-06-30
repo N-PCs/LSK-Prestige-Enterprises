@@ -4,6 +4,9 @@ A lightweight single-page marketing site built with Vite, React 19, and TypeScri
 
 **Tech stack:** Vite, React 19, TypeScript, Framer Motion, lucide-react.
 
+## Workflow diagram
+![workflow-diagram](worflow.png)
+
 ## Quick Start
 
 Prerequisites: Node.js (recommended 18+), npm or yarn.
