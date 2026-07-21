@@ -76,6 +76,24 @@ Key folders:
 
 The app is structured as a simple, component-driven marketing site. Components are small and focused on presentation. Use the `components/` folder as the main place to add or update UI features.
 
+## Screenshots
+
+<p align="center">
+  <img src="public/screenshots/hero.png" width="45%" alt="Hero Section" />
+  <img src="public/screenshots/about.png" width="45%" alt="About Section" />
+</p>
+
+<p align="center">
+  <img src="public/screenshots/property.png" width="45%" alt="Property Section" />
+  <img src="public/screenshots/propertyinfo.png" width="45%" alt="Property Info" />
+</p>
+
+<p align="center">
+  <img src="public/screenshots/gallery.png" width="45%" alt="Gallery Section" />
+  <img src="public/screenshots/leader.png" width="45%" alt="Leader Section" />
+</p>
+
+
 ## Development Notes
 
 - Uses React 19 and Vite 6.
