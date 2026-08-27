@@ -6,6 +6,11 @@ import Footer from './Footer';
 
 const PropertyInfo: React.FC = () => {
   const { id } = useParams<{ id: string }>();
+
+  // Find the property by ID
+  const property = PROPERTIES.find((p) => p.id === id);
+  const isSoldOut = property?.badge === 'Completed (sold out)' || property?.price === 'Sold Out' || property?.projectStatus === 'Completed (sold out)';
+
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);
   const [zoomLevel, setZoomLevel] = useState(1);
@@ -13,10 +18,30 @@ const PropertyInfo: React.FC = () => {
   const [panY, setPanY] = useState(0);
   const [isDragging, setIsDragging] = useState(false);
   const [dragStart, setDragStart] = useState({ x: 0, y: 0 });
+  const [imageAspectRatios, setImageAspectRatios] = useState<{ [key: string]: number }>({});
 
-  // Find the property by ID
-  const property = PROPERTIES.find((p) => p.id === id);
-  const isSoldOut = property?.badge === 'Completed (sold out)' || property?.price === 'Sold Out' || property?.projectStatus === 'Completed (sold out)';
+  // Preload gallery images to obtain their natural aspect ratios immediately
+  useEffect(() => {
+    if (!property?.gallery) return;
+    property.gallery.forEach((src) => {
+      const img = new Image();
+      img.src = src;
+      img.onload = () => {
+        if (img.naturalWidth && img.naturalHeight) {
+          const ratio = img.naturalWidth / img.naturalHeight;
+          setImageAspectRatios((prev) => (prev[src] === ratio ? prev : { ...prev, [src]: ratio }));
+        }
+      };
+    });
+  }, [property?.id]);
+
+  const handleImageLoad = useCallback((src: string, e: React.SyntheticEvent<HTMLImageElement>) => {
+    const { naturalWidth, naturalHeight } = e.currentTarget;
+    if (naturalWidth && naturalHeight) {
+      const ratio = naturalWidth / naturalHeight;
+      setImageAspectRatios((prev) => (prev[src] === ratio ? prev : { ...prev, [src]: ratio }));
+    }
+  }, []);
 
   // Scroll to top when component mounts or property changes
   useEffect(() => {
@@ -185,107 +210,118 @@ const PropertyInfo: React.FC = () => {
           </div>
 
           {/* Image Carousel */}
-          <div className="mb-12 sm:mb-14 md:mb-16">
-            <div className="relative rounded-2xl overflow-hidden custom-shadow bg-gray-100 dark:bg-gray-900">
-              <div className="relative h-64 sm:h-80 md:h-[400px] lg:h-[500px]">
-                {/* Main Image Container */}
-                <div
-                  className="relative h-full flex items-center justify-center overflow-hidden flex-col"
-                  onMouseDown={handleMouseDown}
-                  onMouseMove={handleMouseMove}
-                  onMouseUp={handleMouseUp}
-                  onMouseLeave={handleMouseUp}
-                  style={{ cursor: zoomLevel > 1 && isDragging ? 'grabbing' : (zoomLevel > 1 ? 'grab' : 'auto') }}
-                >
-                  <img
-                    src={property.gallery[currentImageIndex]}
-                    alt={`${property.title} - Image ${currentImageIndex + 1}`}
-                    className="max-w-full max-h-full object-contain transition-transform duration-200 select-none"
-                    style={{
-                      width: 'auto',
-                      height: 'auto',
-                      transform: `scale(${zoomLevel}) translate(${panX}px, ${panY}px)`,
-                      userSelect: 'none',
-                    }}
-                    draggable={false}
-                  />
-                </div>
+          <div className="mb-12 sm:mb-14 md:mb-16 flex flex-col items-center w-full">
+            {/* Outer Stationary Stage Container - NO background box */}
+            <div className="relative w-full h-[360px] sm:h-[480px] md:h-[560px] flex items-center justify-center overflow-hidden">
+              
+              {/* Centered Dynamic Image */}
+              <div
+                className="relative max-w-full max-h-full flex items-center justify-center overflow-hidden p-2 transition-all duration-300"
+                onMouseDown={handleMouseDown}
+                onMouseMove={handleMouseMove}
+                onMouseUp={handleMouseUp}
+                onMouseLeave={handleMouseUp}
+                style={{ cursor: zoomLevel > 1 && isDragging ? 'grabbing' : (zoomLevel > 1 ? 'grab' : 'auto') }}
+              >
+                <img
+                  key={property.gallery[currentImageIndex]}
+                  src={property.gallery[currentImageIndex]}
+                  alt={`${property.title} - Image ${currentImageIndex + 1}`}
+                  className="max-w-full max-h-[340px] sm:max-h-[460px] md:max-h-[540px] w-auto h-auto object-contain rounded-none shadow-2xl transition-transform duration-200 select-none block"
+                  style={{
+                    transform: `scale(${zoomLevel}) translate(${panX}px, ${panY}px)`,
+                    userSelect: 'none',
+                  }}
+                  draggable={false}
+                />
+              </div>
 
-                {/* Navigation Buttons */}
-                <button
-                  onClick={prevImage}
-                  className="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-black/70 backdrop-blur-sm text-white flex items-center justify-center hover:bg-black/90 transition-all z-10"
-                >
-                  <span className="material-icons-outlined">chevron_left</span>
-                </button>
-                <button
-                  onClick={nextImage}
-                  className="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-black/70 backdrop-blur-sm text-white flex items-center justify-center hover:bg-black/90 transition-all z-10"
-                >
-                  <span className="material-icons-outlined">chevron_right</span>
-                </button>
+              {/* Stationary Floating Previous Button */}
+              <button
+                onClick={prevImage}
+                aria-label="Previous Image"
+                className="absolute left-2 sm:left-6 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full bg-black/60 hover:bg-black/90 backdrop-blur-md text-white flex items-center justify-center transition-all z-20 shadow-xl border border-white/10 hover:scale-110"
+              >
+                <span className="material-icons-outlined text-2xl">chevron_left</span>
+              </button>
 
-                {/* Zoom Controls */}
-                <div className="absolute right-2 sm:right-4 bottom-2 sm:bottom-4 flex flex-row gap-1.5 sm:gap-2 z-10">
-                  <button
-                    onClick={zoomIn}
-                    disabled={zoomLevel >= 3}
-                    className="w-8 sm:w-10 h-8 sm:h-10 rounded-full bg-black/70 backdrop-blur-sm text-white flex items-center justify-center hover:bg-black/90 disabled:opacity-50"
-                  >
-                    <span className="material-icons-outlined text-sm sm:text-base">add</span>
-                  </button>
-                  <button
-                    onClick={zoomOut}
-                    disabled={zoomLevel <= 1}
-                    className="w-8 sm:w-10 h-8 sm:h-10 rounded-full bg-black/70 backdrop-blur-sm text-white flex items-center justify-center hover:bg-black/90 disabled:opacity-50"
-                  >
-                    <span className="material-icons-outlined text-sm sm:text-base">remove</span>
-                  </button>
-                </div>
+              {/* Stationary Floating Next Button */}
+              <button
+                onClick={nextImage}
+                aria-label="Next Image"
+                className="absolute right-2 sm:right-6 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full bg-black/60 hover:bg-black/90 backdrop-blur-md text-white flex items-center justify-center transition-all z-20 shadow-xl border border-white/10 hover:scale-110"
+              >
+                <span className="material-icons-outlined text-2xl">chevron_right</span>
+              </button>
 
-                {/* Zoom Percentage Display */}
+              {/* Stationary Floating Counter Badge (Top-Left) */}
+              <div className="absolute top-4 left-4 sm:left-6 bg-black/60 backdrop-blur-md text-white px-3.5 py-1.5 rounded-full text-xs font-semibold tracking-wide border border-white/10 z-20 shadow-lg flex items-center gap-1.5">
+                <span className="material-icons-outlined text-sm text-primary">collections</span>
+                {currentImageIndex + 1} / {property.gallery.length}
+              </div>
+
+              {/* Stationary Floating Controls (Top-Right: AutoPlay & Zoom) */}
+              <div className="absolute top-4 right-4 sm:right-6 flex items-center gap-2 z-20">
+                {/* Zoom Level Indicator */}
                 {zoomLevel > 1 && (
-                  <div className="absolute top-2 sm:top-4 left-2 sm:left-4 bg-black/70 backdrop-blur-sm text-white px-3 py-1.5 rounded-full text-xs font-medium z-10">
-                    Zoom: {Math.round(zoomLevel * 100)}%
+                  <div className="bg-black/60 backdrop-blur-md text-white px-3 py-1.5 rounded-full text-xs font-medium border border-white/10 shadow-lg">
+                    {Math.round(zoomLevel * 100)}%
                   </div>
                 )}
 
-                {/* Auto-play Toggle */}
+                {/* Zoom Out Button */}
+                <button
+                  onClick={zoomOut}
+                  disabled={zoomLevel <= 1}
+                  aria-label="Zoom Out"
+                  className="w-9 h-9 rounded-full bg-black/60 hover:bg-black/90 disabled:opacity-40 backdrop-blur-md text-white flex items-center justify-center transition-all border border-white/10 shadow-lg"
+                >
+                  <span className="material-icons-outlined text-sm sm:text-base">remove</span>
+                </button>
+
+                {/* Zoom In Button */}
+                <button
+                  onClick={zoomIn}
+                  disabled={zoomLevel >= 3}
+                  aria-label="Zoom In"
+                  className="w-9 h-9 rounded-full bg-black/60 hover:bg-black/90 disabled:opacity-40 backdrop-blur-md text-white flex items-center justify-center hover:scale-105 transition-all border border-white/10 shadow-lg"
+                >
+                  <span className="material-icons-outlined text-sm sm:text-base">add</span>
+                </button>
+
+                {/* Play/Pause Autoplay Toggle */}
                 <button
                   onClick={toggleAutoPlay}
-                  className="absolute top-2 sm:top-4 right-2 sm:right-4 w-8 sm:w-10 h-8 sm:h-10 rounded-full bg-black/70 backdrop-blur-sm text-white flex items-center justify-center hover:bg-black/90 z-10"
+                  aria-label={isAutoPlaying ? 'Pause Slideshow' : 'Play Slideshow'}
+                  className="w-9 h-9 rounded-full bg-black/60 hover:bg-black/90 backdrop-blur-md text-white flex items-center justify-center transition-all border border-white/10 shadow-lg"
                 >
                   <span className="material-icons-outlined text-sm sm:text-base">
                     {isAutoPlaying ? 'pause' : 'play_arrow'}
                   </span>
                 </button>
-
-                {/* Image Counter */}
-                <div className="absolute bottom-2 sm:bottom-4 left-2 sm:left-4 bg-black/70 backdrop-blur-sm text-white px-3 py-1.5 rounded-full text-xs font-medium z-10">
-                  {currentImageIndex + 1} / {property.gallery.length}
-                </div>
               </div>
+            </div>
 
-              {/* Thumbnail Strip */}
-              <div className="p-2 sm:p-4 bg-gray-50 dark:bg-gray-800">
-                <div className="flex gap-2 justify-center overflow-x-auto py-2">
-                  {property.gallery.map((image, index) => (
-                    <button
-                      key={index}
-                      onClick={() => goToImage(index)}
-                      className={`flex-shrink-0 w-12 h-12 sm:w-16 sm:h-16 md:w-20 md:h-20 rounded-lg overflow-hidden border-2 transition-all ${currentImageIndex === index
-                          ? 'border-primary scale-105 ring-2 ring-primary/30'
-                          : 'border-transparent hover:border-gray-300'
-                        }`}
-                    >
-                      <img
-                        src={image}
-                        alt={`Thumbnail ${index + 1}`}
-                        className="w-full h-full object-cover"
-                      />
-                    </button>
-                  ))}
-                </div>
+            {/* Floating Thumbnail Strip */}
+            <div className="mt-4 w-full flex justify-center px-4">
+              <div className="flex gap-2.5 justify-center overflow-x-auto py-2 px-3 bg-gray-900/40 dark:bg-black/40 backdrop-blur-md rounded-none border border-white/10 shadow-xl max-w-full">
+                {property.gallery.map((image, index) => (
+                  <button
+                    key={index}
+                    onClick={() => goToImage(index)}
+                    className={`flex-shrink-0 w-14 h-14 sm:w-16 sm:h-16 md:w-20 md:h-20 rounded-none overflow-hidden border-2 transition-all ${
+                      currentImageIndex === index
+                        ? 'border-primary scale-105 ring-2 ring-primary/40 shadow-lg'
+                        : 'border-transparent opacity-60 hover:opacity-100 hover:border-white/30'
+                    }`}
+                  >
+                    <img
+                      src={image}
+                      alt={`Thumbnail ${index + 1}`}
+                      className="w-full h-full object-cover rounded-none"
+                    />
+                  </button>
+                ))}
               </div>
             </div>
           </div>
