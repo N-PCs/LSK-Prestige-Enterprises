@@ -23,7 +23,7 @@ const LeadersSection: React.FC = () => {
               viewport={{ once: true }}
               className="font-display text-3xl md:text-4xl text-black dark:text-white font-medium leading-tight"
             >
-              Visionaries Behind the LSK Prestige Legacy
+              Visionaries Behind the Carvalho Estates Legacy
             </motion.h2>
           </div>
         </div>

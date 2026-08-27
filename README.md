@@ -1,4 +1,4 @@
-# LSK Prestige Enterprises — Vite + React + TypeScript
+# Carvalho Estates — Vite + React + TypeScript
 
 A lightweight single-page marketing site built with Vite, React 19, and TypeScript showcasing luxury real estate listings and company information.
 

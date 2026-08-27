@@ -95,11 +95,11 @@ const Navbar: React.FC = () => {
             <a href="/" className="flex items-center gap-3.5 group">
               <img
                 className="h-10 w-auto object-contain dark:brightness-200 transition-transform duration-500 group-hover:scale-105"
-                src="/images/new-logo-removebg.png"
-                alt="LSK Prestige Logo"
+                src="/carvalhoestate.png"
+                alt="Carvalho Estates Logo"
               />
               <span className="font-display text-lg sm:text-xl font-semibold tracking-[0.2em] text-black dark:text-white">
-                LSK PRESTIGE
+                CARVALHO ESTATES
               </span>
             </a>
           </div>
@@ -143,7 +143,7 @@ const Navbar: React.FC = () => {
             <a
               href="tel:+919503411509"
               className="text-gray-600 dark:text-gray-400 p-2 hover:text-black dark:hover:text-white transition-colors"
-              aria-label="Call LSK Prestige"
+              aria-label="Call Carvalho Estates"
             >
               <span className="material-icons-outlined text-2xl">phone</span>
             </a>

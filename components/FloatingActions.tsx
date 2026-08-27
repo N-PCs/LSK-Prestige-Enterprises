@@ -27,7 +27,7 @@ const FloatingActions: React.FC = () => {
     <>
       <div className="fixed bottom-8 right-4 flex flex-col gap-5 z-[100]">
         <a
-          href="https://wa.me/919503411509?text=Hi%20LSK%20Prestige,%20I'm%20interested%20in%20your%20private%20villas."
+          href="https://wa.me/919503411509?text=Hi%20Carvalho%20Estates,%20I'm%20interested%20in%20your%20private%20villas."
           target="_blank"
           rel="noopener noreferrer"
           className="bg-secondary text-white w-12 h-12 sm:w-16 sm:h-16 rounded-full shadow-2xl flex items-center justify-center cursor-pointer hover:scale-110 active:scale-90 transition-all relative group"

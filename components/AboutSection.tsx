@@ -57,7 +57,7 @@ const AboutSection: React.FC = () => {
 
           {/* Main Body Text (keeps original data intact) */}
           <p className="text-gray-500 dark:text-gray-400 font-light text-sm sm:text-base leading-relaxed max-w-xl">
-            Born from a family's shared dream, LSK Prestige began shaping homes in 2018 and officially laid its cornerstones in 2022. With five villas completed and a sixth rising under the Goan sun, our story is one of craft, legacy, and belonging. What started as a father's vision has grown into a living tribute — every wall we build carries his passion for honest design, enduring strength, and soulful architecture.
+            Born from a family's shared dream, Carvalho Estates began shaping homes in 2018 and officially laid its cornerstones in 2022. With five villas completed and a sixth rising under the Goan sun, our story is one of craft, legacy, and belonging. What started as a father's vision has grown into a living tribute — every wall we build carries his passion for honest design, enduring strength, and soulful architecture.
           </p>
 
           <p className="text-gray-500 dark:text-gray-400 font-light text-sm sm:text-base leading-relaxed max-w-xl">
