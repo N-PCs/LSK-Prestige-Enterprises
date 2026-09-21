@@ -5,7 +5,7 @@ A lightweight single-page marketing site built with Vite, React 19, and TypeScri
 **Tech stack:** Vite, React 19, TypeScript, Framer Motion, lucide-react.
 
 ## Workflow diagram
-![workflow-diagram](worflow.png)
+![workflow-diagram](worflow.webp)
 
 ## Quick Start
 
@@ -79,18 +79,18 @@ The app is structured as a simple, component-driven marketing site. Components a
 ## Screenshots
 
 <p align="center">
-  <img src="public/screenshots/hero.png" width="45%" alt="Hero Section" />
-  <img src="public/screenshots/about.png" width="45%" alt="About Section" />
+  <img src="public/screenshots/hero.webp" width="45%" alt="Hero Section" />
+  <img src="public/screenshots/about.webp" width="45%" alt="About Section" />
 </p>
 
 <p align="center">
-  <img src="public/screenshots/property.png" width="45%" alt="Property Section" />
-  <img src="public/screenshots/propertyinfo.png" width="45%" alt="Property Info" />
+  <img src="public/screenshots/property.webp" width="45%" alt="Property Section" />
+  <img src="public/screenshots/propertyinfo.webp" width="45%" alt="Property Info" />
 </p>
 
 <p align="center">
-  <img src="public/screenshots/gallery.png" width="45%" alt="Gallery Section" />
-  <img src="public/screenshots/leader.png" width="45%" alt="Leader Section" />
+  <img src="public/screenshots/gallery.webp" width="45%" alt="Gallery Section" />
+  <img src="public/screenshots/leader.webp" width="45%" alt="Leader Section" />
 </p>
 
 

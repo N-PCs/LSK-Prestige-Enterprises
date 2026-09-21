@@ -9,7 +9,7 @@ const Hero: React.FC = () => {
       <img
         alt="Luxury Penthouse Overlooking Ocean"
         className="absolute inset-0 w-full h-full object-cover"
-        src="/images/arambol.jpg"
+        src="/images/arambol.webp"
       />
       {/* Subtle overlay to enhance text readability while maintaining bright, premium view */}
       <div className="absolute inset-0 bg-black/35 dark:bg-black/60"></div>
@@ -19,7 +19,9 @@ const Hero: React.FC = () => {
         <div className="col-span-1 md:col-span-7">
           <h1 className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-[1.08] tracking-tight font-medium">
             Defining the <br />
-            <span className="text-[#E06A58] italic font-normal">Legacy</span> of <br />
+            <span className="text-[#E06A58] italic font-normal">
+              Legacy
+            </span> of <br />
             Living.
           </h1>
         </div>
@@ -29,4 +31,3 @@ const Hero: React.FC = () => {
 };
 
 export default Hero;
-

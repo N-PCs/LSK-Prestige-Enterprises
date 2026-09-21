@@ -5,34 +5,33 @@ export const LEADERS: Leader[] = [
     id: '1',
     name: 'Mr. Lee Carvalho',
     role: 'CEO & Creative Head',
-    image: '/lee.jpeg',
+    image: '/lee.webp',
     imagePosition: 'right',
   },
   {
     id: '2',
     name: 'Mr. Sebastiao Carvalho',
     role: 'Founder',
-    image: '/sebas.jpeg',
+    image: '/sebas.webp',
     imagePosition: 'left',
   },
   {
     id: '3',
     name: 'Mr. Keine Carvalho',
     role: 'Operations & Strategy',
-    image: '/keine.jpeg',
+    image: '/keine.webp',
     imagePosition: 'right',
   },
 ];
 
-
 export const PROPERTIES: Property[] = [
-    {
+  {
     id: '1',
     title: 'Villa ',
     location: 'Vanelim-Colva, Salcete, South Goa',
     price: '',
     type: 'Villa',
-    image: './images/Villa 5.png',
+    image: './images/Villa 5.webp',
     // Additional details for PropertyInfo component
     description:
       'A masterpiece of neoclassical living in heart of village Vanelim-Colva-Salcete-South Goa.',
@@ -58,13 +57,12 @@ export const PROPERTIES: Property[] = [
     ],
 
     gallery: [
-      '/images/Villa 5.png',
-      '/images/Villa 6(1).png',
-      '/images/Villa 6(2).png',
-      '/images/Villa 6(3).png',
-      '/images/Villa 6(4).png',
-      '/images/Villa 6(5).png',
-
+      '/images/Villa 5.webp',
+      '/images/Villa 6(1).webp',
+      '/images/Villa 6(2).webp',
+      '/images/Villa 6(3).webp',
+      '/images/Villa 6(4).webp',
+      '/images/Villa 6(5).webp',
     ],
   },
   {
@@ -73,7 +71,7 @@ export const PROPERTIES: Property[] = [
     location: 'Colva, Margao, Goa',
     price: 'Sold Out',
     type: 'Villa',
-    image: './images/villa 4.png',
+    image: './images/villa 4.webp',
     // Additional details for PropertyInfo component
     description:
       'Villa Colva offers luxury living in the peaceful coastal village of Colva, blending modern amenities with traditional Goan charm. The project features 9 plots with both 3BHK and 4BHK villas designed for contemporary living.',
@@ -91,20 +89,18 @@ export const PROPERTIES: Property[] = [
       "Life's essentials within 5–10 minutes",
     ],
     gallery: [
-      '/images/villa 4.png',
-      '/images/1 (3).png',
-      '/images/1 (11).jpg.jpeg',
-      '/images/1 (14).jpg.jpeg',
-      '/images/1 (17).jpg.jpeg',
-      '/images/APX08197.jpg.jpeg',
-      '/images/APX08198.jpg.jpeg',
-      '/images/APX08201.jpg.jpeg',
-      '/images/APX08270.jpg.jpeg',
-      '/images/APX08260.jpg.jpeg',
-
+      '/images/villa 4.webp',
+      '/images/1 (3).webp',
+      '/images/1 (11).webp',
+      '/images/1 (14).webp',
+      '/images/1 (17).webp',
+      '/images/APX08197.webp',
+      '/images/APX08198.webp',
+      '/images/APX08201.webp',
+      '/images/APX08270.webp',
+      '/images/APX08260.webp',
     ],
   },
-
 ];
 
 export const SERVICES: Service[] = [
@@ -151,5 +147,3 @@ export const SERVICES: Service[] = [
     icon: 'Sparkles',
   },
 ];
-
-

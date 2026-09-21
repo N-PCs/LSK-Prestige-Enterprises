@@ -20,7 +20,7 @@ const AboutSection: React.FC = () => {
             <img
               alt="Sage Green Room Interior"
               className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000"
-              src="/images/green_room_vision.png"
+              src="/images/green_room_vision.webp"
             />
             {/* Elegant Bronze/Brown Badge */}
             <div className="absolute bottom-6 right-6 bg-[#8C6D4C] dark:bg-[#70553A] text-white px-5 py-3 text-[10px] sm:text-xs font-semibold uppercase tracking-[0.2em] shadow-lg">
@@ -51,17 +51,25 @@ const AboutSection: React.FC = () => {
           {/* Luxury Quote */}
           <div className="border-l border-[#E06A55] pl-6 my-2">
             <p className="text-gray-500 dark:text-gray-400 italic font-light text-base sm:text-lg leading-relaxed">
-              "Luxury is the absence of noise, the presence of intention, and the luxury of infinite space."
+              "Luxury is the absence of noise, the presence of intention, and
+              the luxury of infinite space."
             </p>
           </div>
 
           {/* Main Body Text (keeps original data intact) */}
           <p className="text-gray-500 dark:text-gray-400 font-light text-sm sm:text-base leading-relaxed max-w-xl">
-            Born from a family's shared dream, Carvalho Estates began shaping homes in 2018 and officially laid its cornerstones in 2022. With five villas completed and a sixth rising under the Goan sun, our story is one of craft, legacy, and belonging. What started as a father's vision has grown into a living tribute — every wall we build carries his passion for honest design, enduring strength, and soulful architecture.
+            Born from a family's shared dream, Carvalho Estates began shaping
+            homes in 2018 and officially laid its cornerstones in 2022. With
+            five villas completed and a sixth rising under the Goan sun, our
+            story is one of craft, legacy, and belonging. What started as a
+            father's vision has grown into a living tribute — every wall we
+            build carries his passion for honest design, enduring strength, and
+            soulful architecture.
           </p>
 
           <p className="text-gray-500 dark:text-gray-400 font-light text-sm sm:text-base leading-relaxed max-w-xl">
-            We believe homes should not just shelter life but celebrate it – grounded in heritage, open to light, and faithful to quality.
+            We believe homes should not just shelter life but celebrate it –
+            grounded in heritage, open to light, and faithful to quality.
           </p>
         </motion.div>
       </div>

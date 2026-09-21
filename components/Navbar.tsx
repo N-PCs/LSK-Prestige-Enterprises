@@ -95,7 +95,7 @@ const Navbar: React.FC = () => {
             <a href="/" className="flex items-center gap-3.5 group">
               <img
                 className="h-10 w-auto object-contain dark:brightness-200 transition-transform duration-500 group-hover:scale-105"
-                src="/carvalhoestate.png"
+                src="/carvalhoestate.webp"
                 alt="Carvalho Estates Logo"
               />
               <span className="font-display text-lg sm:text-xl font-semibold tracking-[0.2em] text-black dark:text-white">
@@ -199,6 +199,5 @@ const Navbar: React.FC = () => {
     </motion.nav>
   );
 };
-
 
 export default Navbar;

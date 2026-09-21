@@ -3,27 +3,28 @@ import Navbar from './Navbar';
 import Footer from './Footer';
 
 const projectsImages = [
-  '/images/1 (3).png',
-  '/images/1 (11).jpg.jpeg',
-  '/images/1 (14).jpg.jpeg',
-  '/images/1 (17).jpg.jpeg',
-  '/images/APX08197.jpg.jpeg',
-  '/images/APX08198.jpg.jpeg',
-  '/images/APX08201.jpg.jpeg',
-  '/images/APX08203.jpg.jpeg',
-  '/images/APX08205.jpg.jpeg',
-  '/images/APX08260.jpg.jpeg',
-  '/images/APX08270.jpg.jpeg',
-  '/images/Villa 5.png',
-  '/images/Villa 6.png',
-  '/images/villa 4.png',
+  '/images/1 (3).webp',
+  '/images/1 (11).webp',
+  '/images/1 (14).webp',
+  '/images/1 (17).webp',
+  '/images/APX08197.webp',
+  '/images/APX08198.webp',
+  '/images/APX08201.webp',
+  '/images/APX08203.webp',
+  '/images/APX08205.webp',
+  '/images/APX08260.webp',
+  '/images/APX08270.webp',
+  '/images/Villa 5.webp',
+  '/images/Villa 6.webp',
+  '/images/villa 4.webp',
 ];
 
 export const ProjectsGallerySection: React.FC = () => {
-
-
   return (
-    <section id="projects-gallery" className="py-20 md:py-28 bg-white dark:bg-[#0a0a0a]">
+    <section
+      id="projects-gallery"
+      className="py-20 md:py-28 bg-white dark:bg-[#0a0a0a]"
+    >
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="text-left mb-12 border-b border-gray-100 dark:border-gray-900 pb-6">
           <span className="text-[10px] sm:text-xs font-bold uppercase tracking-[0.3em] text-red-400 dark:red-gray-500 block mb-2">
@@ -36,7 +37,10 @@ export const ProjectsGallerySection: React.FC = () => {
 
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 justify-center">
           {projectsImages.map((src, index) => (
-            <div key={index} className="overflow-hidden group relative shadow-2xl bg-gray-100 dark:bg-gray-800 border border-gray-200 dark:border-gray-800 max-w-xs mx-auto w-full">
+            <div
+              key={index}
+              className="overflow-hidden group relative shadow-2xl bg-gray-100 dark:bg-gray-800 border border-gray-200 dark:border-gray-800 max-w-xs mx-auto w-full"
+            >
               <div className="relative w-full aspect-[4/3] md:aspect-[3/2] lg:aspect-[16/10]">
                 <img
                   src={src}
@@ -49,8 +53,6 @@ export const ProjectsGallerySection: React.FC = () => {
             </div>
           ))}
         </div>
-
-
       </div>
     </section>
   );
