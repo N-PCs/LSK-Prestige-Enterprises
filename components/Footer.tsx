@@ -12,12 +12,9 @@ const Footer: React.FC = () => {
           <div className="flex items-center gap-3.5">
             <img
               className="h-11 w-auto object-contain dark:brightness-200"
-              src="/carvalhoestate.webp"
+              src="/Asset 1.webp"
               alt="Carvalho Estates Logo"
             />
-            <span className="font-display text-lg tracking-[0.2em] font-semibold text-black dark:text-white uppercase">
-              CARVALHO ESTATES
-            </span>
           </div>
           <p className="text-gray-500 dark:text-gray-400 text-xs sm:text-sm leading-relaxed font-light max-w-xs">
             Architectural curators specializing in the acquisition and
@@ -88,10 +85,10 @@ const Footer: React.FC = () => {
                 mail
               </span>
               <a
-                href="mailto:lskrealestatedevelopers@gmail.com"
+                href="mailto:carvalhoestatespvt.ltd@gmail.com"
                 className="hover:text-black dark:hover:text-white transition-colors break-all"
               >
-                lskrealestatedevelopers@gmail.com
+                carvalhoestatespvt.ltd@gmail.com
               </a>
             </li>
             <li className="flex items-start gap-2.5">

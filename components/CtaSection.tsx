@@ -1,6 +1,9 @@
 import React from 'react';
+import { useContactModal } from './ContactModal';
 
 const CtaSection: React.FC = () => {
+  const { openContactModal } = useContactModal();
+
   return (
     <section className="relative py-24 md:py-32 bg-[#1A1110] dark:bg-[#120B0A] overflow-hidden text-center flex flex-col justify-center items-center px-6">
       {/* Background visual subtle gradient decoration */}
@@ -20,17 +23,18 @@ const CtaSection: React.FC = () => {
 
         {/* Description */}
         <p className="text-gray-400 font-light text-sm sm:text-base leading-relaxed max-w-lg mb-4">
-          Experience our villas first-hand. Connect with our private advisory team to schedule an exclusive, curated walkthrough.
+          Experience our villas first-hand. Connect with our private advisory
+          team to schedule an exclusive, curated walkthrough.
         </p>
 
         {/* Action Buttons */}
         <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto justify-center">
-          <a
-            href="/#contact"
-            className="bg-[#D25442] hover:bg-[#b84433] text-white px-8 py-4 text-xs font-semibold uppercase tracking-[0.2em] transition-colors rounded-none whitespace-nowrap shadow-md"
+          <button
+            onClick={() => openContactModal('Request a Private Tour')}
+            className="bg-[#D25442] hover:bg-[#b84433] text-white px-8 py-4 text-xs font-semibold uppercase tracking-[0.2em] transition-colors rounded-none whitespace-nowrap shadow-md cursor-pointer"
           >
             REQUEST A PRIVATE TOUR
-          </a>
+          </button>
         </div>
       </div>
     </section>

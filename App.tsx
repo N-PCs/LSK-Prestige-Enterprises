@@ -13,6 +13,8 @@ import PropertyInfo from './components/PropertyInfo';
 import { ProjectsGallerySection } from './components/ProjectsGallery';
 import CtaSection from './components/CtaSection';
 
+import { ContactModalProvider } from './components/ContactModal';
+
 const HomePage: React.FC = () => (
   <>
     <Navbar />
@@ -33,12 +35,14 @@ const HomePage: React.FC = () => (
 const App: React.FC = () => {
   return (
     <Router>
-      <div className="min-h-screen">
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/property/:id" element={<PropertyInfo />} />
-        </Routes>
-      </div>
+      <ContactModalProvider>
+        <div className="min-h-screen">
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/property/:id" element={<PropertyInfo />} />
+          </Routes>
+        </div>
+      </ContactModalProvider>
     </Router>
   );
 };

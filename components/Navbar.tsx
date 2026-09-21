@@ -1,7 +1,9 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
+import { useContactModal } from './ContactModal';
 
 const Navbar: React.FC = () => {
+  const { openContactModal } = useContactModal();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isVisible, setIsVisible] = useState(true);
 
@@ -94,13 +96,10 @@ const Navbar: React.FC = () => {
           <div className="flex items-center">
             <a href="/" className="flex items-center gap-3.5 group">
               <img
-                className="h-10 w-auto object-contain dark:brightness-200 transition-transform duration-500 group-hover:scale-105"
-                src="/carvalhoestate.webp"
+                className="h-8 w-auto object-contain dark:brightness-200 transition-transform duration-500 group-hover:scale-105"
+                src="/Asset 1.webp"
                 alt="Carvalho Estates Logo"
               />
-              <span className="font-display text-lg sm:text-xl font-semibold tracking-[0.2em] text-black dark:text-white">
-                CARVALHO ESTATES
-              </span>
             </a>
           </div>
 
@@ -130,12 +129,12 @@ const Navbar: React.FC = () => {
             >
               Gallery
             </a>
-            <a
-              className="bg-[#D25442] hover:bg-[#b84433] text-white px-6 py-2.5 rounded-none text-[10px] uppercase tracking-[0.25em] font-semibold transition-colors duration-300 shadow-sm"
-              href="/#contact"
+            <button
+              onClick={() => openContactModal('Inquire')}
+              className="bg-[#D25442] hover:bg-[#b84433] text-white px-6 py-2.5 rounded-none text-[10px] uppercase tracking-[0.25em] font-semibold transition-colors duration-300 shadow-sm cursor-pointer"
             >
               INQUIRE
-            </a>
+            </button>
           </div>
 
           {/* Mobile Phone + Menu */}
@@ -194,6 +193,15 @@ const Navbar: React.FC = () => {
           >
             Gallery
           </a>
+          <button
+            onClick={() => {
+              setIsMenuOpen(false);
+              openContactModal('Inquire');
+            }}
+            className="w-full text-center bg-[#D25442] hover:bg-[#b84433] text-white py-2.5 text-[10px] uppercase tracking-[0.25em] font-semibold transition-colors duration-300 shadow-sm cursor-pointer mt-2"
+          >
+            INQUIRE
+          </button>
         </div>
       </div>
     </motion.nav>

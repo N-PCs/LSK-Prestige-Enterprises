@@ -3,13 +3,18 @@ import React, { useState, useEffect, useCallback } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { PROPERTIES } from '../constants';
 import Footer from './Footer';
+import { useContactModal } from './ContactModal';
 
 const PropertyInfo: React.FC = () => {
+  const { openContactModal } = useContactModal();
   const { id } = useParams<{ id: string }>();
 
   // Find the property by ID
   const property = PROPERTIES.find((p) => p.id === id);
-  const isSoldOut = property?.badge === 'Completed (sold out)' || property?.price === 'Sold Out' || property?.projectStatus === 'Completed (sold out)';
+  const isSoldOut =
+    property?.badge === 'Completed (sold out)' ||
+    property?.price === 'Sold Out' ||
+    property?.projectStatus === 'Completed (sold out)';
 
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);
@@ -18,7 +23,9 @@ const PropertyInfo: React.FC = () => {
   const [panY, setPanY] = useState(0);
   const [isDragging, setIsDragging] = useState(false);
   const [dragStart, setDragStart] = useState({ x: 0, y: 0 });
-  const [imageAspectRatios, setImageAspectRatios] = useState<{ [key: string]: number }>({});
+  const [imageAspectRatios, setImageAspectRatios] = useState<{
+    [key: string]: number;
+  }>({});
 
   // Preload gallery images to obtain their natural aspect ratios immediately
   useEffect(() => {
@@ -29,19 +36,26 @@ const PropertyInfo: React.FC = () => {
       img.onload = () => {
         if (img.naturalWidth && img.naturalHeight) {
           const ratio = img.naturalWidth / img.naturalHeight;
-          setImageAspectRatios((prev) => (prev[src] === ratio ? prev : { ...prev, [src]: ratio }));
+          setImageAspectRatios((prev) =>
+            prev[src] === ratio ? prev : { ...prev, [src]: ratio },
+          );
         }
       };
     });
   }, [property?.id]);
 
-  const handleImageLoad = useCallback((src: string, e: React.SyntheticEvent<HTMLImageElement>) => {
-    const { naturalWidth, naturalHeight } = e.currentTarget;
-    if (naturalWidth && naturalHeight) {
-      const ratio = naturalWidth / naturalHeight;
-      setImageAspectRatios((prev) => (prev[src] === ratio ? prev : { ...prev, [src]: ratio }));
-    }
-  }, []);
+  const handleImageLoad = useCallback(
+    (src: string, e: React.SyntheticEvent<HTMLImageElement>) => {
+      const { naturalWidth, naturalHeight } = e.currentTarget;
+      if (naturalWidth && naturalHeight) {
+        const ratio = naturalWidth / naturalHeight;
+        setImageAspectRatios((prev) =>
+          prev[src] === ratio ? prev : { ...prev, [src]: ratio },
+        );
+      }
+    },
+    [],
+  );
 
   // Scroll to top when component mounts or property changes
   useEffect(() => {
@@ -178,7 +192,9 @@ const PropertyInfo: React.FC = () => {
                   <span className="material-icons-outlined text-primary text-sm">
                     location_on
                   </span>
-                  <p className="text-sm sm:text-base md:text-lg">{property.location}</p>
+                  <p className="text-sm sm:text-base md:text-lg">
+                    {property.location}
+                  </p>
                 </div>
               </div>
               <div>
@@ -213,7 +229,6 @@ const PropertyInfo: React.FC = () => {
           <div className="mb-12 sm:mb-14 md:mb-16 flex flex-col items-center w-full">
             {/* Outer Stationary Stage Container - NO background box */}
             <div className="relative w-full h-[360px] sm:h-[480px] md:h-[560px] flex items-center justify-center overflow-hidden">
-              
               {/* Centered Dynamic Image */}
               <div
                 className="relative max-w-full max-h-full flex items-center justify-center overflow-hidden p-2 transition-all duration-300"
@@ -221,7 +236,14 @@ const PropertyInfo: React.FC = () => {
                 onMouseMove={handleMouseMove}
                 onMouseUp={handleMouseUp}
                 onMouseLeave={handleMouseUp}
-                style={{ cursor: zoomLevel > 1 && isDragging ? 'grabbing' : (zoomLevel > 1 ? 'grab' : 'auto') }}
+                style={{
+                  cursor:
+                    zoomLevel > 1 && isDragging
+                      ? 'grabbing'
+                      : zoomLevel > 1
+                        ? 'grab'
+                        : 'auto',
+                }}
               >
                 <img
                   key={property.gallery[currentImageIndex]}
@@ -242,7 +264,9 @@ const PropertyInfo: React.FC = () => {
                 aria-label="Previous Image"
                 className="absolute left-2 sm:left-6 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full bg-black/60 hover:bg-black/90 backdrop-blur-md text-white flex items-center justify-center transition-all z-20 shadow-xl border border-white/10 hover:scale-110"
               >
-                <span className="material-icons-outlined text-2xl">chevron_left</span>
+                <span className="material-icons-outlined text-2xl">
+                  chevron_left
+                </span>
               </button>
 
               {/* Stationary Floating Next Button */}
@@ -251,12 +275,16 @@ const PropertyInfo: React.FC = () => {
                 aria-label="Next Image"
                 className="absolute right-2 sm:right-6 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full bg-black/60 hover:bg-black/90 backdrop-blur-md text-white flex items-center justify-center transition-all z-20 shadow-xl border border-white/10 hover:scale-110"
               >
-                <span className="material-icons-outlined text-2xl">chevron_right</span>
+                <span className="material-icons-outlined text-2xl">
+                  chevron_right
+                </span>
               </button>
 
               {/* Stationary Floating Counter Badge (Top-Left) */}
               <div className="absolute top-4 left-4 sm:left-6 bg-black/60 backdrop-blur-md text-white px-3.5 py-1.5 rounded-full text-xs font-semibold tracking-wide border border-white/10 z-20 shadow-lg flex items-center gap-1.5">
-                <span className="material-icons-outlined text-sm text-primary">collections</span>
+                <span className="material-icons-outlined text-sm text-primary">
+                  collections
+                </span>
                 {currentImageIndex + 1} / {property.gallery.length}
               </div>
 
@@ -276,7 +304,9 @@ const PropertyInfo: React.FC = () => {
                   aria-label="Zoom Out"
                   className="w-9 h-9 rounded-full bg-black/60 hover:bg-black/90 disabled:opacity-40 backdrop-blur-md text-white flex items-center justify-center transition-all border border-white/10 shadow-lg"
                 >
-                  <span className="material-icons-outlined text-sm sm:text-base">remove</span>
+                  <span className="material-icons-outlined text-sm sm:text-base">
+                    remove
+                  </span>
                 </button>
 
                 {/* Zoom In Button */}
@@ -286,13 +316,17 @@ const PropertyInfo: React.FC = () => {
                   aria-label="Zoom In"
                   className="w-9 h-9 rounded-full bg-black/60 hover:bg-black/90 disabled:opacity-40 backdrop-blur-md text-white flex items-center justify-center hover:scale-105 transition-all border border-white/10 shadow-lg"
                 >
-                  <span className="material-icons-outlined text-sm sm:text-base">add</span>
+                  <span className="material-icons-outlined text-sm sm:text-base">
+                    add
+                  </span>
                 </button>
 
                 {/* Play/Pause Autoplay Toggle */}
                 <button
                   onClick={toggleAutoPlay}
-                  aria-label={isAutoPlaying ? 'Pause Slideshow' : 'Play Slideshow'}
+                  aria-label={
+                    isAutoPlaying ? 'Pause Slideshow' : 'Play Slideshow'
+                  }
                   className="w-9 h-9 rounded-full bg-black/60 hover:bg-black/90 backdrop-blur-md text-white flex items-center justify-center transition-all border border-white/10 shadow-lg"
                 >
                   <span className="material-icons-outlined text-sm sm:text-base">
@@ -350,8 +384,12 @@ const PropertyInfo: React.FC = () => {
                       key={index}
                       className="flex items-center gap-3 p-4 bg-gray-50 dark:bg-gray-800 rounded-lg"
                     >
-                      <span className="material-icons-outlined text-primary">check_circle</span>
-                      <span className="text-gray-700 dark:text-gray-300">{feature}</span>
+                      <span className="material-icons-outlined text-primary">
+                        check_circle
+                      </span>
+                      <span className="text-gray-700 dark:text-gray-300">
+                        {feature}
+                      </span>
                     </div>
                   ))}
                 </div>
@@ -365,8 +403,12 @@ const PropertyInfo: React.FC = () => {
                 <ul className="space-y-3">
                   {property.locationAdvantages.map((advantage, index) => (
                     <li key={index} className="flex items-start gap-3">
-                      <span className="material-icons-outlined text-primary text-sm mt-1">place</span>
-                      <span className="text-gray-600 dark:text-gray-400">{advantage}</span>
+                      <span className="material-icons-outlined text-primary text-sm mt-1">
+                        place
+                      </span>
+                      <span className="text-gray-600 dark:text-gray-400">
+                        {advantage}
+                      </span>
                     </li>
                   ))}
                 </ul>
@@ -376,25 +418,39 @@ const PropertyInfo: React.FC = () => {
             {/* Right Column */}
             <div className="space-y-8">
               <div className="bg-gray-50 dark:bg-gray-800 rounded-2xl p-6 custom-shadow">
-                <h3 className="font-display text-xl text-black dark:text-white mb-4">Property Details</h3>
+                <h3 className="font-display text-xl text-black dark:text-white mb-4">
+                  Property Details
+                </h3>
                 <div className="space-y-4">
                   <div className="flex justify-between items-center py-3 border-b border-gray-200 dark:border-gray-700">
-                    <span className="text-gray-600 dark:text-gray-400">Project Status</span>
-                    <span className="font-medium text-secondary dark:text-primary">{property.projectStatus}</span>
+                    <span className="text-gray-600 dark:text-gray-400">
+                      Project Status
+                    </span>
+                    <span className="font-medium text-secondary dark:text-primary">
+                      {property.projectStatus}
+                    </span>
                   </div>
                 </div>
               </div>
 
               {!isSoldOut && (
                 <div className="bg-primary/10 dark:bg-primary/20 rounded-2xl p-6">
-                  <h3 className="font-display text-xl text-black dark:text-white mb-4">Interested?</h3>
-                  <p className="text-gray-600 dark:text-gray-400 mb-6">Contact us for a private viewing or more information.</p>
-                  <a
-                    href="#contact"
-                    className="block w-full bg-primary text-white py-3 rounded-lg font-semibold hover:bg-primary/90 transition-colors text-center"
+                  <h3 className="font-display text-xl text-black dark:text-white mb-4">
+                    Interested?
+                  </h3>
+                  <p className="text-gray-600 dark:text-gray-400 mb-6">
+                    Contact us for a private viewing or more information.
+                  </p>
+                  <button
+                    onClick={() =>
+                      openContactModal(
+                        `Schedule a Viewing - ${property?.title || 'Property'}`,
+                      )
+                    }
+                    className="block w-full bg-primary text-white py-3 rounded-lg font-semibold hover:bg-primary/90 transition-colors text-center cursor-pointer"
                   >
                     Schedule a Viewing
-                  </a>
+                  </button>
                 </div>
               )}
             </div>
