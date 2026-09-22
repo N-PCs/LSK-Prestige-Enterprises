@@ -4,7 +4,7 @@ export const LEADERS: Leader[] = [
   {
     id: '1',
     name: 'Mr. Lee Carvalho',
-    role: 'CEO & Creative Head',
+    role: 'CEO & Head of Operations and Strategy',
     image: '/lee.webp',
     imagePosition: 'right',
   },
@@ -18,7 +18,7 @@ export const LEADERS: Leader[] = [
   {
     id: '3',
     name: 'Mr. Keine Carvalho',
-    role: 'Operations & Strategy',
+    role: 'COO & Creative Head',
     image: '/keine.webp',
     imagePosition: 'right',
   },
@@ -27,16 +27,16 @@ export const LEADERS: Leader[] = [
 export const PROPERTIES: Property[] = [
   {
     id: '1',
-    title: 'Villa ',
+    title: 'Villa Vanelim',
     location: 'Vanelim-Colva, Salcete, South Goa',
-    price: '',
+    price: 'Inquire for Price',
     type: 'Villa',
     image: './images/Villa 5.webp',
     // Additional details for PropertyInfo component
     description:
       'A masterpiece of neoclassical living in heart of village Vanelim-Colva-Salcete-South Goa.',
-    projectStatus: 'Under Construction',
-    badge: 'Under Construction',
+    projectStatus: 'Ready for Sale',
+    badge: 'Ready for Sale',
     features: [
       'Private Garden',
       'Swimming Pool (5.00m x 3.00m Infinity-inspired plunge pool)',
@@ -106,44 +106,23 @@ export const PROPERTIES: Property[] = [
 export const SERVICES: Service[] = [
   {
     id: '1',
-    title: 'Real Estate Services',
-    description:
-      'Expert guidance for buying, selling, and investment advisory. We provide deep market insights and end-to-end support.',
-    icon: 'Building2',
-  },
-  {
-    id: '2',
     title: 'Build Your Home',
     description:
       'Turnkey home construction and management from design to final handover. Our team ensures quality execution and on-time delivery.',
     icon: 'Home',
   },
   {
-    id: '3',
+    id: '2',
     title: 'Plumbing & Electrical Work',
     description:
       'Professional electrical and plumbing services ensuring your home systems are safe, efficient, and fully functional.',
     icon: 'Wrench',
   },
   {
-    id: '4',
+    id: '3',
     title: 'Routine Maintenance',
     description:
-      'Scheduled inspections and preventive care to maintain your property value and ensure peace of mind.',
+      'Scheduled inspections, minor repairs, deep cleaning and preventive care to maintain your property value and ensure peace of mind.',
     icon: 'CalendarCheck',
-  },
-  {
-    id: '5',
-    title: 'Minor Repairs',
-    description:
-      'Swift and reliable solutions for all minor home repairs, from fixture replacements to structural touch-ups.',
-    icon: 'Hammer',
-  },
-  {
-    id: '6',
-    title: 'Deep Cleaning & Upkeep',
-    description:
-      'Comprehensive cleaning services that leave your home immaculate, combined with regular upkeep.',
-    icon: 'Sparkles',
   },
 ];

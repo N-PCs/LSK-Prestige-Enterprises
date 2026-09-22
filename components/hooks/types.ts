@@ -32,4 +32,3 @@ export interface Leader {
   image: string;
   imagePosition: 'left' | 'right';
 }
-
