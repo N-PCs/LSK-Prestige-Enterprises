@@ -6,11 +6,17 @@ const Hero: React.FC = () => {
       className="relative w-full min-h-[80vh] md:min-h-[85vh] lg:min-h-[90vh] flex items-center overflow-hidden cursor-default pt-20"
       id="home"
     >
-      <img
-        alt="Luxury Penthouse Overlooking Ocean"
+      <video
+        autoPlay
+        loop
+        muted
+        playsInline
+        preload="auto"
+        poster="/images/arambol.webp"
         className="absolute inset-0 w-full h-full object-cover"
-        src="/images/arambol.webp"
-      />
+      >
+        <source src="/bg.mp4" type="video/mp4" />
+      </video>
       {/* Subtle overlay to enhance text readability while maintaining bright, premium view */}
       <div className="absolute inset-0 bg-black/35 dark:bg-black/60"></div>
 
